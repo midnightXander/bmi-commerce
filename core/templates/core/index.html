@@ -1,0 +1,182 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+ <!-- Hero Section -->
+ <!-- <div class="cover">
+    <div class="container mx-auto px-6  py-16 text-center">
+        <h2 class="text-4xl font-bold mb-2 text-gray-100">Summer Collection 2023</h2>
+        <h3 class="text-2xl mb-8 text-gray-100">Discover timeless elegance</h3>
+        <button class="bg-[#5A0B29] text-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-gray-800 transition-smooth">
+            Shop Now
+        </button>
+    </div>
+</div> -->
+
+<section id="home" class="hero-bg py-40">
+    <div class="container mx-auto text-center">
+        <div class="bg-white bg-opacity-80 p-8 rounded-lg inline-block" style='opacity: 0.9;'>
+            <h2 class="text-4xl font-bold mb-4 animate-fadeIn text-[#5A0B29]">Ensemble nous allons développer, innover et rentabilisé votre entreprise</h2>
+            <p class="text-xl mb-8 animate-fadeIn text-gray-800">Explorez nos services</p>
+            <a href="/services" class="bg-[#5A0B29] text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Nos Services</a>
+        </div>
+    </div>
+</section>
+
+
+<main>
+    <!-- Home section remains unchanged -->
+    <section id="home" class="py-20 bg-gray-100">
+        <!-- ... (home content) ... -->
+    </section>
+
+    <!-- <section id="services" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 hidden-element">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hidden-element">
+                   
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hidden-element">
+                   
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hidden-element">
+                   
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex mb-8 flex-col md:flex-row items-center gap-8 hidden-element">
+                <!-- Image à gauche sur desktop, en haut sur mobile -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <img src="https://cbdmi.org/wp-content/uploads/2023/10/black-man-worried-expression-2048x1707.jpg" alt="Image de marketing digital" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+    
+                <!-- Contenu à droite sur desktop, en bas sur mobile -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <h2 class="text-3xl font-bold text-[#5A0B29] mb-4">MISSION</h2>
+                    <p class="text-gray-600 mb-6">
+                        Accompagner les entreprises dans l’atteinte de leurs objectifs en développant des solutions et concepts marketing adéquats, innovantes et nécessaires.
+                    </p>
+                    <a href="/services" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
+                        Découvrir nos services
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex mb-8 flex-col-reverse md:flex-row items-center gap-8 hidden-element">
+
+                <!-- Contenu à droite sur desktop, en bas sur mobile -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <h2 class="text-3xl font-bold text-[#5A0B29] mb-4">NOTRE VISION</h2>
+                    <p class="text-gray-600 mb-6">
+                        Développer à court, moyen et long terme votre business dans le but d’accroître votre notoriété et vos parts de marché.
+                    </p>
+                    <!-- <a href="#" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
+                        Découvrir nos services
+                    </a> -->
+                </div>
+
+                <!-- Image à gauche sur desktop, en haut sur mobile -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <img src="https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg" alt="Image de marketing digital" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+
+            <div class="flex mb-8 flex-col md:flex-row items-center gap-8 hidden-element">
+                <!-- Image à gauche sur desktop, en haut sur mobile -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <img src="https://cbdmi.org/wp-content/uploads/2023/09/services-2.webp" alt="Image de marketing digital" class="rounded-lg shadow-md w-full h-auto">
+                </div>
+    
+                <!-- Contenu à droite sur desktop, en bas sur mobile -->
+                <div class="md:w-1/2 animate-fadeInUp">
+                    <h2 class="text-3xl font-bold text-[#5A0B29] mb-4">NOTRE AMBITION</h2>
+                    <p class="text-gray-600 mb-6">
+                        Devenir incontournable dans le conseil et l’accompagnement des entreprises
+                    </p>
+                    <a href="/services" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
+                        Découvrir nos services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 bg-[#FFFAF6]">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-[#5A0B29] text-[3rem] text-center mb-12 hidden-element">Processus</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                    <div class="process-card flex flex-col items-center space-y-4">
+                        <svg class="w-20 h-20 text-[#5A0B29] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                          </svg>
+                          <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Analyse du problème</h2>
+                          <p>Cette étape consiste à identifier et à comprendre les besoins des parties prenantes, afin de garantir que le projet réponde à leurs attentes.</p>
+                          
+
+                    </div>
+                </div>
+                <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                    <div class="process-card flex flex-col items-center space-y-4">
+                        <i class="text-[40pt] text-[#5A0B29] fas fa-bullseye text-center" ></i>
+                          <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Définition de l'objectif</h2>
+                          <p>La stratégie définit les objectifs et les priorités de l’organisation, ce qui permet aux projets de se concentrer sur les activités qui contribueront le plus à la réussite.</p>
+                          
+
+                    </div>
+                </div>
+                <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                    <div class="process-card flex flex-col items-center space-y-4">
+                        <i class="text-[40pt] text-[#5A0B29] fas fa-dot-circle text-center" ></i>
+                          <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Exécution du projet</h2>
+                          <p>La mise en œuvre du plan de projet permet d’atteindre les objectifs du projet, en respectant les délais, le budget et les exigences des parties prenantes préalablement définies.</p>
+ 
+                    </div>
+                </div>
+                <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                    <div class="process-card flex flex-col items-center space-y-4">
+                        <i class="text-[40pt] text-[#5A0B29] fas fa-paper-plane text-center" ></i>
+                          <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Suivi et évaluation</h2>
+                          <p>Cette phase permet de garantir la réussite des projets, en identifiant les risques et les opportunités et en prenant des mesures correctives si nécessaire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#5A0B29] flex flex-wrap justify-center items-center space-x-8 text-white p-4 top-0 z-50 hidden-element"></header>
+        <p class="text-4xl font-bold text-[40pt] py-[30px]">Explorons votre projet</p>
+        <a href="#contact" class="bg-[#5A0B29] border border-gray-100 hover:bg-pink-600 text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Contactez-nous</a>
+    </section>
+
+
+    <section id="contact" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold tcolor text-center mb-12 hidden-element">Envoyez nous un message</h2>
+            <form class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block mb-2">Nom</label>
+                    <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required></textarea>
+                </div>
+                <button type="submit" class="bg-[#5A0B29] text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300 w-full">Envoyer</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+
+{% endblock content %}

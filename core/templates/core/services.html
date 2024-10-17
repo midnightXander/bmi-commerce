@@ -1,0 +1,244 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<style>
+     @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+</style>
+
+
+<main class="py-20">
+    <div class="container mx-auto px-4">
+        <div class="mb-12  animate-fadeInUp">
+            <h1 class="text-4xl font-bold text-center tcolor mb-4">Nos Services</h1>
+            <p class="text-gray-600 text-center px-5" >Nous nous spécialisons dans l’aide aux entreprises à développer des stratégies innovantes qui leur permettront de se démarquer de leurs concurrents et de prospérer.</p>
+
+        </div>
+        
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Service Card 1 -->
+            <div class="service-card bg-white rounded-lg hover:shadow-md p-6 animate-fadeInUp">
+                <div class="text-4xl text-[#5A0B29] mb-4">
+                    <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 16H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1M9 12H4m8 8V9h8v11h-8Zm0 0H9m8-4a1 1 0 1 0-2 0 1 1 0 0 0 2 0Z"/>
+                    </svg>
+                      
+                </div>
+                <h2 class="text-2xl font-semibold text-[#5A0B29] mb-4">Service de conception et développement</h2>
+                <ul class="list-none list-inside space-y-2">
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conception de logo et image de marque</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conception des sites web conception des applications mobiles</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conception des chartes graphique</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Développement d'applications mobiles</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Développement des sites web</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Les systemes de gestion</li>
+                    
+                </ul>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="service-card bg-white rounded-lg hover:shadow-md p-6 animate-fadeInUp">
+                <div class="text-4xl text-[#5A0B29] mb-4">
+                    
+                      <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.079 6.839a3 3 0 0 0-4.255.1M13 20h1.083A3.916 3.916 0 0 0 18 16.083V9A6 6 0 1 0 6 9v7m7 4v-1a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Zm-7-4v-6H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1Zm12-6h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v-6Z"/>
+                      </svg>
+                      
+                      
+                      
+                </div>
+                <h2 class="text-2xl font-semibold text-[#5A0B29] mb-4">Business développement</h2>
+                <ul class="list-none list-inside space-y-2">
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Accompagnement d'entreprise</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conception du business plan</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Stratégie commerciale</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Développement commercial</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Gestion des projets</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Analyse de la valeur du produit aux yeux du consommateur</li>
+                </ul>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="service-card bg-white rounded-lg hover:shadow-md p-6 animate-fadeInUp">
+                <div class="text-4xl text-[#5A0B29] mb-4">
+                    <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15v4m6-6v6m6-4v4m6-6v6M3 11l6-5 6 5 5.5-5.5"/>
+                    </svg>
+                      
+                </div>
+                <h2 class="text-2xl tcolor font-semibold mb-4">Service de marketing et innovation en ligne</h2>
+                <ul class="list-none list-inside space-y-2">
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Campagne publicitaire</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Marketing des réseaux sociaux</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Publicité par e-mail</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Plan de marketing numérique</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Optimisation des moteurs de recherche</li>
+                    
+                </ul>
+            </div>
+
+            <!-- Service Card 4 -->
+            <div class="service-card bg-white rounded-lg hover:shadow-md p-6 animate-fadeInUp">
+                <div class="text-4xl text-[#5A0B29] mb-4">
+                    <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 1 0-18c1.052 0 2.062.18 3 .512M7 9.577l3.923 3.923 8.5-8.5M17 14v6m-3-3h6"/>
+                      </svg> 
+                </div>
+                <h2 class="text-2xl tcolor font-semibold mb-4">Business inovation</h2>
+                <ul class="list-none list-inside space-y-2">
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Stratégies d'innovation</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Développement de produits</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Proposition des solutions innovantes</li>
+                    
+                    
+                    
+                </ul>
+            </div>
+
+            <div class="service-card bg-white rounded-lg hover:shadow-md p-6 animate-fadeInUp">
+                <div class="text-4xl text-[#5A0B29] mb-4">
+                    <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+                      </svg>
+                      
+                </div>
+                <h2 class="text-2xl tcolor font-semibold mb-4">Business marketing</h2>
+                <ul class="list-none list-inside space-y-2">
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Publicités</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conseils en communication</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Création de contenu</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Marketing digital l'étude de marché</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Accompagnement à l'innovation</li>
+                    <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Formation en Marketing Digital</li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <!-- <div class="flex space-x-8">
+            <div>
+                <h2 class="text-3xl tcolor" >Nos services annexes</h2>
+                <p class="">Passez moins de temps à penser votre branding et plus de temps à développer votre entreprise. Nous vous aidons à créer vos marques.</p>
+                <ul class="list-none list-inside space-y-4">
+                    <li><i class='fas  fa-check-circle text-xl text-[#5A0B29] mr-2'></i>Publicités</li>
+                    <li><i class='fas  fa-check-circle  text-xl text-[#5A0B29] mr-2'></i>Conseils en communication</li>  
+                </ul>
+
+                <a href="#contact" class="bg-[#5A0B29] border border-gray-100 hover:bg-pink-600 text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Nos réalisations</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <div class="service-card bg-white rounded-lg hover:shadow-md p-6 animate-fadeInUp">
+                    <div class="text-4xl text-[#5A0B29] mb-4">
+                        <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 16H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1M9 12H4m8 8V9h8v11h-8Zm0 0H9m8-4a1 1 0 1 0-2 0 1 1 0 0 0 2 0Z"/>
+                        </svg>
+                          
+                    </div>
+                    <h2 class="text-2xl font-semibold text-[#5A0B29] mb-4">Service de conception et développement</h2>
+                    <ul class="list-none list-inside space-y-2">
+                        <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conception de logo et image de marque</li>
+                        <li><i class='fas  fa-caret-right text-[#5A0B29] mr-2'></i>Conception des sites web conception des applications mobiles</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>    
+
+        </div> -->
+
+    </div>
+
+    <div class="flex justify-center border my-4 items-center mx-auto p-2">
+        <a href="#" class="min-w-64 text-center inline-block bg-[#5A0B29] text-white border border-gray-100 hover:bg-pink-600 font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 animate-fadeInUp">Contactez-nous</a>
+    </div>
+    
+
+    <section class="bg-gray-50 py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center gap-12">
+                <!-- Colonne de gauche -->
+                <div class="lg:w-1/3">
+                    <h2 class="text-4xl font-bold text-[#5A0B29] mb-4 animate-fadeInUp">Services annexes</h2>
+                    <p class="text-gray-600 mb-6 animate-fadeInUp">Découvrez nos services complémentaires pour booster davantage votre présence en ligne et votre croissance digitale.</p>
+                    <ul class="list-none list-inside space-y-2">
+                        <li class="font-bold tcolor " ><i class='fas  fa-check-circle text-pink-600 mr-2'></i>Améliorer votre Image</li>
+                        <li class="font-bold tcolor " ><i class='fas  fa-check-circle text-pink-600 mr-2'></i>Digitalier vos opérations</li>
+                    </ul>
+
+                    <a href="#" class="mt-4 inline-block bg-[#5A0B29] text-white border border-gray-100 hover:bg-pink-600 font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition duration-300 animate-fadeInUp">Nos réalisations</a>
+                    
+                </div>
+    
+                <!-- Colonne de droite -->
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Service annexe 1 -->
+                    <div class="service-card border-b border-[#FFFAF6] bg-white rounded-lg shadow-md p-10 animate-fadeInUp">
+                        <div class="text-[#5A0B29] mb-4">
+                            <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v5m-3 0h6M4 11h16M5 15h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1Z"/>
+                              </svg>  
+                        </div>
+                        <h3 class="text-xl tcolor font-semibold mb-2">Création de Site Web et Web Design</h3>
+                        <p class="text-gray-600">Création de sites web modernes, responsives et optimisés pour la conversion.</p>
+                    </div>
+    
+                    <!-- Service annexe 2 -->
+                    <div class="service-card border-b border-[#FFFAF6] bg-white rounded-lg shadow-md p-10 animate-fadeInUp">
+                        <div class="text-[#5A0B29] mb-4">
+                            <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7H7m2 3H7m2 3H7m4 2v2m3-2v2m3-2v2M4 5v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-9a1 1 0 0 1-1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1Z"/>
+                              </svg>
+                               
+                        </div>
+                        <h3 class="text-xl tcolor font-semibold mb-2">Conception de chartes graphiques et de logo</h3>
+                        <p class="text-gray-600">Nous assurons une cohésion visuelle dans la conception de votre marque .</p>
+                    </div>
+    
+                    <!-- Service annexe 3 -->
+                    <div class="service-card border-b border-[#FFFAF6] bg-white rounded-lg shadow-md p-10  animate-fadeInUp">
+                        <div class="text-[#5A0B29] mb-4">
+                            <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11.5c.07 0 .14-.007.207-.021.095.014.193.021.293.021h2a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1h-1a1 1 0 1 0 0 2v11h-2V5a2 2 0 0 0-2-2H5Zm7 4a1 1 0 0 1 1-1h.5a1 1 0 1 1 0 2H13a1 1 0 0 1-1-1Zm0 3a1 1 0 0 1 1-1h.5a1 1 0 1 1 0 2H13a1 1 0 0 1-1-1Zm-6 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Zm0 3a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1ZM7 6a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H7Zm1 3V8h1v1H8Z" clip-rule="evenodd"/>
+                              </svg>
+                               
+                        </div>
+                        <h3 class="text-xl tcolor font-semibold mb-2">Gestionnaire de pages</h3>
+                        <p class="text-gray-600">Nous gerons vos réseaux pour mettre en avant vos produits et services</p>
+                    </div>
+    
+                    <!-- Service annexe 4 -->
+                    <div class="service-card border-b border-[#FFFAF6] bg-white rounded-lg shadow-md p-10 animate-fadeInUp">
+                        <div class="text-[#5A0B29] mb-4">
+                            <svg class="w-20 h-20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v15a1 1 0 0 0 1 1h15M8 16l2.5-5.5 3 3L17.273 7 20 9.667"/>
+                              </svg>
+                               
+                        </div>
+                        <h3 class="text-xl tcolor font-semibold mb-2">Infographie</h3>
+                        <p class="text-gray-600">Nous concevons une identité visuelle (Logo, Flyer, Portofolio, …) pour vous. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+{% endblock content %}
