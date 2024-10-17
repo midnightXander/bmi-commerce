@@ -1,0 +1,106 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<main class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row">
+        <!-- Product Images -->
+        <div class="w-full md:w-1/2 mb-8 md:mb-0">
+            <div class="mb-4">
+                <img id="main-image" src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TW9udHJlfGVufDB8fDB8fHww" alt="Image principale du produit" class="w-full h-auto  rounded-lg shadow-md">
+            </div>
+            <div class="grid grid-cols-4 gap-4" id="thumbnail-container">
+                <!-- Thumbnails will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="w-full md:w-1/2 md:pl-8">
+            <h1 class="text-3xl font-bold text-[#5A0B29] mb-4">Montre en Cuir Classique</h1>
+            <p class="text-gray-600 mb-4">Réf: MCL-001</p>
+            <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400 mr-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-600">(4.5/5, 128 avis)</span>
+            </div>
+            <p class="text-2xl font-bold text-gray-800 mb-4">15000 XAF</p>
+            <p class="text-gray-700 mb-6">Une montre élégante et intemporelle, parfaite pour toutes les occasions. Fabriquée avec un bracelet en cuir véritable et un cadran en acier inoxydable.</p>
+            
+            <div class="mb-6">
+                <h3 class="font-semibold text-gray-800 mb-2">Couleur:</h3>
+                <div class="flex space-x-2">
+                    <button class="w-8 h-8 rounded-full bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"></button>
+                    <button class="w-8 h-8 rounded-full bg-brown-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brown-500"></button>
+                    <button class="w-8 h-8 rounded-full bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"></button>
+                </div>
+            </div>
+            
+
+            <div class="mb-6">
+                <h3 class="font-semibold text-gray-800 mb-2">Quantité:</h3>
+                <div class="flex items-center">
+                    <button class="bg-gray-200 px-3 py-1 rounded-l-md focus:outline-none">-</button>
+                    <input type="number" value="1" min="1" class="w-16 text-center border-t border-b border-gray-200 py-1 focus:outline-none">
+                    <button class="bg-gray-200 px-3 py-1 rounded-r-md focus:outline-none">+</button>
+                </div>
+            </div>
+
+            <button class="bg-[#5A0B29] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#5A0B00] transition-smooth w-full md:w-auto">Ajouter au Panier</button>
+        </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="mt-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Description du Produit</h2>
+        <p class="text-gray-700 mb-4">
+            Cette montre en cuir classique est le parfait mélange d'élégance et de fonctionnalité. Avec son design intemporel, elle s'adapte aussi bien à une tenue décontractée qu'à un costume formel.
+        </p>
+        <ul class="list-disc list-inside text-gray-700 mb-4">
+            <li>Bracelet en cuir véritable</li>
+            <li>Cadran en acier inoxydable</li>
+            <li>Mouvement à quartz précis</li>
+            <li>Résistant à l'eau jusqu'à 30 mètres</li>
+            <li>Garantie de 2 ans</li>
+        </ul>
+    </div>
+
+    <!-- Customer Reviews -->
+    <div class="mt-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Avis Clients</h2>
+        <!-- Add your review component here -->
+    </div>
+</main>
+
+<script>
+    // Sample product images
+    const productImages = [
+        "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TW9udHJlfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TW9udHJlfGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1601924357840-3e50ad4dd9fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fE1vbnRyZXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fE1vbnRyZXxlbnwwfHwwfHx8MA%3D%3D"
+    ];
+
+    function createThumbnail(src, index) {
+        return `
+            <img src="${src}" alt="Thumbnail ${index + 1}" class="w-full h-auto rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage('${src}')">
+        `;
+    }
+
+    function changeMainImage(src) {
+        document.getElementById('main-image').src = src;
+    }
+
+    const thumbnailContainer = document.getElementById('thumbnail-container');
+    productImages.forEach((src, index) => {
+        thumbnailContainer.innerHTML += createThumbnail(src, index);
+    });
+</script>
+
+
+{% endblock content %}

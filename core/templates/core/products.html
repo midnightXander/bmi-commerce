@@ -1,0 +1,87 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<main class="container mx-auto px-6 py-8">
+    <h1 class="text-3xl font-bold text-[#5A0B29] mb-6">Tous les Produits</h1>
+
+    <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+        <div class="mb-4 md:mb-0">
+            <span class="text-gray-700 mr-2">Filtrer par fournisseur:</span>
+            <select id="provider-filter" class="bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="all">Tous</option>
+                <option value="company">BMI</option>
+                <option value="partners">Partenaires</option>
+            </select>
+        </div>
+        <div class="text-gray-600"><span id="product-count">0</span> produits trouvés</div>
+    </div>
+
+    <div id="company-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <!-- Company products will be inserted here -->
+    </div>
+
+    <h2 class="text-2xl font-bold text-[#5A0B29] mb-6">Produits de nos Partenaires</h2>
+
+    <div id="partner-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Partner products will be inserted here -->
+    </div>
+</main>
+<script>
+    // Sample product data
+    const products = [
+        { id: 1, name: "Montre en Cuir Classique", price: "129,99 €", image: "https://plus.unsplash.com/premium_photo-1675798983878-604c09f6d154?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVpdHN8ZW58MHx8MHx8fDA%3D", provider: "company" },
+        { id: 2, name: "Sac à Main Élégant", price: "89,99 €", image: "https://plus.unsplash.com/premium_photo-1673628167571-532a6c5f5d16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXR5JTIwcHJvZHVjdHN8ZW58MHx8MHx8fDA%3D", provider: "company" },
+        { id: 3, name: "Chaussures de Ville", price: "159,99 €", image: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmVhdXR5JTIwcHJvZHVjdHN8ZW58MHx8MHx8fDA%3D", provider: "partners" },
+        { id: 4, name: "Cravate en Soie", price: "49,99 €", image: "https://images.unsplash.com/photo-1585652757141-8837d676fac8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJlYXV0eSUyMHByb2R1Y3RzfGVufDB8fDB8fHww", provider: "partners" },
+        { id: 5, name: "Légumes", price: "59,99 €", image: "https://images.unsplash.com/photo-1585652757141-8837d676fac8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJlYXV0eSUyMHByb2R1Y3RzfGVufDB8fDB8fHww", provider: "partners" },
+        { id: 5, name: "Beauté", price: "30,99 €", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJlYXV0eSUyMHByb2R1Y3RzfGVufDB8fDB8fHww", provider: "company" },
+        // Add more products as needed
+    ];
+
+    function createProductCard(product) {
+        return `
+            <a href = '/produits/${product.id}' class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-gray-800 font-semibold text-lg mb-2">${product.name}</h3>
+                    <p class="text-gray-600">${product.price}</p>
+                    <button class="mt-4 bg-[#5A0B29] text-white px-4 py-2 rounded hover:bg-[#5A0B00] transition-colors duration-300">Ajouter au panier</button>
+                </div>
+            </a>
+        `;
+    }
+
+    function renderProducts(filter = 'all') {
+        const companyContainer = document.getElementById('company-products');
+        const partnerContainer = document.getElementById('partner-products');
+        companyContainer.innerHTML = '';
+        partnerContainer.innerHTML = '';
+
+        let count = 0;
+
+        products.forEach(product => {
+            if (filter === 'all' || product.provider === filter) {
+                const card = createProductCard(product);
+                if (product.provider === 'company') {
+                    companyContainer.innerHTML += card;
+                } else {
+                    partnerContainer.innerHTML += card;
+                }
+                count++;
+            }
+        });
+
+        document.getElementById('product-count').textContent = count;
+    }
+
+    document.getElementById('provider-filter').addEventListener('change', (e) => {
+        renderProducts(e.target.value);
+    });
+
+    // Initial render
+    renderProducts();
+</script>
+
+{% endblock content %}
