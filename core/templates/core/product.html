@@ -35,7 +35,7 @@
         
         <div class="w-full md:w-1/2 mb-8 md:mb-0">
             <div class="mb-4">
-                <img id="main-image" src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TW9udHJlfGVufDB8fDB8fHww" alt="Image principale du produit" class="w-full h-auto  rounded-lg shadow-md">
+                <img id="main-image" src="{{product.image1}}" alt="Image principale du produit" class="w-full h-auto  rounded-lg shadow-md">
             </div>
             <div class="grid grid-cols-4 gap-4" id="thumbnail-container">
                 <!-- Thumbnails will be inserted here -->
@@ -44,8 +44,8 @@
 
         <!-- Product Details -->
         <div class="w-full md:w-1/2 md:pl-8">
-            <h1 class="text-3xl font-bold text-[#5A0B29] mb-4">Montre en Cuir Classique</h1>
-            <p class="text-gray-600 mb-4">Réf: MCL-001</p>
+            <h1 class="text-3xl font-bold text-[#5A0B29] mb-4">{{product.name}}</h1>
+            <p class="text-gray-600 mb-4">Réf: {{product.ref}}</p>
             <div class="flex items-center mb-4">
                 <div class="flex text-yellow-400 mr-2">
                     <i class="fas fa-star"></i>
@@ -56,8 +56,8 @@
                 </div>
                 <span class="text-gray-600">(4.5/5, 128 avis)</span>
             </div>
-            <p class="text-2xl font-bold text-gray-800 mb-4">15000 XAF</p>
-            <p class="text-gray-700 mb-6">Une montre élégante et intemporelle, parfaite pour toutes les occasions. Fabriquée avec un bracelet en cuir véritable et un cadran en acier inoxydable.</p>
+            <p class="text-2xl font-bold text-gray-800 mb-4">{{product.price}} XAF</p>
+            <p class="text-gray-700 mb-6">{{product.leading}}</p>
             
             <div class="mb-6">
                 <h3 class="font-semibold text-gray-800 mb-2">Couleur:</h3>
@@ -86,15 +86,15 @@
     <div class="mt-12">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Description du Produit</h2>
         <p class="text-gray-700 mb-4">
-            Cette montre en cuir classique est le parfait mélange d'élégance et de fonctionnalité. Avec son design intemporel, elle s'adapte aussi bien à une tenue décontractée qu'à un costume formel.
+            {{product.description}}
         </p>
-        <ul class="list-disc list-inside text-gray-700 mb-4">
+        <!-- <ul class="list-disc list-inside text-gray-700 mb-4">
             <li>Bracelet en cuir véritable</li>
             <li>Cadran en acier inoxydable</li>
             <li>Mouvement à quartz précis</li>
             <li>Résistant à l'eau jusqu'à 30 mètres</li>
             <li>Garantie de 2 ans</li>
-        </ul>
+        </ul> -->
     </div>
 
     <!-- Customer Reviews -->
@@ -104,15 +104,25 @@
     </div>
 </main>
 
+{{ product.image1|json_script:"image1"}}
+{{ product.image2|json_script:"image2"}}
+{{ product.image3|json_script:"image3"}}
+{{ product.image4|json_script:"image4"}}
 <script>
-    // Sample product images
-    const productImages = [
-        "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TW9udHJlfGVufDB8fDB8fHww",
-        "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TW9udHJlfGVufDB8fDB8fHww",
-        "https://images.unsplash.com/photo-1601924357840-3e50ad4dd9fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fE1vbnRyZXxlbnwwfHwwfHx8MA%3D%3D",
-        "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fE1vbnRyZXxlbnwwfHwwfHx8MA%3D%3D"
-    ];
+    
+    const image1 = JSON.parse(document.getElementById('image1').textContent)
+    const image2 = JSON.parse(document.getElementById('image2').textContent)
+    const image3 = JSON.parse(document.getElementById('image3').textContent)
+    const image4 = JSON.parse(document.getElementById('image4').textContent)
+   
 
+    const productImages = [
+        image1,
+        image2,
+        image3,
+        image4
+    ];
+    
     function createThumbnail(src, index) {
         return `
             <img src="${src}" alt="Thumbnail ${index + 1}" class="w-full h-auto rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage('${src}')">
@@ -125,7 +135,10 @@
 
     const thumbnailContainer = document.getElementById('thumbnail-container');
     productImages.forEach((src, index) => {
-        thumbnailContainer.innerHTML += createThumbnail(src, index);
+        if(src){
+            thumbnailContainer.innerHTML += createThumbnail(src, index);
+        }
+        
     });
 </script>
 

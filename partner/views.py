@@ -122,24 +122,7 @@ def add_product(request):
     return HttpResponseRedirect(reverse("core:profile"))
 
 
-def item_data(item:Item):
-    return {
-        "id": item.id,
-        "name": item.name,
-        "ref": item.ref,
-        "description": item.description,
-        "price": item.price,
-        "image1": item.image1.url,
-        "image2": item.image2.url if item.image2 else None,
-        "image3": item.image3.url if item.image3 else None,
-        "image4W": item.image4.url if item.image4 else None,
-        "provider": {
-            "id": item.provider.id,
-            "name": item.provider.name,
-            "product_type": item.provider.product_type,
-            "phone_number": item.provider.phone_number,
-        }
-    }    
+  
 
 def get_provider_items(request,provider_id):
     provider = get_object_or_404(Provider, id = provider_id)
@@ -147,7 +130,7 @@ def get_provider_items(request,provider_id):
     items_data = []
 
     for item in items:
-        data = item_data(item)
+        data = core_views.item_data(item)
         items_data.append(data)
 
     return JsonResponse({"items":items_data, "status":'success'})    
