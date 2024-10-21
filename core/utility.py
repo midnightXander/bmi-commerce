@@ -16,7 +16,7 @@ def item_ref(item_name:str):
         ref += name[0]
     ref = ref.upper()
 
-    number_id = parse_id(3)
+    number_id = parse_id(n_items+1)
     ref += f"-{number_id}"
     
     return ref
