@@ -1,0 +1,136 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<main class="container mx-auto mt-8 px-4">
+    <h2 class="text-3xl font-bold text-[#5A0B29] mb-6">
+        <i class="fas fa-shopping-cart mr-2"></i>Votre Panier
+    </h2>
+
+    <div class="bg-white rounded-lg shadow-md p-6 animate-fadeIn">
+        <div id="cartItems" class="mb-6">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <div class="flex justify-between items-center font-bold text-xl border-t pt-4">
+            <span>Total</span>
+            <span id="cartTotal"></span>
+        </div>
+
+        <div class="mt-6 flex justify-between items-center">
+            
+            <a href="/produits"  class="text-gray-500  px-4 py-2 rounded  transition duration-300">
+                <i class="fas fa-arrow-left mr-2"></i>Continuer les achats
+            </a>
+            
+            <a href="/checkout"  class="text-[#5A0B29]  px-6 py-3 rounded  transition duration-300">
+                <i class="fas fa-lock mr-2"></i>Passer à la caisse
+            </a>
+        </div>
+    </div>
+</main>
+
+{{ products|json_script:"products"}}
+<script>
+    // Simulated cart data
+    let cart_items = JSON.parse(document.getElementById('products').textContent)
+
+    function displayCart(cart) {
+        const cartItemsContainer = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        let total = 0;
+
+        cartItemsContainer.innerHTML = cart.map(item => {
+            total += item.price * item.quantity;
+            return `
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-book-open text-[#5A0B29] text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">${item.name}</h3>
+                            <p class="text-gray-600">${item.price.toFixed(2)} FCFA</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button onclick="updateQuantity(${item.id}, -1)" class="bg-gray-200 px-2 py-1 rounded-l">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="bg-gray-100 px-4 py-1">${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, 1)" class="bg-gray-200 px-2 py-1 rounded-r">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button onclick="updateQuantity(${item.id},-1)" class="ml-4 text-red-500">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        cartTotal.textContent = `${total.toFixed(2)} FCFA`;
+    }
+
+    function updateQuantity(id, change) {
+        
+       
+
+        $.ajax({
+            url : `/cart/update_item/${id}`,
+            type: 'POST',
+            data: { csrfmiddlewaretoken: '{{csrf_token}}', change: change },
+            beforeSend: function(){
+                //$('#loading-overlay').toggleClass('active')
+            },
+            success: function(res) {
+                
+                if(res.status == 'success'){
+                    
+                    displayCart(res.items);
+                    
+                }else{
+                    
+                }
+            },
+            complete: function(){
+                //$('#loading-overlay').toggleClass('active')
+            },
+            error: function(jqXHR,textstatus,errorThrown){
+
+            }
+        })
+    }
+
+    function removeItem(id) {
+        $.ajax({
+            url : `/cart/remove_item/${id}`,
+            type: 'POST',
+            data: { csrfmiddlewaretoken: '{{csrf_token}}' },
+            beforeSend: function(){
+                $('#loading-overlay').toggleClass('active')
+            },
+            success: function(res) {
+                
+                
+                if(res.status == 'success'){
+                    
+                    displayCart(res.items);
+                    alert(res.message)
+                }else{
+                    alert(res.message)
+                }
+            },
+            complete: function(){
+                $('#loading-overlay').toggleClass('active')
+            },
+            error: function(jqXHR,textstatus,errorThrown){
+
+            }
+        })
+        
+    }
+
+    // Display cart on page load
+    displayCart(cart_items);
+</script>
+{% endblock content %}

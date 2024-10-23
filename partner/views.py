@@ -30,7 +30,7 @@ def register(request, referall_code = ""):
     if request.method == "POST":
         name = request.POST["companyName"]
         email = request.POST['email']
-        country = request.POST['country']
+        city = request.POST['city']
         product_type = request.POST['product_type']
         phone_number = request.POST['phone_number']
         password1 = request.POST['password1']
@@ -48,11 +48,12 @@ def register(request, referall_code = ""):
             else:        
                 new_user = User.objects.create_user(username=name,email=email,password=password1)
                 new_partner = Provider.objects.create(
-
+                    name = name,
                     user = new_user,
                     product_type = product_type,
                     phone_number = phone_number,
-                    country = country,
+                    city = city,
+                    label = 'partners' 
                     )
                 
                 user_auth = auth.authenticate(username = name,password=password1)
@@ -94,6 +95,10 @@ def login(request):
 
     return HttpResponseRedirect(reverse("core:profile"))
 
+def logout_view(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse("core:index"))
+
 def add_product(request):
     provider = get_partner(request)
     name = request.POST['productName']
@@ -117,12 +122,11 @@ def add_product(request):
     )
 
     new_product.save()
-        
 
+    if provider.label == 'company':
+        return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
+    
     return HttpResponseRedirect(reverse("core:profile"))
-
-
-  
 
 def get_provider_items(request,provider_id):
     provider = get_object_or_404(Provider, id = provider_id)

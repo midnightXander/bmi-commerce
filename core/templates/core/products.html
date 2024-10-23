@@ -67,7 +67,7 @@
                 <div class="p-4">
                     <h3 class="text-gray-800 font-semibold text-lg mb-2">${product.name}</h3>
                     <p class="text-gray-600"><span>${product.price}<span> XAF</p>
-                    <button class="mt-4 bg-[#5A0B29] text-white px-4 py-2 rounded hover:bg-[#5A0B00] transition-colors duration-300">Ajouter au panier</button>
+                    <button class="mt-4 bg-[#5A0B29] text-white px-4 py-2 rounded hover:bg-[#5A0B00] transition-colors duration-300">Détails</button>
                 </div>
             </a>
         `;
@@ -85,7 +85,7 @@
             
             if (filter === 'all' || product.provider.label === filter) {
                 const card = createProductCard(product);
-                if (product.provider.name === 'company') {
+                if (product.provider.label === 'company') {
                     companyContainer.innerHTML += card;
                 } else {
                     
