@@ -66,17 +66,7 @@ def _provider_data(provider:Provider):
     }
 
 def index(request):
-    admin = User.objects.create_superuser(username='BMI_ADMIN',email='contact@cbdmi.com',password='GgfB&f&*Fe4S6XmGwCefU@N&')
-    company = Provider.objects.create(
-        name = 'BMI',
-        label = 'company',
-        phone_number = '',
-        city = 'Yaoundé',
-        product_type = 'Varié',
-        user = admin,
-    )
-    admin.save()
-    company.save()
+    
     return render(request,"core/index.html")
 
 def products(request):
