@@ -78,7 +78,7 @@
                 </div>
             </div>
 
-            <button class="bg-[#5A0B29] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#5A0B00] transition-smooth w-full md:w-auto">Ajouter au Panier</button>
+            <button onclick="add_to_cart('{{product.id}}')"  class="bg-[#5A0B29] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#5A0B00] transition-smooth w-full md:w-auto"><i class = "fas fa-shopping-cart mr-2 " ></i>Ajouter au Panier</button>
         </div>
     </div>
 
@@ -140,6 +140,34 @@
         }
         
     });
+
+    function add_to_cart(item_id){
+        $.ajax({
+            url : `/cart/add_item/${item_id}`,
+            type: 'POST',
+            data: { csrfmiddlewaretoken: '{{csrf_token}}' },
+            beforeSend: function(){
+
+            },
+            success: function(res) {
+                console.log(res)
+                if(res.status == 'success'){
+                    alert(res.message)
+                }else{
+                    alert(res.message)
+                }
+            },
+            complete: function(){
+
+            },
+            error: function(jqXHR,textstatus,errorThrown){
+
+            }
+        })
+    }
+
+
+    
 </script>
 
 

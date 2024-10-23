@@ -23,6 +23,9 @@ class Item(models.Model):
     image3 = models.ImageField(upload_to = "items/images/", null=True)
     image4 = models.ImageField(upload_to = "items/images/", null=True)
     date_added = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+    
+
     
     def __str__(self):
         return f"{self.name}: {self.provider.name}"
@@ -48,3 +51,22 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.value}"
+    
+
+class Cart(models.Model):
+    cart_key = models.CharField(max_length=100, null=True) 
+    items = models.ManyToManyField(Item, through='CartItem')
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.date_created}'
+
+
+class CartItem(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+    class Meta:
+        unique_together = ('item','cart')
+

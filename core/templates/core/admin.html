@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        
+        <meta name="keywords" content="E-commerce Vente">
+        <meta property = "og:image" content = "{% static 'images/logo.jpg' %}" >
+        <meta property = "og:url" content = "https://bmisolutions.org">
+        
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+       
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+       
+
+    <!-- <link rel="stylesheet" href="{% static 'css/output.css' %}" > -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.jpg' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'inter','Poppins', sans-serif;
+        }  
+        
+    </style>
+    </head>
+
+    
+<body class="bg-gray-100 min-h-screen">
+    <header class="text-[#5A0B29]  p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+               <a href="/" class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
+                <img src="{% static 'images/logo.jpg' %}" class="h-20 w-20">
+                </a>
+                <!-- <span class="text-2xl font-bold">BMI - Admin</span>  -->
+            </div>
+            
+            
+            <nav>
+                
+                <a href="{% url 'partner:logout' %}" class="hover:underline">Déconnexion</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 px-4">
+        {% block content %}
+        
+        <div class="flex space-x-4 mb-8">
+            <button id="partnersBtn" class="text-[#5A0B29] underline px-4 py-2 rounded">Partenaires</button>
+            <button id="partnerProductsBtn" class="text-[#5A0B29] underline px-4 py-2 rounded">Produits Partenaires</button>
+            <button id="companyProductsBtn" class="text-[#5A0B29] underline px-4 py-2 rounded">Produits Entreprise</button>
+        </div>
+
+        <section id="partnersSection" class="mb-8 animate-fadeIn hidden">
+            <h2 class="text-3xl font-bold text-[#5A0B29] mb-6">Gestion des Partenaires</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="p-3 text-left">Nom de l'entreprise</th>
+                            <th class="p-3 text-left">Email</th>
+                            <th class="p-3 text-left">Statut</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="partnersList">
+                        <!-- Les partenaires seront ajoutés ici dynamiquement -->
+                        <tr>
+                            <td class="text-center p-4">Aucun partenaire enregistré pour le moment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="partnerProductsSection" class="mb-8 animate-fadeIn hidden">
+            <h2 class="text-3xl font-bold text-[#5A0B29] mb-6">Produits des Partenaires</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="p-3 text-left">Nom du Produit</th>
+                            <th class="p-3 text-left">Partenaire</th>
+                            <th class="p-3 text-left">Prix</th>
+                            <th class="p-3 text-left">Statut</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="partnerProductsList">
+                        <!-- Les produits des partenaires seront ajoutés ici dynamiquement -->
+                        <tr>
+                            <td class="text-center p-4">Aucun produit de partenaire enregistré pour le moment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="companyProductsSection" class="mb-8 animate-fadeIn hidden">
+            <h2 class="text-3xl font-bold text-[#5A0B29] mb-6">Produits de l'Entreprise</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="p-3 text-left">Nom du Produit</th>
+                            <th class="p-3 text-left">Prix</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="companyProductsList">
+                        <!-- Les produits de l'entreprise seront ajoutés ici dynamiquement -->
+                        <tr>
+                            <td class="text-center p-4">Aucun produit de l'entreprise enregistré pour le moment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="{% url 'core:add_product' %}">
+               <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded">
+                Ajouter un Produit
+            </button> 
+            </a>
+            
+        </section>
+    {% endblock content %}    
+    </main>
+
+    {{ partners|json_script:"partners"}}
+    {{ partner_products|json_script:"partner_products"}}
+    {{ company_products|json_script:"company_products"}}
+    <script>
+        // Données simulées
+        let partners = JSON.parse(document.getElementById('partners').textContent)
+
+        let partnerProducts = JSON.parse(document.getElementById('partner_products').textContent)
+
+        let companyProducts = JSON.parse(document.getElementById('company_products').textContent);
+
+        // Fonctions d'affichage
+        function displayPartners() {
+            const partnersList = document.getElementById('partnersList');
+            if(partners.length>0){
+                partnersList.innerHTML = partners.map(partner => `
+                <tr>
+                    <td class="p-3">${partner.name}</td>
+                    <td class="p-3">${partner.email}</td>
+                    <td class="p-3">${partner.status}</td>
+                    <td class="p-3">
+                        <button onclick="editPartner(${partner.id})" class="text-blue-500 mr-2"><i class="fas fa-edit"></i></button>
+                        <button onclick="deletePartner(${partner.id})" class="text-red-500"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+            }
+            
+        }
+
+        function displayPartnerProducts() {
+            const partnerProductsList = document.getElementById('partnerProductsList');
+            if(partnerProducts.length > 0){
+                partnerProductsList.innerHTML = partnerProducts.map(product => `
+                <tr>
+                    <td class="p-3">${product.name}</td>
+                    <td class="p-3">${product.provider.name}</td>
+                    <td class="p-3">${product.price.toFixed(2)} FCFA</td>
+                    <td class="p-3">${product.status}</td>
+                    <td class="p-3">
+                        <button onclick="approveProduct(${product.id})" class="text-green-500 mr-2"><i class="fas fa-check"></i></button>
+                        <button onclick="rejectProduct(${product.id})" class="text-red-500"><i class="fas fa-times"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+            }
+            
+        }
+
+        function displayCompanyProducts() {
+            const companyProductsList = document.getElementById('companyProductsList');
+            if(companyProducts.length>0){
+                companyProductsList.innerHTML = companyProducts.map(product => `
+                <tr>
+                    <td class="p-3">${product.name}</td>
+                    <td class="p-3">${product.price.toFixed(2)} FCFA</td>
+                    <td class="p-3">
+                        <button onclick="editCompanyProduct(${product.id})" class="text-blue-500 mr-2"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteCompanyProduct(${product.id})" class="text-red-500"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+            }
+        }
+
+        // Fonctions de gestion (à implémenter avec de vraies API)
+        function editPartner(id) {
+            alert(`Édition du partenaire ${id}`);
+        }
+
+        function deletePartner(id) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce partenaire ?")) {
+                partners = partners.filter(p => p.id !== id);
+                displayPartners();
+            }
+        }
+
+        function approveProduct(id) {
+            const product = partnerProducts.find(p => p.id === id);
+            if (product) {
+                product.status = "Approuvé";
+                displayPartnerProducts();
+            }
+        }
+
+        function rejectProduct(id) {
+            const product = partnerProducts.find(p => p.id === id);
+            if (product) {
+                product.status = "Rejeté";
+                displayPartnerProducts();
+            }
+        }
+
+        function editCompanyProduct(id) {
+            alert(`Édition du produit de l'entreprise ${id}`);
+        }
+
+        function deleteCompanyProduct(id) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
+                companyProducts = companyProducts.filter(p => p.id !== id);
+                displayCompanyProducts();
+            }
+        }
+
+        function addCompanyProduct() {
+            const name = prompt("Nom du nouveau produit:");
+            const price = parseFloat(prompt("Prix du nouveau produit:"));
+            if (name && !isNaN(price)) {
+                const newId = companyProducts.length > 0 ? Math.max(...companyProducts.map(p => p.id)) + 1 : 1;
+                companyProducts.push({ id: newId, name, price });
+                displayCompanyProducts();
+            }
+        }
+
+        // Gestion des onglets
+        document.getElementById('partnersBtn').addEventListener('click', () => {
+            document.getElementById('partnersSection').classList.remove('hidden');
+            document.getElementById('partnerProductsSection').classList.add('hidden');
+            document.getElementById('companyProductsSection').classList.add('hidden');
+            displayPartners();
+        });
+
+        document.getElementById('partnerProductsBtn').addEventListener('click', () => {
+            document.getElementById('partnersSection').classList.add('hidden');
+            document.getElementById('partnerProductsSection').classList.remove('hidden');
+            document.getElementById('companyProductsSection').classList.add('hidden');
+            displayPartnerProducts();
+        });
+
+        document.getElementById('companyProductsBtn').addEventListener('click', () => {
+            document.getElementById('partnersSection').classList.add('hidden');
+            document.getElementById('partnerProductsSection').classList.add('hidden');
+            document.getElementById('companyProductsSection').classList.remove('hidden');
+            displayCompanyProducts();
+        });
+
+        
+
+       
+        // Afficher la section des partenaires par défaut au chargement
+        displayPartners();
+        document.getElementById('partnersSection').classList.remove('hidden');
+    </script>
+</body>
+</html>

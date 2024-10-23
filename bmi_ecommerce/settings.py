@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-vz6n^o6#_$(9a%
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['https://bmisolutions.org']
 
 # Application definition
 
@@ -138,7 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("text/javascript",".js",True)
-# LOGIN_URL = "/users/signin"
+
+LOGIN_URL = "/ecommerce/admin/login"
 
 
 
