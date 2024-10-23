@@ -21,10 +21,14 @@ import uuid
 
 
 def get_session_key(request):
-    session_key = request.session.session_key
+    session = request.session
+    session_key = session.get('cart_key')
+    if session_key:
+        return session_key
+    else:
+        session['cart_key'] = str(uuid.uuid4())
+        session_key = session['cart_key']
 
-    # if not session_key:
-    #     return uuid.uuid4()
     return session_key
     
 
@@ -102,16 +106,16 @@ def add_to_cart(request, item_id):
 
     if request.method == 'POST':
         #PUT A TRY CATCH INSTEAD
-        if session_key:
-            cart,created = Cart.objects.get_or_create(cart_key = session_key)
-            if item in cart.items.all():
-                return JsonResponse({'status':'failure', 'message':'Le produit est deja dans votre panier'})
-            
-            cart.items.add(item)
-            cart.save()
-            return JsonResponse({'status':'success', 'message':'Ajouté a votre panier'})
-        else:
-            return JsonResponse({'status':'failure', 'message':"Le produit n'a pas été ajouté a votre panier"})
+        
+        cart,created = Cart.objects.get_or_create(cart_key = session_key)
+        if item in cart.items.all():
+            return JsonResponse({'status':'failure', 'message':'Le produit est deja dans votre panier'})
+        
+        cart.items.add(item)
+        cart.save()
+        return JsonResponse({'status':'success', 'message':'Ajouté a votre panier'})
+        # else:
+        #     return JsonResponse({'status':'failure', 'message':"Le produit n'a pas été ajouté a votre panier"})
 def remove_from_cart(request, item_id):
     item = Item.objects.get(id = item_id)
     session_key = get_session_key(request)
