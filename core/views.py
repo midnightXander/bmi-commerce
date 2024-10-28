@@ -59,8 +59,7 @@ def _provider_data(provider:Provider):
         'id': provider.id,
         'name': provider.name,
         'email': provider.user.email,
-        'city': 'None',
-        'country': provider.country,
+        'city': provider.city,
         'status': 'Actif',
         'label':provider.label,
     }
@@ -81,9 +80,12 @@ def products(request):
 def services(request):
     return render(request, "core/services.html")
 
+def team(request):
+    return render(request, "core/team.html")
+
 def product(request, ref):
     item = get_object_or_404(Item, ref = ref)
-    
+   
     return render(request,"core/product.html", {
         'product': item_data(item)
     })

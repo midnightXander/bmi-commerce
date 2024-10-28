@@ -6,6 +6,7 @@ app_name = 'moderator'
 urlpatterns = [
     path('',views.index, name='index'),
     path('services',views.services, name='services'),
+    path('notre-equipe',views.team, name='team'),
     path('produits',views.products, name='products'),
     path('produits/<str:ref>',views.product, name='product'),
     path('profile',views.profile, name='profile'),

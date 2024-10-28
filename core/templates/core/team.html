@@ -1,0 +1,401 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .team-card {
+        animation: fadeIn 0.5s ease-out forwards;
+        opacity: 0;
+    }
+    .team-card:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+        transform: scale(1.2);
+        transition: all 0.3s ease;
+    }
+</style>
+<main class="container mx-auto px-4 py-12">
+    <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-[#5A0B29] mb-4">L'équipe créative derrière la scène</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Derrière la scène, une équipe de professionnels créatifs travaille sans relâche pour créer une expérience cliente mémorable. Ces artistes, designers et techniciens sont les architectes de la magie qui se déroule devant nos yeux.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.1s;">
+            <div class="relative">
+                <img src="http://cbdmi.org/wp-content/uploads/2023/09/7cb75419-a581-4e5f-befb-a06db45c2a51-e1694458583199.jpeg" alt="Martial Novalis" class="w-full h-72">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-star mr-1"></i>Fondateur
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]">Martial Novalis</h3>
+                <p class="text-gray-600 mb-4">Directeur Général</p>
+                <p class="text-gray-700 mb-4">
+                    10+ ans d'expérience en coaching et développement personnel.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.2s;">
+            <div class="relative">
+                <img src="{% static 'svg/employee.svg' %}" alt="Employé" class="w-full h-64 ">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-cogs mr-1"></i>Project Mangement
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]">M. Mounkouotoui Salomon</h3>
+                <p class="text-gray-600 mb-4">Directeur adjoint</p>
+                <p class="text-gray-700 mb-4">
+                    Expert en gestion des projets et comptabilité.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.3s;">
+            <div class="relative">
+                <img src="{% static 'svg/employee.svg' %}" alt="Employé" class="w-full h-64">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-calendar-o mr-1"></i>Assistanant
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]">Njoh Diane Marie Paule</h3>
+                <p class="text-gray-600 mb-4">Assistante de Direction</p>
+                <p class="text-gray-700 mb-4">
+                    Spécialiste en design et identité de marque.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-behance text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.4s;">
+            <div class="relative">
+                <img src="{% static 'svg/employee.svg' %}" alt="Employé" class="w-full h-64">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-chart-line mr-1"></i>Marketing
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]">Nguenkam Arlette Manuell</h3>
+                <p class="text-gray-600 mb-4">Responsable Marketing</p>
+                <p class="text-gray-700 mb-4">
+                    Expert en analyse de données et performance marketing.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Member 5 -->
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.5s;">
+            <div class="relative">
+                <img src="{% static 'svg/employee.svg' %}" alt="Employé" class="w-full h-64">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-users mr-1"></i>Social
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]"> Mme Ndjiki Esther</h3>
+                <p class="text-gray-600 mb-4">Social Media Manager</p>
+                <p class="text-gray-700 mb-4">
+                    Experte en gestion des réseaux sociaux et community management.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.5s;">
+            <div class="relative">
+                <img src="{% static 'svg/employee.svg' %}" alt="Employé" class="w-full h-64">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-adjust mr-1"></i>RH
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]"> Sado Imelda</h3>
+                <p class="text-gray-600 mb-4">Responsable des Ressources Humaines</p>
+                <p class="text-gray-700 mb-4">
+                    Experte en gestion des réseaux sociaux et community management.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden" style="animation-delay: 0.5s;">
+            <div class="relative">
+                <img src="{% static 'svg/employee.svg' %}" alt="Employé" class="w-full h-64">
+                <div class="absolute top-0 right-0 bg-[#5A0B29] text-white px-4 py-2 rounded-bl-lg">
+                    <i class="fas fa-code mr-1"></i>Technique
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-[#5A0B29]"> Ngaikam Alexandre</h3>
+                <p class="text-gray-600 mb-4">Développeur Web</p>
+                <p class="text-gray-700 mb-4">
+                    Experte en gestion des réseaux sociaux et community management.
+                </p>
+                <div class="social-links flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-[#5A0B29]">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-16 text-center bg-[#FFFAF6]">
+        <h3 class="text-2xl font-bold text-[#5A0B29] mb-4">Rejoignez Notre Équipe</h3>
+        <p class="text-gray-600 mb-6">Nous sommes toujours à la recherche de nouveaux talents passionnés.</p>
+        <a href="#" class="inline-flex items-center bg-[#5A0B29] text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition duration-300">
+            <i class="fas fa-briefcase mr-2"></i>
+            Voir nos offres d'emploi
+        </a>
+    </div>
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#5A0B29] mb-4">Ce Que Disent Nos Clients</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Découvrez les retours d'expérience de nos clients satisfaits et leurs succès en marketing digital.
+                </p>
+            </div>
+
+            <!-- Featured Testimonial -->
+            <div class="max-w-4xl mx-auto mb-16 testimonial-card">
+                <div class="bg-white rounded-2xl shadow-xl p-8 relative overflow-hidden">
+                    <div class="quote-mark text-[#5A0B29] -top-4 left-4">"</div>
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="w-48 h-48 flex-shrink-0">
+                            <img src="http://cbdmi.org/wp-content/uploads/2023/09/Pages-Testimonial-Image-3.webp" 
+                                 alt="Jean Dupont" 
+                                 class="w-full h-full object-cover rounded-full border-4 border-[#5A0B29]">
+                        </div>
+                        <div class="flex-1">
+                            <div class="star-rating mb-4">
+                                <i class="fas fa-star text-yellow-500 "></i>
+                                <i class="fas fa-star text-yellow-500 "></i>
+                                <i class="fas fa-star text-yellow-500 "></i>
+                                <i class="fas fa-star text-yellow-500 "></i>
+                                <i class="fas fa-star text-yellow-500 "></i>
+                            </div>
+                            <blockquote class="text-xl italic text-gray-700 mb-4">
+                                "Nous avons travaillé avec l’équipe de BMI pour développer une nouvelle stratégie marketing pour notre entreprise. Ils ont été d’une grande aide et de précieux conseils. Nous avons vu une amélioration significative de nos résultats après avoir mis en œuvre leur stratégie."
+                            </blockquote>
+                            <div class="font-bold text-[#5A0B29] text-lg">Elie NOUADJE</div>
+                            <div class="text-gray-600">Sale Manager - COPA SARL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 relative">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "L’équipe de BMI a été d’une grande aide pour nous aider à lancer notre nouveau produit sur le marché. Ils nous ont fourni une analyse approfondie du marché et nous ont aidé à développer une stratégie de lancement efficace. Nous avons vu un succès immédiat après avoir lancé notre produit."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="http://cbdmi.org/wp-content/uploads/2023/09/Pages-Testimonial-Image-2.webp" 
+                             alt="Marie Lambert" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-bold text-[#5A0B29]">Albert BUMBI</div>
+                            <div class="text-gray-600 text-sm">CEO - Ets Brain Be</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 relative">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star-half-alt text-yellow-500 "></i>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "Les campagnes publicitaires sur les réseaux sociaux ont généré un ROI exceptionnel. Équipe très professionnelle."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                             alt="Pierre Martin" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-bold text-[#5A0B29]">Pierre Martin</div>
+                            <div class="text-gray-600 text-sm">Directeur Commercial, EcoStart</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white rounded-xl shadow-lg p-6 relative">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star  text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                        <i class="fas fa-star text-yellow-500 "></i>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        "Nous avons travaillé avec l’équipe de BMI pour nous aider à améliorer notre image de marque. Ils nous ont fourni des conseils précieux sur la façon de développer une image de marque forte et cohérente. Nous avons vu une amélioration significative de notre image de marque après avoir travaillé avec eux."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="http://cbdmi.org/wp-content/uploads/2023/09/Pages-Testimonial-Image-1.webp" 
+                             alt="Sophie Bernard" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <div class="font-bold text-[#5A0B29]">Bessie A BEDIANG</div>
+                            <div class="text-gray-600 text-sm">Styliste - Meps Style LTE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16">
+                <button class="bg-[#5A0B29] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition duration-300 inline-flex items-center">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Partagez votre expérience
+                </button>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="testimonial-card">
+                    <div class="text-4xl font-bold text-[#5A0B29]">200+</div>
+                    <div class="text-gray-600">Clients Satisfaits</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="text-4xl font-bold text-[#5A0B29]">98%</div>
+                    <div class="text-gray-600">Taux de Satisfaction</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="text-4xl font-bold text-[#5A0B29]">500+</div>
+                    <div class="text-gray-600">Apprenants Formés et immigrants accompagnés</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="text-4xl font-bold text-[#5A0B29]">5/5</div>
+                    <div class="text-gray-600">Note Moyenne</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+</main>
+
+<script>
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const teamObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        teamObserver.observe(card);
+    });
+</script>
+
+{% endblock content %}

@@ -64,16 +64,29 @@
             </div>
             <div class="mb-4">
                 <label for="city" class="block text-gray-700 mb-2">Ou vous trouvez vous?</label>
-                <select id="city" name="city" class="w-full border p-2 rounded-lg">
-                    <option value="">Votre pays</option>
-                    <option>Cameroun</option>
+                <select id="city" name="city" class="w-full border p-2 rounded-lg" required>
+                    <option value="">Votre région</option>
+                    <option value="Centre">Centre</option>
+                    <option value="Littoral">Littoral</option>
+                    <option value="Ouest">Ouest</option>
+                    <option value="Nord-Ouest">Nord-Ouest</option>
+                    <option value="Sud-Ouest">Sud-Ouest</option>
+                    <option value="Adamawa">Adamawa</option>
+                    <option value="Est">Est</option>
+                    <option value="Sud">Sud</option>
+                    <option value="Extreme Nord">Extreme Nord</option>
                 </select>
             </div>
             <div class="mb-4">
                 <label for="industry" class="block text-gray-700 mb-2">Quel type de produit vendez vous?</label>
-                <select id="industry" name="product_type" class=" border w-full p-2 rounded-lg">
+                <select id="industry" name="product_type" class=" border w-full p-2 rounded-lg" required>
                     <option value="">Selectionnez une catégorie</option>
-                    <option>Alimentaire</option>
+                    <option value="Alimentaire" >Alimentaire</option>
+                    <option value="Beauté" >Beauté</option>
+                    <option value="Vètements">Vètements</option>
+                    <option value="Electronique">Electronique</option>
+                    <option value="Décoration">Décoration</option>
+                    <option value="Divers">Divers</option>
                 </select>
             </div>
             <p class="mt-4 text-center">
@@ -117,7 +130,7 @@
                     <input type="text" id="productName" name="productName" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
                 </div>
                 <div class="mb-4">
-                    <label for="productPrice" class="block text-gray-700 mb-2">Prix (€)</label>
+                    <label for="productPrice" class="block text-gray-700 mb-2">Prix (FCFA)</label>
                     <input type="number" id="productPrice" name="productPrice" step="0.01" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
                 </div>
                 <div class="mb-4">

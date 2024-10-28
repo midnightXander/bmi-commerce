@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-
+from storages.backends.s3boto3 import S3Boto3Storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'core',
     'partner',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -105,12 +106,55 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+#S3 CONFIG FOR MEDIA FILES
+AWS_ACCESS_KEY_ID = 'AKIAZOZQF64DHJEIDS6R'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bmiecommercebuckets'
+AWS_S3_REGION_NAME = 'eu-north-1'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = 'public-read'
+# AWS_S3_VERITY = True
+
+
+
+
+# Optional: Set custom domain for static and media files
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+
+# Set the static and media files locations
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
+
+
+#Define custom storage classes for static and media files
+class StaticStorage(S3Boto3Storage):
+    location = STATICFILES_LOCATION
+
+class MediaStorage(S3Boto3Storage):
+    location = MEDIAFILES_LOCATION
+    file_overwrite = False
+
+# Configure static and media files storage
+#STATICFILES_STORAGE = 'bmi_ecommerce.settings.StaticStorage'
+DEFAULT_FILE_STORAGE = 'bmi_ecommerce.settings.MediaStorage'
+
+
+# Set static and media URLs
+# STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{STATICFILES_LOCATION}/'
+# MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.eu-north-1.amazonaws.com/{MEDIAFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{MEDIAFILES_LOCATION}/'
+
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#MEDIA_URL = 'media/'
+#MEDIA_ROOT = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{MEDIAFILES_LOCATION}/'
+
+
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

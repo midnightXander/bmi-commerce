@@ -16,6 +16,15 @@ from django.core.serializers import serialize
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_exempt
 from core.utility import *
+import boto3
+
+
+s3 = boto3.client( 's3',
+    aws_access_key_id = 'AKIAZOZQF64DHJEIDS6R',
+    aws_secret_access_key = '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'
+
+)
+
 
 def get_partner(request):
     try:
@@ -122,6 +131,9 @@ def add_product(request):
     )
 
     new_product.save()
+    #new_product.image1.name.split('/')[-1]
+    #s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
+    
 
     if provider.label == 'company':
         return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
