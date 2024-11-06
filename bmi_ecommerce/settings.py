@@ -14,6 +14,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 from storages.backends.s3boto3 import S3Boto3Storage
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
