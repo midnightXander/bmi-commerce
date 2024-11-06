@@ -110,35 +110,82 @@ def logout_view(request):
 
 def add_product(request):
     provider = get_partner(request)
-    name = request.POST['productName']
-    description = request.POST['productDescription']
-    price = request.POST['productPrice']
-    image1 = request.FILES['image1']
-    image2 = request.FILES.get('image2')
-    image3 = request.FILES.get('image3')
-    image4 = request.FILES.get('image4')
-    ref = item_ref(name)
-    new_product = Item.objects.create(
-        provider = provider,
-        name = name,
-        ref = ref,
-        description = description,
-        price = price,
-        image1 = image1,
-        image2 = image2,
-        image3 = image3,
-        image4 = image4,
-    )
+    if request.method ==  "POST":
+        name = request.POST['productName']
+        description = request.POST['productDescription']
+        price = request.POST['productPrice']
+        image1 = request.FILES['image1']
+        image2 = request.FILES.get('image2')
+        image3 = request.FILES.get('image3')
+        image4 = request.FILES.get('image4')
+        ref = item_ref(name)
+        new_product = Item.objects.create(
+            provider = provider,
+            name = name,
+            ref = ref,
+            description = description,
+            price = price,
+            image1 = image1,
+            image2 = image2,
+            image3 = image3,
+            image4 = image4,
+        )
 
-    new_product.save()
-    #new_product.image1.name.split('/')[-1]
-    #s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
-    
+        new_product.save()
+        new_product.image1.name.split('/')[-1]
+        s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
+        s3.upload_file(f'{new_product.image2}', 'bmiecommercebucket', f'media/{new_product.image2}')
+        
+        if(image3):
+            s3.upload_file(f'{new_product.image3}', 'bmiecommercebucket', f'media/{new_product.image3}')
 
-    if provider.label == 'company':
-        return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
+        if(image4):
+            s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
+
+        if provider.label == 'company':
+            return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
     
     return HttpResponseRedirect(reverse("core:profile"))
+
+
+def edit_product(request, product_id):
+    partner = get_partner(request)
+    if partner and partner.user == request.user:
+        product = get_object_or_404(Item, id = product_id)
+    else:
+        raise Http404    
+    
+    if request.method == 'POST':
+        product.name = request.POST['productName']
+        product.description = request.POST['productDescription']
+        product.price = request.POST['productPrice']
+        product.image1 = request.FILES['image1']
+        product.image2 = request.FILES.get('image2')
+        product.image3 = request.FILES.get('image3')
+        product.image4 = request.FILES.get('image4')
+        
+        provider = product.provider
+
+        product.save()
+        product.image1.name.split('/')[-1]
+        s3.upload_file(f'{product.image1}', 'bmiecommercebucket', f'media/{product.image1}')
+        s3.upload_file(f'{product.image2}', 'bmiecommercebucket', f'media/{product.image2}')
+        
+        if(product.image3):
+            s3.upload_file(f'{product.image3}', 'bmiecommercebucket', f'media/{product.image3}')
+
+        if(product.image4):
+            s3.upload_file(f'{product.image4}', 'bmiecommercebucket', f'media/{product.image4}')
+
+        if provider.label == 'company':
+            return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
+        
+        return HttpResponseRedirect(reverse("core:profile"))
+
+    return render(request,"core/edit_product.html" ,{
+        'item': core_views.item_data(product),
+    })
+
 
 def get_provider_items(request,provider_id):
     provider = get_object_or_404(Provider, id = provider_id)
@@ -152,6 +199,12 @@ def get_provider_items(request,provider_id):
     return JsonResponse({"items":items_data, "status":'success'})    
 
 
-
+def delete_product(request, product_id):
+    item = Item.objects.get(id = product_id)
+    if request.method == "POST":
+        item.delete()
+        return JsonResponse({'status':'success','message':'Produit Supprimé'})
+    return JsonResponse({'status':'error','message':'Bad request'})
+    
 
 

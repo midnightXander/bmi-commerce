@@ -8,7 +8,9 @@
 
     <div class="flex flex-wrap -mx-4">
         <div class="w-full md:w-2/3 px-4 mb-8">
-            <form id="checkoutForm" class="bg-white p-6 rounded-lg shadow-md animate-fadeIn">
+            <form id="checkoutForm" method="post" action="{% url 'core:order' %}"  class="bg-white p-6 rounded-lg shadow-md animate-fadeIn">
+                
+                {% csrf_token %}
                 <h3 class="text-xl font-semibold mb-4">Informations Client</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -46,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-
+                <input  type="hidden" name="cart_key"  value="{{cart_key}}" >
                 <button type="submit" class="mt-6 bg-[#5A0B29] text-white font-bold py-2 px-4 rounded-md hover:bg-opacity-90 transition duration-300">
                     Confirmer la Commande
                 </button>
@@ -92,12 +94,7 @@
         orderTotal.textContent = `${total.toFixed(2)} FCFA`;
     }
 
-    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Ici, vous enverriez normalement les données du formulaire à votre serveur
-        // Pour cette démonstration, nous allons simplement afficher une alerte
-        alert("Commande confirmée ! Merci pour votre achat.");
-    });
+    
 
     // Afficher le résumé de la commande au chargement de la page
     displayOrderSummary();

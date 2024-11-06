@@ -104,7 +104,11 @@
    
     
     <section class="items  mb-8 animate-fadeIn">
-            <h3 class="text-2xl font-semibold mb-4">Vos Produits</h3>
+            <div class="flex justify-between">
+                <span class="text-2xl flex justify-between font-semibold mb-4">Vos Produits</span>
+                <a href="#addProduct" class="bg-[#5A0B29] mb-2 flex items-center text-white font-bold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300">Ajouter</a>
+            </div>
+        
             <div class="overflow-x-auto">
                 <table class="w-full bg-white shadow-md rounded-lg">
                     <thead class="bg-gray-200">
@@ -120,8 +124,159 @@
                 </table>
             </div>
         </section>
+    
+    <!-- Orders Table -->
+    <h2 class="text-2xl font-bold text-[#5A0B29] mb-6">Vos dernieres commandes</h2>
+    <div class="bg-white rounded-lg shadow mb-4 overflow-hidden">
+       
+        <table class="w-full">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Produit
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Client
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Date
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Montant
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Status
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for order in orders %}
+                <!-- Order Row 1 -->
+                <tr class="order-card hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900">{{order.item.name}}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <svg class="w-8 h-8 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                            </svg>
+                              
+                            <!-- <img class="h-8 w-8 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt=""> -->
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">{{order.customer.name}}</div>
+                                <div class="text-sm text-gray-500">{{order.customer.email}}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900">{{order.timestamp}}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900">{{order.item.total}} FCFA</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            Completée
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 mr-3">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-900">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+                <!-- Order Row 2 -->
+                <!-- <tr class="order-card hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900">#ORD-2024-1235</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <svg class="w-8 h-8 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                            </svg>
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">Sarah Johnson</div>
+                                <div class="text-sm text-gray-500">sarah@example.com</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900">Jan 14, 2024</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="text-sm text-gray-900">1850.00 FCFA </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                            Pending
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 mr-3">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-900">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </td>
+                </tr> -->
 
-        <section class="bg-white p-6 rounded-lg shadow-md animate-fadeIn">
+                <!-- Add more order rows as needed -->
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex-1 flex justify-between sm:hidden">
+                    <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        Previous
+                    </button>
+                    <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        Next
+                    </button>
+                </div>
+                <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                    <div>
+                        <p class="text-sm text-gray-700">
+                            Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">97</span> results
+                        </p>
+                    </div>
+                    <div>
+                        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                            <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Previous</span>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                1
+                            </button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                2
+                            </button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                3
+                            </button>
+                            <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Next</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <section id="addProduct" class="bg-white p-6 rounded-lg shadow-md animate-fadeIn">
             <h3 class="text-2xl font-semibold mb-4">Ajouter un Nouveau Produit</h3>
             <form id="addProductForm" enctype="multipart/form-data" method="post" action = "{% url 'partner:add_product' %}" class="space-y-4">
                 {% csrf_token %}
@@ -147,9 +302,18 @@
                     <label for="image2" class="block text-gray-700 mb-2">Image 2</label>
                     <input type="file" id="image2" name="image2"  required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
                 </div>
-                <div>
-                    <span class="bg-[#5A0B29] text-white font-bold py-2 px-4 rounded-md hover:bg-opacity-90 hover:cursor-pointer transition duration-300"><i class="fas fa-plus" ></i></span>
+                <div class="mb-4">
+                    <label for="image3" class="block text-gray-700 mb-2">Image 3</label>
+                    <input type="file" id="image2" name="image2"  required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
                 </div>
+                <div class="mb-4">
+                    <label for="image4" class="block text-gray-700 mb-2">Image 4</label>
+                    <input type="file" id="image4" name="image4"  required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
+                </div>
+               
+                <!-- <div>
+                    <span class="bg-[#5A0B29] text-white font-bold py-2 px-4 rounded-md hover:bg-opacity-90 hover:cursor-pointer transition duration-300"><i class="fas fa-plus" ></i></span>
+                </div> -->
                 
 
 
@@ -159,6 +323,21 @@
             </form>
         </section>
 
+        <!-- Popup for deleting item -->
+<div id="deleteProductPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4">
+        <h2 class="text-2xl font-bold mb-4">Voulez vous supprimer ce produit?</h2>
+        
+        <div class="flex justify-between">
+            <button id="confirmInvite" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300">
+                <i class="fas fa-check mr-2"></i>Confirmer
+            </button>
+            <button id="cancelInvite" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300">
+                <i class="fas fa-times mr-2"></i>Annuler
+            </button>
+        </div>
+    </div>
+</div>
 
 
     {% endif %}
@@ -204,8 +383,8 @@
                             <td class="p-3">${product.name}</td>
                             <td class="p-3">${product.price.toFixed(2)} XAF</td>
                             <td class="p-3">
-                                <button onclick="editProduct(${product.id})" class="bg-blue-500 text-white px-2 py-1 rounded mr-2">Modifier</button>
-                                <button onclick="deleteProduct(${product.id})" class="bg-red-500 text-white px-2 py-1 rounded">Supprimer</button>
+                                <a href="/partner/products/edit/${product.id}" class="bg-blue-500 text-white px-2 py-1 rounded inline-block my-2 mr-2">Modifier</a>
+                                <a href="#" onclick="deleteProduct(${product.id})" class="bg-red-500 inline-block text-white px-2 py-1 rounded my-2">Supprimer</a>
                             </td>
                         `;
                         productList.appendChild(row);
@@ -246,8 +425,28 @@
 
     function deleteProduct(id) {
         if (confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
-            products = products.filter(p => p.id !== id);
-            displayProducts();
+            $.ajax({
+            url: `/partner/products/delete/${id}`,
+            type: 'POST',
+            data: { csrfmiddlewaretoken: '{{csrf_token}}' },
+            beforeSend: function(){
+
+            },
+            success : function(res){
+                if(res.status == 'success'){
+                    displayProducts();
+                }else{
+                    alert("Le produit n'a pas été supprimé")
+                }
+            },
+            complete: function(){
+
+            },
+            error:  function(jqXHR, textstatus, errorThrown){
+                console.log(textstatus, errorThrown)
+            }
+        })
+           
         }
     }
 

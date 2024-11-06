@@ -12,13 +12,14 @@ from django.db.models import Q,QuerySet
 import re
 import datetime
 import core.views as core_views
+from core.utility import *
 from django.core.serializers import serialize
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_exempt
 from partner.views import get_partner
 import uuid
-
-
+from django.core.files.storage import FileSystemStorage
+import yagmail
 
 def get_session_key(request):
     session = request.session
@@ -28,7 +29,7 @@ def get_session_key(request):
     else:
         session['cart_key'] = str(uuid.uuid4())
         session_key = session['cart_key']
-
+    
     return session_key
     
 
@@ -51,8 +52,27 @@ def item_data(item:Item):
             "name": item.provider.user.username,
             "product_type": item.provider.product_type,
             "phone_number": item.provider.phone_number,
+            'city': item.provider.city
         }
     }  
+
+def _order_item_data(order:Order,cartitem:CartItem):
+    _item_data = item_data(cartitem.item)
+    _item_data['quantity'] = cartitem.quantity
+    _item_data['total'] = cartitem.quantity * cartitem.item.price
+    return {
+        "order_id": order.id, 
+        "timestamp": order.date_ordered,
+        "customer":{
+            "name": f"{order.name} {order.surname}",
+            "address": order.adress,
+            "email": order.email,
+            "city":order.city,
+        },
+        "item":_item_data,
+
+    }
+
 
 def _provider_data(provider:Provider):
     return {
@@ -67,6 +87,22 @@ def _provider_data(provider:Provider):
 def index(request):
     
     return render(request,"core/index.html")
+
+def upload(request):
+    if request.method == 'POST':
+        file = request.FILES['file']
+        fs = FileSystemStorage()
+
+        try:
+            filename = fs.save(file.name, file)
+            file_url = fs.url(filename)
+            print(file_url)
+            return render(request, 'core/image_url.html', {
+                'file_url': file_url,
+            })
+        except Exception as e:
+            print(f'Error uploading to s3: {e}')
+    return render(request, 'core/upload.html')
 
 def products(request):
     products = []
@@ -92,9 +128,10 @@ def product(request, ref):
 
 def _get_cart_items(cart:Cart):
     cart_items = cart.items.all()
+    cart_items_data = []
     for item in cart_items:
         parsed_item = item_data(item)
-        cart_items_data = []
+       
         cart_items = cart.items.all()
         parsed_item['quantity'] = CartItem.objects.get(item = item,cart = cart).quantity
         cart_items_data.append(parsed_item)
@@ -192,17 +229,37 @@ def cart(request):
 def checkout(request):
     session_key = get_session_key(request)
     cart = Cart.objects.get(cart_key = session_key)
+    if len(cart.items.all()) == 0:
+        return render(request,'core/empty_cart.html')
+
 
     return render(request,"core/checkout.html", {
-        'products':_get_cart_items(cart)
+        'cart_key': cart.cart_key,
+        'products': _get_cart_items(cart)
     })
 
 def profile(request):
     
     provider = get_partner(request)
+    orders = []
+    all_orders = Order.objects.all().order_by('-date_ordered')
+    if provider:
+        provider_items = Item.objects.filter(provider = provider) 
+        for order in all_orders:
+            cartitems = CartItem.objects.filter(cart = order.cart) 
+            
+            for cartitem in cartitems:
+                print(cartitem.item.provider)
+                print(provider)
+                if cartitem.item.provider == provider:
+                    order_data = _order_item_data(order, cartitem)
+                    orders.append(order_data)
+
     
     return render(request,"core/profile.html", {
         "provider": provider,
+        "orders": orders[:10]
+
     })
 
 
@@ -272,3 +329,46 @@ def add_product(request):
         pass
     
     return render(request, "core/add_product.html")
+
+
+def order(request):
+    
+    if request.method == 'POST':
+        cart_key = request.POST['cart_key']
+        cart = Cart.objects.get(cart_key = cart_key)
+        name = request.POST['firstName']
+        surname = request.POST['lastName']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        city = request.POST['city']
+        adress = request.POST['address']
+
+        new_order = Order.objects.create(
+            name = name,
+            email = email,
+            surname = surname,
+            phone = phone,
+            adress = adress,
+            city = city,
+            cart = cart,
+        )
+
+        #NOTIFY PROVIDER(S) for each item in cart
+        items = CartItem.objects.filter(cart=cart)
+        for item in items:
+            send_order_email(item.item.provider.user.email, item, {
+                "name": f"{name} {surname}",
+                "email": email,
+                "phone": phone,
+                "city":city, 
+                "adress":adress
+            })
+
+        new_order.save()
+        message = {
+            'status': 'success',
+            'content': 'Votre commande a été enregistré, le fournisseur va vous contacter pour valider la commande'
+        }
+        return render(request,'core/order_finished.html', {
+            'message': message
+        })

@@ -11,6 +11,7 @@ class ItemColor(models.Model):
 
 
 
+
 class Item(models.Model):
     
     name = models.CharField(max_length=50)
@@ -32,7 +33,7 @@ class Item(models.Model):
     
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to = "items/images/")
+    image = models.ImageField(upload_to = "")
 
     def __str__(self):
         return f"{self.item.name}"    
@@ -69,4 +70,19 @@ class CartItem(models.Model):
 
     class Meta:
         unique_together = ('item','cart')
+
+
+class Order(models.Model):
+    email = models.CharField(max_length=50, default="", blank=True)
+    name = models.CharField(max_length=100)
+    surname = models.CharField(max_length=50)
+    phone = models.CharField(max_length=15)
+    adress = models.CharField(max_length=70)
+    city = models.CharField(max_length=50)
+    date_ordered = models.DateField(auto_now_add=True)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.name
 

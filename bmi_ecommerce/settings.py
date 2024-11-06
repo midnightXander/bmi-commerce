@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 from storages.backends.s3boto3 import S3Boto3Storage
 
@@ -25,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-vz6n^o6#_$(9a%7vwcf6al*a5#q32*n58l6fc)q=*hmxj^8caq'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-vz6n^o6#_$(9a%7vwcf6al*a5#q32*n58l6fc)q=*hmxj^8caq')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://bmisolutions.org']
@@ -108,19 +110,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 #S3 CONFIG FOR MEDIA FILES
-AWS_ACCESS_KEY_ID = 'AKIAZOZQF64DHJEIDS6R'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'bmiecommercebucket'
 AWS_S3_REGION_NAME = 'eu-north-1'
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_DEFAULT_ACL = 'public-read'
-# AWS_S3_VERITY = True
-
+AWS_S3_FILE_OVERWRITE = False
+#AWS_DEFAULT_ACL = 'public-read'
+AWS_DEFAULT_ACL = None
+AWS_S3_VERITY = True
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 
 
 # Optional: Set custom domain for static and media files
-# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 
 # Set the static and media files locations
@@ -138,13 +141,13 @@ class MediaStorage(S3Boto3Storage):
 
 # Configure static and media files storage
 #STATICFILES_STORAGE = 'bmi_ecommerce.settings.StaticStorage'
-DEFAULT_FILE_STORAGE = 'bmi_ecommerce.settings.MediaStorage'
+#DEFAULT_FILE_STORAGE = 'bmi_ecommerce.settings.MediaStorage'
 
 
 # Set static and media URLs
 # STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{STATICFILES_LOCATION}/'
-# MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.eu-north-1.amazonaws.com/{MEDIAFILES_LOCATION}/'
 MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{MEDIAFILES_LOCATION}/'
+#MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{MEDIAFILES_LOCATION}/'
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
@@ -153,8 +156,8 @@ STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 #MEDIA_URL = 'media/'
 #MEDIA_ROOT = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{MEDIAFILES_LOCATION}/'
 
-
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#DEFAULT_FILE_STORAGE = 'bmi_ecommerce.storage_backends.PublicMediaStorage'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
