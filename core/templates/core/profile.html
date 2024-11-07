@@ -120,7 +120,14 @@
                     </thead>
                     <tbody id="productList">
                         <!-- Les produits seront ajoutés ici dynamiquement -->
+                        
+                        <!-- <div class="text-center py-4">
+                            <i style="font-size: 30pt;" class="loader fas fa-spinner fa-spin text-[#5A0B29]"></i> 
+                            <span>chargement des produits...</span>
+                        </div> -->
+                         
                     </tbody>
+                    
                 </table>
             </div>
         </section>
@@ -278,7 +285,7 @@
     </div>
         <section id="addProduct" class="bg-white p-6 rounded-lg shadow-md animate-fadeIn">
             <h3 class="text-2xl font-semibold mb-4">Ajouter un Nouveau Produit</h3>
-            <form id="addProductForm" enctype="multipart/form-data" method="post" action = "{% url 'partner:add_product' %}" class="space-y-4">
+            <form  id="addProductForm" enctype="multipart/form-data" method="post" action = "{% url 'partner:add_product' %}" class="space-y-4">
                 {% csrf_token %}
                 <div class="mb-4">
                     <label for="productName" class="block text-gray-700 mb-2">Nom du Produit</label>
@@ -304,7 +311,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="image3" class="block text-gray-700 mb-2">Image 3</label>
-                    <input type="file" id="image2" name="image2"  required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
+                    <input type="file" id="image3" name="image2"  required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
                 </div>
                 <div class="mb-4">
                     <label for="image4" class="block text-gray-700 mb-2">Image 4</label>
@@ -354,13 +361,6 @@
 </script>
 <script>
     // Simuler des produits existants
-    let products = [
-        { id: 1, name: "Avoine", price: 14900 },
-        { id: 2, name: "Pack de chips", price: 10000 },
-        { id: 3, name: "Plantains", price: 8500 }
-    ];
-
-    
 
     const productList = document.getElementById('productList');
     const addProductForm = document.getElementById('addProductForm');
@@ -371,12 +371,14 @@
             url: '/partner/products/{{provider.id}}',
             type: 'GET',
             beforeSend: function(){
-
+                $('#loading-overlay').toggleClass('active')
+                
             },
             success : function(res){
                 if(res.status == 'success'){
                     const products = res.items
                     productList.innerHTML = '';
+                    
                     products.forEach(product => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
@@ -394,7 +396,7 @@
                 }
             },
             complete: function(){
-
+                $('#loading-overlay').toggleClass('active')
             },
             error:  function(jqXHR, textstatus, errorThrown){
                 console.log(textstatus, errorThrown)
@@ -404,14 +406,10 @@
        
     }
 
-    function addProduct(name, price) {
-        const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-        products.push({ id: newId, name, price });
-        displayProducts();
-    }
+    
 
     function editProduct(id) {
-        const product = products.find(p => p.id === id);
+        
         if (product) {
             const newName = prompt("Nouveau nom du produit:", product.name);
             const newPrice = prompt("Nouveau prix du produit:", product.price);
@@ -430,7 +428,7 @@
             type: 'POST',
             data: { csrfmiddlewaretoken: '{{csrf_token}}' },
             beforeSend: function(){
-
+                $('#loading-overlay').toggleClass('active')
             },
             success : function(res){
                 if(res.status == 'success'){
@@ -440,7 +438,7 @@
                 }
             },
             complete: function(){
-
+                $('#loading-overlay').toggleClass('active')
             },
             error:  function(jqXHR, textstatus, errorThrown){
                 console.log(textstatus, errorThrown)
@@ -450,12 +448,60 @@
         }
     }
 
-   
+   document.getElementById('addProductForm').addEventListener("submit",(e)=>{
+        e.preventDefault()
+        const productName = $('#productName').val()
+        const productDescription = $('#productDescription').val()
+        const productPrice = $('#productPrice').val()
+        const image1 = $('#image1')[0].files[0]
+        const image2 = $('#image2')[0].files[0]
+        const image3 = $('#image3')[0].files[0]
+        const image4 = $('#image4')[0].files[0]
+
+        const formData = new FormData()
+        formData.append('productName',productName)
+        formData.append('productDescription',productDescription)
+        formData.append('productPrice',productPrice)
+        formData.append('image1',image1)
+        formData.append('image2',image2)
+        formData.append('image3',image3)
+        formData.append('image4',image4)
+        formData.append('csrfmiddlewaretoken', '{{csrf_token}}')
+        
+        
+        $.ajax({
+            url:'/partner/products/add',
+            type : 'POST',
+            data : formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function(){
+                $('#loading-overlay').toggleClass('active')
+            },
+            success: function(res){
+                console.log(res)
+                if(res.status == 'success'){
+                    displayProducts()
+                }
+            },
+            complete: function(){
+                $('#loading-overlay').toggleClass('active')
+            },
+            error: function(jqXHR, textstatus,errorThrown){
+                alert(textstatus)
+                console.log(textstatus, errorThrown)
+            }
+            
+        })
+
+   })
 
     
     if(productList){
-        displayProducts(products);
+        displayProducts();
     }
+
+
     
 </script>
 

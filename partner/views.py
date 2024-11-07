@@ -108,19 +108,20 @@ def logout_view(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse("core:index"))
 
-async def upload_image_to_s3(image):
+def upload_image_to_s3(image):
     try:
-        await s3.upload_file(f'{image}', 'bmiecommercebucket', f'media/{image}')
+        s3.upload_file(f'{image}', 'bmiecommercebucket', f'media/{image}')
     except Exception as e:
         print(f'error uploading file: {e}')    
 
 def add_product(request):
     provider = get_partner(request)
     if request.method ==  "POST":
+        
         name = request.POST['productName']
         description = request.POST['productDescription']
         price = request.POST['productPrice']
-        image1 = request.FILES['image1']
+        image1 = request.FILES.get('image1')
         image2 = request.FILES.get('image2')
         image3 = request.FILES.get('image3')
         image4 = request.FILES.get('image4')
@@ -157,9 +158,9 @@ def add_product(request):
             #s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
 
         if provider.label == 'company':
-            return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
+            return JsonResponse({'status': 'success','label':'company'})     
     
-    return HttpResponseRedirect(reverse("core:profile"))
+    return JsonResponse({'status': 'success'})
 
 
 def edit_product(request, product_id):

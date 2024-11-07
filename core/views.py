@@ -249,8 +249,7 @@ def profile(request):
             cartitems = CartItem.objects.filter(cart = order.cart) 
             
             for cartitem in cartitems:
-                print(cartitem.item.provider)
-                print(provider)
+                
                 if cartitem.item.provider == provider:
                     order_data = _order_item_data(order, cartitem)
                     orders.append(order_data)
