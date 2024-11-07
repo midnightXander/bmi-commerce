@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-vz6n^o6#_$(9a%7vwcf6al*a5#q32*n58l6fc)q=*hmxj^8caq')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://bmisolutions.org']
@@ -112,7 +112,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 #S3 CONFIG FOR MEDIA FILES
-
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'bmiecommercebucket'
 AWS_S3_REGION_NAME = 'eu-north-1'
 AWS_S3_FILE_OVERWRITE = False
