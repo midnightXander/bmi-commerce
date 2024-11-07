@@ -322,6 +322,7 @@ def admin_dashboard(request):
         'company_products': company_products_data,
 
     })
+
 @login_required
 def add_product(request):
     if request.method == 'POST':

@@ -117,7 +117,7 @@ def upload_image_to_s3(image):
 def add_product(request):
     provider = get_partner(request)
     if request.method ==  "POST":
-        
+        print("getting info...")
         name = request.POST['productName']
         description = request.POST['productDescription']
         price = request.POST['productPrice']
@@ -137,24 +137,27 @@ def add_product(request):
             image3 = image3,
             image4 = image4,
         )
+        print("stored info...")
 
         new_product.save()
         new_product.image1.name.split('/')[-1]
 
         upload_image_to_s3(new_product.image1)
-        upload_image_to_s3(new_product.image2)
-        
+        #upload_image_to_s3(new_product.image2)
+        print("uploaded to s3")
 
         # s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
         # s3.upload_file(f'{new_product.image2}', 'bmiecommercebucket', f'media/{new_product.image2}')
         
         if(image3):
-            upload_image_to_s3(new_product.image3)
+            pass
+            #upload_image_to_s3(new_product.image3)
 
             #s3.upload_file(f'{new_product.image3}', 'bmiecommercebucket', f'media/{new_product.image3}')
 
         if(image4):
-            upload_image_to_s3(new_product.image4)
+            pass
+            #upload_image_to_s3(new_product.image4)
             #s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
 
         if provider.label == 'company':
