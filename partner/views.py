@@ -98,7 +98,7 @@ def login(request):
             auth.login(request,user_auth)
             #return HttpResponseRedirect(reverse("core:profile"))
         else:
-            messages.error(request,"Incorrect Password")
+            messages.error(request,"Mot de passe incorrect")
             
 
 
