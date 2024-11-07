@@ -138,7 +138,7 @@ def add_product(request):
             image4 = image4,
         )
         print("stored info...")
-
+        print(os.environ.get('AWS_ACCESS_KEY_ID'))
         new_product.save()
         new_product.image1.name.split('/')[-1]
 
