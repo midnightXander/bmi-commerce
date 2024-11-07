@@ -108,6 +108,12 @@ def logout_view(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse("core:index"))
 
+async def upload_image_to_s3(image):
+    try:
+        await s3.upload_file(f'{image}', 'bmiecommercebucket', f'media/{image}')
+    except Exception as e:
+        print(f'error uploading file: {e}')    
+
 def add_product(request):
     provider = get_partner(request)
     if request.method ==  "POST":
@@ -133,14 +139,22 @@ def add_product(request):
 
         new_product.save()
         new_product.image1.name.split('/')[-1]
-        s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
-        s3.upload_file(f'{new_product.image2}', 'bmiecommercebucket', f'media/{new_product.image2}')
+
+        upload_image_to_s3(new_product.image1)
+        upload_image_to_s3(new_product.image2)
+        
+
+        # s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
+        # s3.upload_file(f'{new_product.image2}', 'bmiecommercebucket', f'media/{new_product.image2}')
         
         if(image3):
-            s3.upload_file(f'{new_product.image3}', 'bmiecommercebucket', f'media/{new_product.image3}')
+            upload_image_to_s3(new_product.image3)
+
+            #s3.upload_file(f'{new_product.image3}', 'bmiecommercebucket', f'media/{new_product.image3}')
 
         if(image4):
-            s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
+            upload_image_to_s3(new_product.image4)
+            #s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
 
         if provider.label == 'company':
             return HttpResponseRedirect(reverse("core:ecommerce_dashboard"))     
