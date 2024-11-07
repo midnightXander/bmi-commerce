@@ -470,7 +470,7 @@
         
         
         $.ajax({
-            url:'/partner/products/add',
+            url:"{% url 'partner:add_product' %}",
             type : 'POST',
             data : formData,
             contentType: false,
@@ -488,7 +488,7 @@
                 $('#loading-overlay').toggleClass('active')
             },
             error: function(jqXHR, textstatus,errorThrown){
-                alert(textstatus)
+                alert(errorThrown)
                 console.log(textstatus, errorThrown)
             }
             
