@@ -19,9 +19,16 @@ from core.utility import *
 import boto3
 
 
+# s3 = boto3.client( 's3',
+#     aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
+#     aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY'),
+#     region_name = 'eu-north-1'
+
+# )
+
 s3 = boto3.client( 's3',
-    aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY'),
+    aws_access_key_id = 'AKIAZOZQF64DMVQENXWY',
+    aws_secret_access_key = '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',
     region_name = 'eu-north-1'
 
 )
@@ -111,7 +118,9 @@ def logout_view(request):
 
 def upload_image_to_s3(image):
     try:
-        s3.upload_file(f'{image}', 'bmiecommercebucket', f'media/{image}')
+        print(image)
+        s3.upload_file(f'media/{image}', 'bmiecommercebucket', f'media/{image}')
+        print('uploaded to s3')
     except Exception as e:
         print(f'error uploading file: {e}')    
 
@@ -145,7 +154,7 @@ def add_product(request):
 
         upload_image_to_s3(new_product.image1)
         #upload_image_to_s3(new_product.image2)
-        print("uploaded to s3")
+        
 
         # s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
         # s3.upload_file(f'{new_product.image2}', 'bmiecommercebucket', f'media/{new_product.image2}')
