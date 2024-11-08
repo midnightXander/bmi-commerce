@@ -19,19 +19,13 @@ from core.utility import *
 import boto3
 
 
-# s3 = boto3.client( 's3',
-#     aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
-#     aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY'),
-#     region_name = 'eu-north-1'
-
-# )
-
 s3 = boto3.client( 's3',
-    aws_access_key_id = 'AKIAZOZQF64DMVQENXWY',
-    aws_secret_access_key = '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',
+    aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY'),
     region_name = 'eu-north-1'
 
 )
+
 
 
 def get_partner(request):
