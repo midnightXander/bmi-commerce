@@ -46,6 +46,7 @@ def item_data(item:Item):
         "image3": item.image3.url if item.image3 else None,
         "image4": item.image4.url if item.image4 else None,
         'status': 'Approuvé' if item.approved else 'En attente',
+        'timestamp': item.date_added,
         "provider": {
             "label": item.provider.label,
             "id": item.provider.id,
@@ -106,7 +107,7 @@ def upload(request):
 
 def products(request):
     products = []
-    for item in Item.objects.all().order_by('-date_added'):
+    for item in Item.objects.filter(approved = True).order_by('-date_added'):
         products.append(item_data(item))
     
     return render(request,"core/products.html", {
@@ -294,6 +295,10 @@ def admin_login(request):
 
 @login_required
 def admin_dashboard(request):
+    provider = Provider.objects.get(user = request.user)
+    if provider.label != 'company':
+        raise Http404
+
     partner_products = Item.objects.filter(provider__label = 'partners')
     company_products = Item.objects.filter(provider__label = 'company')
     partner_products_data = []
@@ -310,18 +315,58 @@ def admin_dashboard(request):
     for partner in partners:
         partners_data.append(_provider_data(partner))    
 
-    
-    
-
     if request.method == 'POST':
-        pass
+        
+        action = request.POST['action']
+        if action == 'product_approval':
+            approved =  request.POST.get('approved')
+            product_id = request.POST.get('product_id')
+            try:
+                item = Item.objects.get(id = product_id)
+                item.approved = approved
+                if approved: 
+                    statusText='Approuvé'
+                    #send_email to notify partner 
+                else: 
+                    statusText = 'Rejeté'
+                    #send email to tell partner what to change
 
-    return render(request,"core/admin.html",{
+                return JsonResponse({'status':'success','statusText':statusText, 'message':"Le produit a été approuvé avec succes" })    
+            except Exception as e:
+                return JsonResponse({'status':'error','message':"Le produit n'existe pas" })    
+    
+    
+
+    
+
+    return render(request,"core/admin/dashboard.html",{
         'partners' : partners_data, 
         'partner_products': partner_products_data,
         'company_products': company_products_data,
 
     })
+
+def approve_product(request):
+    if request.method == 'POST':
+        
+        action = request.POST['action']
+        if action == 'product_approval':
+            
+            approved =  int(request.POST.get('approved'))
+            approved = bool(approved)
+            
+            product_id = request.POST.get('product_id')
+            try:
+                item = Item.objects.get(id = product_id)
+                item.approved = approved
+                if approved: statusText='Approuvé'
+                else: statusText = 'Rejeté'
+                item.save()
+
+                return JsonResponse({'status':'success','statusText':statusText, 'message':"Le status du  produit a été modifier avec succes" })    
+            except Exception as e:
+                print(f"an error occured: {e}")
+                return JsonResponse({'status':'error','message':"Le produit n'existe pas" })    
 
 @login_required
 def add_product(request):
@@ -329,6 +374,17 @@ def add_product(request):
         pass
     
     return render(request, "core/add_product.html")
+@login_required
+def review_product(request, item_id):
+    provider = Provider.objects.get(user = request.user)
+    if provider.label != 'company':
+        raise Http404
+        
+    item = get_object_or_404(Item, id = item_id)
+
+    return render(request, "core/admin/product.html",{
+        'item': item_data(item)
+    })
 
 
 def order(request):

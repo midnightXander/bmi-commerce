@@ -17,7 +17,9 @@ from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_exempt
 from core.utility import *
 import boto3
+from dotenv import load_dotenv
 
+load_dotenv()
 
 s3 = boto3.client( 's3',
     aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
@@ -142,7 +144,7 @@ def add_product(request):
             image4 = image4,
         )
         print("stored info...")
-        print(os.environ.get('AWS_SECRET_ACCESS_KEY'))
+    
         new_product.save()
         new_product.image1.name.split('/')[-1]
 
@@ -154,18 +156,20 @@ def add_product(request):
         # s3.upload_file(f'{new_product.image2}', 'bmiecommercebucket', f'media/{new_product.image2}')
         
         if(image3):
-            pass
-            #upload_image_to_s3(new_product.image3)
+            
+            upload_image_to_s3(new_product.image3)
 
             #s3.upload_file(f'{new_product.image3}', 'bmiecommercebucket', f'media/{new_product.image3}')
 
         if(image4):
             pass
-            #upload_image_to_s3(new_product.image4)
+            upload_image_to_s3(new_product.image4)
             #s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
 
         if provider.label == 'company':
-            return JsonResponse({'status': 'success','label':'company'})     
+            return JsonResponse({'status': 'success','label':'company'}) 
+        else:
+            send_new_product_email(new_product)    
     
     return JsonResponse({'status': 'success'})
 
@@ -184,7 +188,7 @@ def edit_product(request, product_id):
         product.image1 = request.FILES['image1']
         product.image2 = request.FILES.get('image2')
         product.image3 = request.FILES.get('image3')
-        product.image4 = request.FILES.get('image4')
+        # product.image4 = request.FILES.get('image4')
         
         provider = product.provider
 

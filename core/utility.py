@@ -27,7 +27,42 @@ def item_ref(item_name:str):
     
     return ref
 
+def send_new_product_email(item:Item):
+    sender_adress = os.environ['BMI_EMAIL']
+    _pwd = os.environ['EMAIL_PWD']
+    contact_address = os.environ['CONTACT_EMAIL']
+    html_content = f"""
+        <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvau produit ajouté</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+<p>Un nouveau produit a été ajouté et a besoin d'etre validé:  {item}</p>
+<p style="color: #666666; font-size: 16px; margin: 0 0 20px 0;">
+{item.date_added},
+</p>
+<p style="color: #666666; font-size: 16px; margin: 0 0 20px 0;">
+{item.provider.name},
+</p>
+<a  href='https://bmisolutions.org/ecommerce/admin/review/product/{item.id}'>Verifier le produit</a>
+</body>
+</html>
+    
+    """
 
+    try:
+        with yagmail.SMTP(sender_adress, _pwd) as yag:
+            yag.send(
+                to=contact_address,
+                subject="Nouveau produit ajouté",
+                contents=html_content
+            )
+            print(f"email sent to {contact_address}")
+    except Exception as e:
+        print(f"An error occured: {e}")
 
 def send_order_email(email,cart_item:CartItem,customer_data:dict):
     
