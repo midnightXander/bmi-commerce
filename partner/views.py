@@ -149,7 +149,7 @@ def add_product(request):
         new_product.image1.name.split('/')[-1]
 
         upload_image_to_s3(new_product.image1)
-        #upload_image_to_s3(new_product.image2)
+        upload_image_to_s3(new_product.image2)
         
 
         # s3.upload_file(f'{new_product.image1}', 'bmiecommercebucket', f'media/{new_product.image1}')
