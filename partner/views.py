@@ -167,6 +167,8 @@ def add_product(request):
             #s3.upload_file(f'{new_product.image4}', 'bmiecommercebucket', f'media/{new_product.image4}')
 
         if provider.label == 'company':
+            new_product.approved = True
+            new_product.save()
             return JsonResponse({'status': 'success','label':'company'}) 
         else:
             send_new_product_email(new_product)    

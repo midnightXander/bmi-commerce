@@ -50,7 +50,7 @@ def item_data(item:Item):
         "provider": {
             "label": item.provider.label,
             "id": item.provider.id,
-            "name": item.provider.user.username,
+            "name": item.provider.name,
             "product_type": item.provider.product_type,
             "phone_number": item.provider.phone_number,
             'city': item.provider.city

@@ -1,6 +1,22 @@
 {% extends "core/base.html" %}
 {% load static %}
 
+{% block meta_keywords %}
+Vente en ligne Cameroun Site E-commerce Cameroun
+Boutique de Produits Innovant  
+{% for product in products %}
+ - {{product}} - 
+{% endfor %}
+
+{% endblock meta_keywords %}
+
+
+{% block meta_description}
+Page de presentation des produits en vente sur la partie E-commerce du site de l'entreprise Business Management and Innovation dirigée par le coach Martial Novalis 
+On peut ansi visualiser, voir en details les produits et passer une commande
+{% endblock meta_description %}
+
+
 
 {% block content %}
 <main class="container mx-auto px-6 py-8">

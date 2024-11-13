@@ -1,6 +1,16 @@
 {% extends "core/base.html" %}
 {% load static %}
 
+{% block meta_keywords %}
+{{product.name}} produit
+{% endblock meta_keywords %}
+
+
+{% block meta_description}
+{{product.description}}
+{% endblock meta_description %}
+
+
 
 {% block content %}
 <main class="container mx-auto px-6 py-8">
