@@ -85,6 +85,11 @@ def _provider_data(provider:Provider):
         'label':provider.label,
     }
 
+def n_cart_items(request):
+    session_key = get_session_key(request)
+    cart = Cart.objects.filter(cart_key = session_key)
+    return len(cart[0].items.all()) if cart else 0
+
 def index(request):
     
     return render(request,"core/index.html")
@@ -109,22 +114,31 @@ def products(request):
     products = []
     for item in Item.objects.filter(approved = True).order_by('-date_added'):
         products.append(item_data(item))
+
+    
+    
     
     return render(request,"core/products.html", {
         "products": products,
+        'n_cart_items': n_cart_items(request),
     })
 
 def services(request):
-    return render(request, "core/services.html")
+    return render(request, "core/services.html",{
+        'n_cart_items': n_cart_items(request),
+    })
 
 def team(request):
-    return render(request, "core/team.html")
+    return render(request, "core/team.html",{
+        'n_cart_items': n_cart_items(request),
+    })
 
 def product(request, ref):
     item = get_object_or_404(Item, ref = ref)
    
     return render(request,"core/product.html", {
-        'product': item_data(item)
+        'product': item_data(item),
+        'n_cart_items': n_cart_items(request),
     })
 
 def _get_cart_items(cart:Cart):
@@ -153,7 +167,7 @@ def add_to_cart(request, item_id):
         
         cart.items.add(item)
         cart.save()
-        return JsonResponse({'status':'success', 'message':'Ajouté a votre panier'})
+        return JsonResponse({'status':'success', 'message':'Ajouté a votre panier', 'cart_items': len(cart.items.all())})
         # else:
         #     return JsonResponse({'status':'failure', 'message':"Le produit n'a pas été ajouté a votre panier"})
 def remove_from_cart(request, item_id):
@@ -225,18 +239,22 @@ def cart(request):
 
     return render(request,"core/cart.html", {
         'products':cart_items_data,
+        'n_cart_items': n_cart_items(request),
     })
 
 def checkout(request):
     session_key = get_session_key(request)
     cart = Cart.objects.get(cart_key = session_key)
     if len(cart.items.all()) == 0:
-        return render(request,'core/empty_cart.html')
+        return render(request,'core/empty_cart.html',{
+            'n_cart_items': n_cart_items(request),
+        })
 
 
     return render(request,"core/checkout.html", {
         'cart_key': cart.cart_key,
-        'products': _get_cart_items(cart)
+        'products': _get_cart_items(cart),
+        'n_cart_items': n_cart_items(request),
     })
 
 def profile(request):
@@ -258,7 +276,8 @@ def profile(request):
     
     return render(request,"core/profile.html", {
         "provider": provider,
-        "orders": orders[:10]
+        "orders": orders[:10],
+        'n_cart_items': n_cart_items(request),
 
     })
 

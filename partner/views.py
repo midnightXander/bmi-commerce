@@ -18,6 +18,7 @@ from django.views.decorators.csrf import csrf_exempt
 from core.utility import *
 import boto3
 from dotenv import load_dotenv
+import string,random,secrets
 
 load_dotenv()
 
@@ -38,9 +39,93 @@ def get_partner(request):
 
     return provider    
 
+def generate_reset_key():
+    """Function to generate a key that is used to  let users reset their passwords for a certain time"""
+    key = "".join(random.choices(string.ascii_letters + string.digits, k=16))
+    return key
+
+def password_recover(request):
+    if request.method == "POST":
+        user_data = request.POST['user_data']
+        
+        user = User.objects.filter(Q(username = user_data) | Q(email = user_data)) 
+        if len(user)>0:
+            
+            #send email with link
+            user = user[0]
+            user_email = user.email
+            try:
+                provider = Provider.objects.get(user = user)
+                code = PasswordRecoveryCode.objects.create(key = generate_reset_key(), provider = provider)
+                link = f"https://bmisolutions.org/partner/accounts/password/reset?k={code.key}"
+                print(f"sent {link} to {user_email}")
+                code.save()
+                
+                #sendResetPasswordLink(user_email)                
+                messages.success(request, f"Un lien a été  envoyé a {user_email}")
+            except Exception as e:
+                print(f"Error in sending link to {user_email}: {e}") 
+                messages.error(request, "Une erreur s'est produite pendant l'envoie du mail")   
+        else:
+            messages.error(request, "Aucun Partenaire n'a été trouvé avec ce nom ou email")
+
+    return render(request, "partner/accounts/password_recover.html")
+
+def password_reset(request):
+    
+    key = request.GET.get('k')
+    
+    code = get_object_or_404(PasswordRecoveryCode,key = key)
+    
+    #get the difference in days since created and delete if greater than or equal to 1
+    now = timezone.now()
+    difference = now - code.date_created
+
+    days = difference.days
+    if days >=1:
+        code.delete()
+        raise Http404
+        # validity = {
+        #     'value': False,
+        #     'message':"ce lien n'est plus valid"
+        # }
+    if key:
+        provider = code.provider
+        user = provider.user
+        if request.method == 'POST':
+            new_password = request.POST['new_password']
+            new_password2 = request.POST['new_password2']
+
+            if new_password == new_password2:
+                if len(new_password) < 8:
+                    messages.error(request, 'Le mot de passe doit contenir au moins 8 charactere')
+                    #return redirect(f'/partner/accounts/password/reset?k={key}')
+                
+                else:    
+                    user.set_password(new_password)
+                    user.save()
+                    messages.success(request, "Votre Mot de passe a été changé avec succès")
+                    code.delete()
+
+                    return redirect('/profile')
+            else:
+                messages.error(request, 'Les mot de passe ne sont pas identiques')
+                #return redirect(f'/users/password/reset?k={key}')
+
+
+        return render(request, "partner/accounts/password_reset.html",{
+            "validity":True,
+            'key': key,
+            
+        })
+    else:
+        print("No key")
+        raise Http404
+
 
 def register(request, referall_code = ""):
     if request.method == "POST":
+        print('creating account...')
         name = request.POST["companyName"]
         email = request.POST['email']
         city = request.POST['city']
@@ -53,10 +138,12 @@ def register(request, referall_code = ""):
 
         if(password1 == password2):
             if User.objects.filter(email=email).exists():
-                messages.info(request,"L'email est déja pris")
+                messages.info(request,"un compte avec cet email existe déja")
+                print('email exist deja...')
                 return HttpResponseRedirect(reverse("core:profile"))
             elif User.objects.filter(username=name).exists():
-                messages.error(request,"une entreprise avec ce nom a déja été enrigistrer")
+                messages.error(request,"un partenaire avec ce nom a déja été enrigistrer")
+                print('name in use...')
                 return HttpResponseRedirect(reverse("core:profile"))
             else:        
                 new_user = User.objects.create_user(username=name,email=email,password=password1)
@@ -82,12 +169,14 @@ def register(request, referall_code = ""):
 
         else:
             messages.error(request,"Les mots de passes ne sont pas identiques")    
-            
+            print("passwords don't match...")
     return HttpResponseRedirect(reverse("core:profile"))
 
 
 def login(request):
+
     if request.method == "POST":
+        print('logging in...')
         email = request.POST["email"]
         password = request.POST["password"]
 
@@ -95,6 +184,7 @@ def login(request):
             user = User.objects.get(email=email)
         except:
             messages.error(request,"Aucun compte avec ces informations")
+            print('No account with these infos...')
             return HttpResponseRedirect(reverse("core:profile")) 
         
         user_auth = auth.authenticate(username=user.username,password=password)
@@ -102,6 +192,7 @@ def login(request):
             auth.login(request,user_auth)
             #return HttpResponseRedirect(reverse("core:profile"))
         else:
+            print('incorrect passwords...')
             messages.error(request,"Mot de passe incorrect")
             
 

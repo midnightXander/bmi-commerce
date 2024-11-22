@@ -1,6 +1,8 @@
 {% extends "core/base.html" %}
 {% load static %}
 
+{% block title %} {{product.name}} {% endblock title %}
+
 {% block meta_keywords %}
 {{product.name}} produit
 {% endblock meta_keywords %}
@@ -171,6 +173,7 @@
                 console.log(res)
                 if(res.status == 'success'){
                     alert(res.message)
+                    $('#n_cart_items').text(res.cart_items)
                 }else{
                     alert(res.message)
                 }
