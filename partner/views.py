@@ -84,6 +84,7 @@ def password_reset(request):
     days = difference.days
     if days >=1:
         code.delete()
+        print("deleted code")
         raise Http404
         # validity = {
         #     'value': False,
@@ -98,8 +99,8 @@ def password_reset(request):
 
             if new_password == new_password2:
                 if len(new_password) < 8:
-                    messages.error(request, 'Le mot de passe doit contenir au moins 8 charactere')
-                    #return redirect(f'/partner/accounts/password/reset?k={key}')
+                    messages.error(request, 'Le mot de passe doit contenir au moins 8 caractères')
+                    return redirect(f'/partner/accounts/password/reset?k={key}')
                 
                 else:    
                     user.set_password(new_password)
@@ -110,7 +111,7 @@ def password_reset(request):
                     return redirect('/profile')
             else:
                 messages.error(request, 'Les mot de passe ne sont pas identiques')
-                #return redirect(f'/users/password/reset?k={key}')
+                return redirect(f'/partner/accounts/password/reset?k={key}')
 
 
         return render(request, "partner/accounts/password_reset.html",{
