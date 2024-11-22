@@ -27,6 +27,39 @@ def item_ref(item_name:str):
     
     return ref
 
+def send_reset_password_link(link, email):
+    sender_adress = os.environ['BMI_EMAIL']
+    _pwd = os.environ['EMAIL_PWD']
+    html_content = f"""
+        <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changer de mot de passe</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+
+<p style="color: #666666; font-size: 16px; margin: 0 0 20px 0;">
+Cliquez sur le lien pour changer votre mot de passe
+</p>
+<a  href='{link}'>Changer de mot de passe</a>
+</body>
+</html>
+    
+    """
+
+    try:
+        with yagmail.SMTP(sender_adress, _pwd) as yag:
+            yag.send(
+                to=email,
+                subject="Changer de mot de passe",
+                contents=html_content
+            )
+            print(f"email sent to {email}")
+    except Exception as e:
+        print(f"An error occured while sending email: {e}")
+
 def send_new_product_email(item:Item):
     sender_adress = os.environ['BMI_EMAIL']
     _pwd = os.environ['EMAIL_PWD']

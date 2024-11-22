@@ -58,7 +58,7 @@ def password_recover(request):
                 provider = Provider.objects.get(user = user)
                 code = PasswordRecoveryCode.objects.create(key = generate_reset_key(), provider = provider)
                 link = f"https://bmisolutions.org/partner/accounts/password/reset?k={code.key}"
-                print(f"sent {link} to {user_email}")
+                send_reset_password_link(link, user_email)
                 code.save()
                 
                 #sendResetPasswordLink(user_email)                
