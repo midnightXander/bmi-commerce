@@ -92,7 +92,16 @@ def n_cart_items(request):
 
 def index(request):
     
-    return render(request,"core/index.html")
+    return render(request,"core/index.html",{
+            'n_cart_items': n_cart_items(request),
+        })
+
+def contact(request):
+    return render(request,"core/contact.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        }
+    )
 
 def upload(request):
     if request.method == 'POST':
@@ -318,8 +327,8 @@ def admin_dashboard(request):
     if provider.label != 'company':
         raise Http404
 
-    partner_products = Item.objects.filter(provider__label = 'partners')
-    company_products = Item.objects.filter(provider__label = 'company')
+    partner_products = Item.objects.filter(provider__label = 'partners').order_by('-date_added')
+    company_products = Item.objects.filter(provider__label = 'company').order_by('-date_added')
     partner_products_data = []
     company_products_data = []
     for product in partner_products:

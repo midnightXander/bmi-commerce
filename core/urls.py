@@ -11,6 +11,7 @@ urlpatterns = [
     path('produits',views.products, name='products'),
     path('produits/<str:ref>',views.product, name='product'),
     path('profile',views.profile, name='profile'),
+    path('contact',views.contact, name='contact'),
     path('cart',views.cart, name='cart'),
     path('cart/add_item/<int:item_id>',views.add_to_cart, name='add_to_cart'),
     path('cart/remove_item/<int:item_id>',views.remove_from_cart, name='remove_from_cart'),

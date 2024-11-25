@@ -1,0 +1,68 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %} Contactez-nous {% endblock title %}
+
+{% block meta_keywords %}
+Business Management Service Vente Cameroun vente en ligne business consulting
+Immigration en allemagne formation professionel 
+{% endblock meta_keywords %}
+
+
+{% block meta_description %}
+La page de connexion pour un partenaire vendeur de  l'entreprise BMI,
+si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interface de gestion de ses produits ou il peut ajouter, modifer, supprimer et gerer ses commandes
+{% endblock meta_description %}
+
+{% block content %}
+
+
+
+<main>
+    <section class="py-20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold tcolor text-center mb-12 hidden-element">Envoyez nous un message</h2>
+            <p class="text-center font-semibold p-4 rounded-lg mb-4 border-1 border-[#5A0B29] ">Nos experts vous répondrons sous 48h au plus</p>
+            
+            <form id="emailForm" class="max-w-lg mx-auto mb-4 ">
+                <div class="mb-4">
+                    <label for="name" class="block mb-2">Nom</label>
+                    <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required>
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block mb-2">Numero de telephone</label>
+                    <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required></textarea>
+                </div>
+                <button type="submit" class="bg-[#5A0B29] text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300 w-full">Envoyer</button>
+            </form>
+            
+            <div class="p-4 text-white bg-[#5A0B29] rounded-lg max-w-lg mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 hidden-element">Cordonées</h2>
+
+                <div class="mt-4 flex flex-col space-y-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-2"></i>00237 675 94 90 69</a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-2"></i>00237 689 79 19 07</a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-2"></i>00352 661 810 304</a>
+                    <br>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-envelope mr-2"></i>contact@bmisolutions.org</a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-map-marker-alt mr-2"></i>Luxembourg, luxembourg</a>
+
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+</main>
+
+
+
+{% endblock content %}
