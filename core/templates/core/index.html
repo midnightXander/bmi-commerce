@@ -13,29 +13,80 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
 {% endblock meta_description %}
 
 {% block content %}
- <!-- Hero Section -->
- <!-- <div class="cover">
-    <div class="container mx-auto px-6  py-16 text-center">
-        <h2 class="text-4xl font-bold mb-2 text-gray-100">Summer Collection 2023</h2>
-        <h3 class="text-2xl mb-8 text-gray-100">Discover timeless elegance</h3>
-        <button class="bg-[#5A0B29] text-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-gray-800 transition-smooth">
-            Shop Now
-        </button>
-    </div>
-</div> -->
+<style>
 
-<!-- <section id="home" class="hero-bg py-40">
-    <div class="container mx-auto text-center">
-        <div class="bg-white bg-opacity-80 p-8 rounded-lg inline-block" style='opacity: 0.9;'>
-            <h2 class="text-4xl font-bold mb-4 animate-fadeIn text-[#5A0B29]">
-                 Business Management and Innovation       
-            </h2>
-            <p class="text-xl mb-8 animate-fadeIn text-gray-800">Explorez nos services</p>
-            <a href="/services" class="bg-[#5A0B29] text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Nos Services</a>
-        </div>
-    </div>
-</section> -->
+    .slogan-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
 
+    .slogan {
+        width: calc(33.333% - 20px);
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .slogan:hover {
+        transform: translateY(-5px);
+    }
+
+    .slogan-bg {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease;
+    }
+
+    .slogan:hover .slogan-bg {
+        transform: scale(1.1);
+    }
+
+    .slogan-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(133, 10, 57, 0.644);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        color: white;
+    }
+
+    .slogan-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .slogan-text {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+        .slogan {
+            width: calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .slogan {
+            width: 100%;
+        }
+    }
+</style>
 
 <main>
     <!-- Home section remains unchanged -->
@@ -47,8 +98,8 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
         </div>
         <div class="carousel-inner">
           <div class="carousel-item relative active">
-            <img class="bd-placeholder-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%">
-            <!-- <img class="bd-placeholder-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
+            <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%">
+            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
             <div class="container">
                 
@@ -66,8 +117,8 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
             </div>
           </div>
           <div class="carousel-item relative ">
-            <img class="bd-placeholder-img" src="https://cbdmi.org/wp-content/uploads/2023/09/african-american-business-woman-working-computer-bar-scaled.jpg" width="100%" height="100%">
-            <!-- <img class="bd-placeholder-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
+            <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/african-american-business-woman-working-computer-bar-scaled.jpg" width="100%" height="100%">
+            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
             <div class="container">
                 
@@ -85,8 +136,8 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
             </div>
           </div>
           <div class="carousel-item relative ">
-            <img class="bd-placeholder-img" src="https://cbdmi.org/wp-content/uploads/2023/10/businessman-with-chart-1-scaled-e1697967648346.jpg" width="100%" height="100%">
-            <!-- <img class="bd-placeholder-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
+            <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/10/businessman-with-chart-1-scaled-e1697967648346.jpg" width="100%" height="100%">
+            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
             <div class="container">
                 
@@ -198,7 +249,35 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
             </div>
         </div>
     </section>
+  
+    <section class="slogan-section bg-[#FFFAF6]">
+        <div class="slogan">
+            <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
+            <div class="slogan-overlay">
+                <h2 class="slogan-title">Valeurs</h2>
+                <p class="slogan-text">Le professionalisme, lengagement et l'envie
 
+                </p>
+            </div>
+        </div>
+        <div class="slogan">
+            <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
+            <div class="slogan-overlay">
+                <h2 class="slogan-title">Passion</h2>
+                <p class="slogan-text">Apporter des solutions qui vont au-dela des attentes de nos partenaires, collaborateurs et clients</p>
+            </div>
+        </div>
+        <div class="slogan">
+            <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
+            <div class="slogan-overlay">
+                <h2 class="slogan-title">Innovation</h2>
+                <p class="slogan-text">
+                    Apporter de nouvelles solutions qui répondent aux attentes spécifiques de nos clients
+                </p>
+            </div>
+        </div>
+    </section>
+    
     <section id="process" class="py-20 bg-[#FFFAF6]">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-[#5A0B29] text-[3rem] text-center mb-12 hidden-element">Processus</h2>
@@ -212,6 +291,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
                           <p>Cette étape consiste à identifier et à comprendre les besoins des parties prenantes, afin de garantir que le projet réponde à leurs attentes.</p>
                     </div>
                 </div>
+                <img src="{% static 'svg/up-right-arrow.png' %}" class="w-12 h-12" >
                 <div class=" p-6 rounded-lg text-center w-64 hidden-element">
                     <div class="process-card flex flex-col items-center space-y-4">
                         <i class="text-[40pt] text-[#5A0B29] fas fa-bullseye text-center" ></i>
@@ -221,6 +301,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
 
                     </div>
                 </div>
+                <img src="{% static 'svg/up-right-arrow.png' %}" class="w-12 h-12" >
                 <div class=" p-6 rounded-lg text-center w-64 hidden-element">
                     <div class="process-card flex flex-col items-center space-y-4">
                         <i class="text-[40pt] text-[#5A0B29] fas fa-dot-circle text-center" ></i>
@@ -229,6 +310,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
  
                     </div>
                 </div>
+                <img src="{% static 'svg/up-right-arrow.png' %}" class="w-12 h-12" >
                 <div class=" p-6 rounded-lg text-center w-64 hidden-element">
                     <div class="process-card flex flex-col items-center space-y-4">
                         <i class="text-[40pt] text-[#5A0B29] fas fa-paper-plane text-center" ></i>
@@ -249,7 +331,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
     <section id="contact" class="py-20">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold tcolor text-center mb-12 hidden-element">Envoyez nous un message</h2>
-            <form id="emailForm" class="max-w-lg mx-auto">
+            <form id="messageForm" class="max-w-lg mx-auto">
                 <div class="mb-4">
                     <label for="name" class="block mb-2">Nom</label>
                     <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0B29]" required>

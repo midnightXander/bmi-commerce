@@ -103,6 +103,24 @@ def contact(request):
         }
     )
 
+def message(request):
+    if request.method == 'POST':
+        content = request.POST.get('message', 'Test')
+        name = request.POST.get('name', 'Name')
+        email = request.POST.get('email','some@email.com')
+        phone = request.POST.get('phone','Some number')
+
+        new_message = Message.objects.create(
+            name = name,
+            email = email,
+            phone = phone,
+            content = content
+        )
+        new_message.save()
+        print(new_message.content)
+        return JsonResponse({'status':'success', 'message':'Message Envoyé'})
+
+
 def upload(request):
     if request.method == 'POST':
         file = request.FILES['file']

@@ -86,3 +86,13 @@ class Order(models.Model):
     def __str__(self):
         return self.name
 
+
+class Message(models.Model):
+    email = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    content = models.TextField()
+    date_ordered = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
