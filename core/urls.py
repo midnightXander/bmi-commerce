@@ -11,6 +11,7 @@ urlpatterns = [
     path('notre-equipe',views.team, name='team'),
     path('produits',views.products, name='products'),
     path('produits/<str:ref>',views.product, name='product'),
+    path('reviews/<int:product_id>',views.reviews, name='review'),
     path('profile',views.profile, name='profile'),
     path('contact',views.contact, name='contact'),
     path('cart',views.cart, name='cart'),

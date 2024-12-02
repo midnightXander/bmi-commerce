@@ -121,6 +121,8 @@ def message(request):
         return JsonResponse({'status':'success', 'message':'Message Envoyé'})
 
 
+
+
 def upload(request):
     if request.method == 'POST':
         file = request.FILES['file']
@@ -156,17 +158,56 @@ def services(request):
     })
 
 def team(request):
+
     return render(request, "core/team.html",{
         'n_cart_items': n_cart_items(request),
     })
 
 def product(request, ref):
     item = get_object_or_404(Item, ref = ref)
-   
+    reviews = Review.objects.filter(product = item).order_by('-date_added')
+    reviews_list = [ _review_data(review) for review in reviews ]
+
     return render(request,"core/product.html", {
         'product': item_data(item),
+        'reviews': reviews_list,
         'n_cart_items': n_cart_items(request),
     })
+
+def _review_data(review:Review):
+    return {
+        "id": review.id,
+        "name": review.name,
+        "content": review.content,
+        "date_added": review.date_added,
+        "rating": review.rating
+    }
+
+def reviews(request, product_id):
+    product = Item.objects.get(id = product_id)
+    if request.method == "POST":
+        content = request.POST.get('content')
+        name = request.POST.get('name')
+        rating = request.POST.get('rating', 3)
+        
+
+        new_review = Review.objects.create(
+            name = name,
+            content = content,
+            product = product,
+            rating = rating
+        )
+        new_review.save()
+        print(new_review.content)
+        reviews = Review.objects.filter(product = product).order_by('-date_added')
+        reviews_list = [ _review_data(review) for review in reviews ]
+        return JsonResponse({'status':'success', 'message':'Avis Envoyé', 'reviews': reviews_list})
+    
+    elif request.method == "GET":
+
+        reviews = Review.objects.filter(product = product).order_by('-date_added')
+        reviews_list = [ _review_data(review) for review in reviews ]
+        return JsonResponse({'status':'success', 'message':'les avis', 'reviews': reviews_list})
 
 def _get_cart_items(cart:Cart):
     cart_items = cart.items.all()

@@ -45,13 +45,13 @@ class Client(models.Model):
         return f"{self.user}"
 
 
-class Review(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    value = models.IntegerField()
-    date_added = models.DateTimeField()
+# class Review(models.Model):
+#     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+#     value = models.IntegerField()
+#     date_added = models.DateTimeField()
 
-    def __str__(self):
-        return f"{self.value}"
+#     def __str__(self):
+#         return f"{self.value}"
     
 
 class Cart(models.Model):
@@ -96,3 +96,17 @@ class Message(models.Model):
 
     def __str__(self):
         return self.name
+
+class Review(models.Model):
+    name = models.CharField(max_length=100)
+    content = models.TextField()
+    date_added = models.DateField(auto_now_add=True)
+    product = models.ForeignKey(Item, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    
+    def __str__(self):
+        return f"{self.name}: {self.content[:10]}..."
+
+
+
+

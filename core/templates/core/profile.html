@@ -495,7 +495,12 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
             success: function(res){
                 console.log(res)
                 if(res.status == 'success'){
+                    
                     displayProducts()
+                    alert("produit ajouté avec succès")
+                    const form =  document.querySelector('#addProductForm')
+                    form.reset()
+
                 }
             },
             complete: function(){

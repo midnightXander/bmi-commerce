@@ -22,6 +22,7 @@ On peut ansi visualiser, voir en details les produits et passer une commande
 
 {% block content %}
 <main class="container mx-auto px-6 py-8">
+    
     <h1 class="text-3xl font-bold text-[#5A0B29] mb-6">Tous les Produits</h1>
     <!-- <div class="" style="width: 100px; height: 100px;" >
 
@@ -51,7 +52,9 @@ On peut ansi visualiser, voir en details les produits et passer une commande
         </div>
         <div class="text-gray-600"><span id="product-count">0</span> produits trouvés</div>
     </div>
-
+    <div class="p-4">
+        <input id="searchProducts" type="text" placeholder="Rechercher un produit..." oninput="searchProducts()" class="w-full p-2  rounded-full border focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
+    </div>
     <div id="company-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
         <!-- Company products will be inserted here -->
     </div>
@@ -80,7 +83,7 @@ On peut ansi visualiser, voir en details les produits et passer une commande
 
     function createProductCard(product) {
         return `
-            <a href = '/produits/${product.ref}' class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+            <a href = '/produits/${product.ref}' class="product bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                 <img src="${product.image1}" alt="${product.name}" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-gray-800 font-semibold text-lg mb-2">${product.name}</h3>
@@ -122,6 +125,22 @@ On peut ansi visualiser, voir en details les produits et passer une commande
     document.getElementById('provider-filter').addEventListener('change', (e) => {
         renderProducts(e.target.value);
     });
+
+    function searchProducts() {
+        const searchValue = document.getElementById('searchProducts').value.toLowerCase();
+        const productList = document.getElementById('partner-products');
+        const products = productList.getElementsByClassName('product');
+
+        for (let i = 0; i < products.length; i++) {
+            const productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            if (productName.includes(searchValue)) {
+                products[i].style.display = '';
+            } else {
+                products[i].style.display = 'none';
+            }
+        }
+    }
+
 
     // Initial render
     renderProducts();
