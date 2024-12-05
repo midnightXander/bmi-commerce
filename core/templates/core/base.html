@@ -120,7 +120,22 @@
         .carousel-img{
             filter: saturate(70%)
         }
- 
+        .gte  {
+            
+            select{
+                margin-top: 0.5rem;
+                display: block;
+                height: 25px;
+                border: 1px solid #5A0B29;
+                border-radius: 3px;
+            }
+            a,span{
+                display: none;
+            }
+
+            
+
+        }
 
     </style>
     <style>
@@ -177,6 +192,7 @@
                         </ul>
                 </li>
                     <li><a href="" class="text-white text-2xl hover:text-gray-300 transition duration-300">Contact</a></li>
+                    <li></li>
                 </ul>      
             </nav>
         </div>
@@ -189,14 +205,10 @@
                 </div>
                 <div class="flex items-center">
                     <nav class="font-semibold text-[#5A0B29] hidden md:flex">
+                        
+                        
+
                         <a href="/" class="mx-4 hover:bg-opacity-90 transition-smooth">Acceuil</a>
-                        <a href="/produits" class="mx-4 hover:bg-opacity-90 transition-smooth">Boutique</a>
-                        <!-- <a href="" class="entreprise relative mx-4 hover:bg-opacity-90 transition-smooth">Entreprise <i class="ml-2 fas fa-angle-down" ></i> 
-                        <div class="absolute hidden flex space-y-2">
-                            <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Notre équipe</a>
-                            <a href="" class="mx-4 hover:bg-opacity-90 transition-smooth">Nos réalisation</a>
-                        </div>
-                        </a> -->
                         <div class="hover-container">
                             <a href="#" class="hover-trigger mx-4 hover:bg-opacity-90 transition-smooth">
                                 Entreprise <i class="ml-2 fas fa-angle-down" ></i>
@@ -209,15 +221,28 @@
                                 </ul>
                             </div>
                         </div>
-                        
                         <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Service</a>
-                        <a href="" class="mx-4 hover:bg-opacity-90 transition-smooth">Contact</a>
+                        <a href="/produits" class="mx-4 hover:bg-opacity-90 transition-smooth">Boutique</a>
+                        
+                        <!-- <a href="" class="entreprise relative mx-4 hover:bg-opacity-90 transition-smooth">Entreprise <i class="ml-2 fas fa-angle-down" ></i> 
+                        <div class="absolute hidden flex space-y-2">
+                            <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Notre équipe</a>
+                            <a href="" class="mx-4 hover:bg-opacity-90 transition-smooth">Nos réalisation</a>
+                        </div>
+                        </a> -->
+                       
+                        
+                       
+                        <a href="{% url 'core:blog' %}" class="mx-4 hover:bg-opacity-90 transition-smooth">Blog</a>
+                        <a href="/contact" class="mx-4 hover:bg-opacity-90 transition-smooth">Contact</a>
+                        
                     </nav>
+                    
                     <div class="flex items-center">
                         <!-- <a href="#" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
                             <i class="fas fa-search"></i>
                         </a> -->
-                        
+                        <div id="google_translate_element" class="gte" ></div>
                         <a href="/cart" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
                             <i class="fas fa-shopping-cart relative">
                                 <div id="n_cart_items" class="notifier absolute top-0 start-100 translate-middle bg-red-500 text-white text-sm  rounded-full w-5 h-5 flex items-center justify-center">{{n_cart_items}}</div>
@@ -346,16 +371,19 @@
                         <ul>
                             <li><a href="/" class="text-gray-400 hover:text-white">Acceuil</a></li>
                             <li><a href="/services" class="text-gray-400 hover:text-white">Services</a></li>
+                            <li><a href="/blog" class="text-gray-400 hover:text-white">Blog</a></li>
                             <li><a href="/produits" class="text-gray-400 hover:text-white">Boutique</a></li>
                             <li><a href="/notre-equipe" class="text-gray-400 hover:text-white">Notre équipe</a></li>
                             <li><a href="#" class="text-gray-400 hover:text-white">Nos réalisons</a></li>
+                            
                         </ul>
+                        
                     </div>
                     <div class="w-full md:w-1/3">
                         <h3 class="text-xl font-bold mb-2">Parlez avec nous</h3>
                         <div class="flex space-x-4">
                             <a href="https://www.facebook.com/share/fDrRTRTMPKkJN7RS/" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/company/business-management-innovation/?viewAsMember=true" class="text-gray-400 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
                             <a href="https://www.instagram.com/bmi281/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@bmi.261?_r=1&_d=eh08jddm8593me&sec_uid=MS4wLjABAAAAgrQ7tWnkYR3ZzhqMjY8RAFFILp588FecVcSLZf101pLoDzdUZBAHtYe3It9IEWBv&share_author_id=7430792149962441733&sharer_language=fr&source=h5_m&u_code=eh1ijmabk0e5a4&timestamp=1730971635&user_id=7430792149962441733&sec_user_id=MS4wLjABAAAAgrQ7tWnkYR3ZzhqMjY8RAFFILp588FecVcSLZf101pLoDzdUZBAHtYe3It9IEWBv&utm_source=more&utm_campaign=client_share&utm_medium=android&share_iid=7432633264509159174&share_link_id=88ac1d19-e08e-4b2a-8a4c-14704494746b&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb4907&social_share_type=5&enable_checksum=1" class="text-gray-400 hover:text-white"><i class="fa-brands fa-tiktok"></i></a>
                         </div>
@@ -372,7 +400,15 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+            }
+        </script> 
         <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
+        
+        
     </body>
 
 </html>

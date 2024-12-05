@@ -107,6 +107,21 @@ class Review(models.Model):
     def __str__(self):
         return f"{self.name}: {self.content[:10]}..."
 
+CATEGORIES = ['business plan','not classified','social media', 'advertisement']
 
+class BlogPost(models.Model):
+    author = models.CharField(max_length=50, default="Ngaikam")
+    title = models.CharField(max_length=100)
+    category = models.CharField(choices = [
+        (i,i) for i in CATEGORIES
+    ], max_length=30)
+    cover = models.ImageField()
+    content = models.TextField()
+    date_added = models.DateField()
 
+    def __str__(self):
+        return f"{self.title}"
+    
+
+    
 

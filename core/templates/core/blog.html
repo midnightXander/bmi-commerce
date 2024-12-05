@@ -1,0 +1,170 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %} Blog {% endblock title %}
+
+{% block meta_keywords %}
+Business Management Service Vente Cameroun vente en ligne business consulting
+Immigration en allemagne formation professionel 
+{% endblock meta_keywords %}
+
+
+{% block meta_description %}
+La page de blog
+{% endblock meta_description %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    .fade-out {
+        animation: fadeOut 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+</style>
+
+
+<div class="container mx-auto px-4 py-8">
+    <!-- Blog Header -->
+    <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#5A0B29] mb-4">Blog</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Tout ce que vous devez savoir sur le Marketing.
+        </p>
+    </header>
+
+    <!-- Category Filters -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="filter-btn px-4 py-2 rounded-full bg-[#5A0B29] text-white hover:bg-gray-300 transition duration-300" data-category="all">Tout</button>
+        <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-300" data-category="technology">Business Plan</button>
+        <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-300" data-category="design">Non Classifié</button>
+        <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-300" data-category="business">Réseaux Sociaux</button>
+        <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-300" data-category="lifestyle">Publicité</button>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div id="blog-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Blog Post 1 -->
+        <article class="blog-post rounded-lg overflow-hidden  transition duration-300" data-category="technology">
+            <a href="#" class="" >
+                <img src="{% static 'images/blog/MIC-1-1.jpg' %}" alt="Blog post image" class="w-full rounded-lg h-60 hover:pointer object-cover">
+            </a>
+            
+            <div class="py-6">
+                <h2 class="text-2xl text-[#5A0B29] font-semibold mb-2">Pourquoi les produits 100 % made in Cameroun n’explosent pas aux yeux des consommateurs locaux?</h2>
+                <p class="text-gray-600 text-sm mb-2">
+                    <!-- Explore how artificial intelligence is shaping our daily routines and what to expect in the coming years. -->
+                </p>
+                <a href="#" class="mb-4 text-[#5A0B29]">
+                    <i class="fas fa-search mr-2"></i>lire plus
+                </a>
+                <div class="mt-4 flex items-center justify-between">
+                    <span class="text-sm text-[#5A0B29] font-medium">Technology</span>
+                    <span class="text-sm text-gray-500">5 min read</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-post rounded-lg overflow-hidden  transition duration-300" data-category="design">
+            <a href="#" class="" >
+                <img src="{% static 'images/blog/entrepreneur-mindset-1.jpg' %}" alt="Blog post image" class="w-full rounded-lg h-60 hover:pointer object-cover">
+            </a>
+            <div class="py-6">
+                <h2 class="text-2xl text-[#5A0B29] font-semibold mb-2">Pourquoi les entrepreneurs de la diaspora reusissent moins au Cameroun?</h2>
+                <p class="text-gray-600 text-sm mb-2">
+                    
+                </p>
+                <a href="#" class="mb-4 text-[#5A0B29]">
+                    <i class="fas fa-search mr-2"></i>lire plus
+                </a>
+                <div class="mt-4 flex items-center justify-between">
+                    <span class="text-sm text-[#5A0B29] font-medium">Design</span>
+                    <span class="text-sm text-gray-500">7 min read</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-post rounded-lg overflow-hidden  transition duration-300l" data-category="business">
+            <a href="#" class="" >
+                <img src="{% static 'images/blog/le-contenu-est-roi.webp' %}" alt="Blog post image" class="w-full rounded-lg h-60 hover:pointer object-cover">
+            </a>
+            <div class="py-6">
+                <h2 class="text-2xl text-[#5A0B29] font-semibold mb-2">Comment réussir son ciblage sur les réseaux sociaux?</h2>
+                <p class="text-gray-600 text-sm  mb-2">Le ciblage sur les réseaux sociaux est l'art de toucher les bonnes personnes au bon moment avec le bon…</p>
+                <a href="#" class="mb-4 text-[#5A0B29]">
+                    <i class="fas fa-search mr-2"></i>lire plus
+                </a>
+                <div class="mt-4 flex items-center justify-between">
+                    <span class="text-sm text-[#5A0B29] font-medium">Business</span>
+                    <span class="text-sm text-gray-500">6 min read</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Add more blog posts as needed -->
+
+    </div>
+
+    <!-- Pagination -->
+    <!-- <div class="mt-12 flex justify-center">
+        <nav class="inline-flex rounded-md shadow">
+            <a href="#" class="px-4 py-2 rounded-l-md bg-white text-gray-700 hover:bg-gray-50">Previous</a>
+            <a href="#" class="px-4 py-2 bg-[#5A0B29] text-white hover:bg-indigo-700">1</a>
+            <a href="#" class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-50">2</a>
+            <a href="#" class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-50">3</a>
+            <a href="#" class="px-4 py-2 rounded-r-md bg-white text-gray-700 hover:bg-gray-50">Next</a>
+        </nav>
+    </div> -->
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogPosts = document.querySelectorAll('.blog-post');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Update active button state
+                filterButtons.forEach(btn => btn.classList.remove('bg-[#5A0B29]', 'text-white'));
+                filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-700'));
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-[#5A0B29]', 'text-white');
+
+                // Fade out all posts
+                blogPosts.forEach(post => {
+                    post.classList.add('fade-out');
+                    post.classList.remove('fade-in');
+                });
+
+                // After fade out, show relevant posts and fade them in
+                setTimeout(() => {
+                    blogPosts.forEach(post => {
+                        if (category === 'all' || post.getAttribute('data-category') === category) {
+                            post.style.display = 'block';
+                            post.classList.add('fade-in');
+                            post.classList.remove('fade-out');
+                        } else {
+                            post.style.display = 'none';
+                        }
+                    });
+                }, 500); // This should match the duration of the fade-out animation
+            });
+        });
+    });
+</script>
+
+{% endblock content %}

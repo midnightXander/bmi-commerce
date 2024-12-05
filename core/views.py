@@ -121,6 +121,18 @@ def message(request):
         return JsonResponse({'status':'success', 'message':'Message Envoyé'})
 
 
+def blog(request):
+    return render(request,"core/blog.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        })
+
+def blog_post(request, post_id):
+    return render(request,"core/blogPost.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        })
+
 
 
 def upload(request):
