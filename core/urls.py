@@ -25,6 +25,7 @@ urlpatterns = [
     path('ecommerce/admin/login',views.admin_login, name='ecommerce_login'),
     path('ecommerce/admin/dashboard',views.admin_dashboard, name='ecommerce_dashboard'),
     path('ecommerce/admin/add_product',views.add_product, name='add_product'),
+    path('ecommerce/admin/posts/add',views.add_blog_post, name='add_post'),
     path('ecommerce/admin/approve_product',views.approve_product, name='approve_product'),
     path('ecommerce/admin/review/product/<int:item_id>',views.review_product, name='review_product'),
 

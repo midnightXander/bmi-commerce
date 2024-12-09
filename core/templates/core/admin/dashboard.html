@@ -23,6 +23,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/logo.jpg' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tiny.cloud/1/j4yc51tqbhmqbmoqot1d4l8uircpwyr932mazjpidtzv6yt7/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -49,15 +50,12 @@
     <header class="text-[#5A0B29]  p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div>
-               <a href="/" class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
-                <img src="{% static 'images/logo.jpg' %}" class="h-20 w-20">
+                <a href="/ecommerce/admin/dashboard" class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
+                    <img src="{% static 'images/logo.jpg' %}" class="h-20 w-20">
                 </a>
-                <!-- <span class="text-2xl font-bold">BMI - Admin</span>  -->
             </div>
-            
-            
-            <nav>
-                
+
+            <nav>    
                 <a href="{% url 'partner:logout' %}" class="hover:underline">Déconnexion</a>
             </nav>
         </div>
@@ -70,6 +68,7 @@
             <button id="partnersBtn" class="text-[#5A0B29] underline px-4 py-2 rounded">Partenaires</button>
             <button id="partnerProductsBtn" class="text-[#5A0B29] underline px-4 py-2 rounded">Produits Partenaires</button>
             <button id="companyProductsBtn" class="text-[#5A0B29] underline px-4 py-2 rounded">Produits Entreprise</button>
+            <a class="text-[#5A0B29] underline px-4 py-2 rounded" href="/ecommerce/admin/posts/add">ajouter un post</a>
         </div>
 
         <section id="partnersSection" class="mb-8 animate-fadeIn hidden">

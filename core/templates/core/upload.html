@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -29,4 +29,284 @@
     </form>
 </body>
 
-</html>    
+</html>     -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Adventure - Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1c2e 0%, #0F172A 100%);
+        }
+        
+        .search-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .search-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .search-inactive {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        
+        .results-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .results-active {
+            max-height: calc(100vh - 60px);
+            opacity: 1;
+        }
+        
+        .results-inactive {
+            max-height: 0;
+            opacity: 0;
+        }
+    </style>
+
+<style>
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1c2e 0%, #0F172A 100%);
+    }
+    
+    .chat-input {
+        transition: all 0.3s ease;
+    }
+    
+    .chat-input:focus-within {
+        box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+    }
+    
+    .emoji-picker {
+        display: none;
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        width: 200px;
+        height: 150px;
+        background-color: #1F2937;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 8px;
+        overflow-y: auto;
+    }
+    
+    .emoji-picker.active {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
+    
+    .emoji-picker span {
+        cursor: pointer;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .emoji-picker span:hover {
+        background-color: #374151;
+        border-radius: 4px;
+    }
+</style>
+
+
+
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="relative">
+        <!-- Header with search icon -->
+        <header class="bg-gray-800 py-4 px-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">RPG Adventure</h1>
+            <button id="searchIcon" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+        </header>
+
+        <!-- Search bar (initially hidden) -->
+        <div id="searchBar" class="absolute z-150 top-0 left-0 w-full bg-gray-800 py-3 px-4 flex items-center search-transition search-inactive">
+            <input type="text" id="searchInput" placeholder="Search..." class="flex-grow bg-transparent text-white px-4 py-2 rounded-l-lg focus:outline-none">
+            <!-- <button id="searchButton" class="bg-orange-500 text-white px-4 py-2 rounded-r-lg">
+                Search
+            </button> -->
+            <button id="cancelSearch" class="ml-2 text-gray-400 hover:text-white focus:outline-none">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <!-- Search results area (initially hidden) -->
+    <div id="searchResults" class="bg-gray-800 p-4 results-transition results-inactive overflow-y-auto">
+        <h2 class="text-xl font-bold mb-4">Search Results</h2>
+        <ul id="resultsList" class="space-y-2">
+            <!-- Results will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Page content -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-4">Welcome to RPG Adventure</h1>
+        <p class="text-xl text-gray-400">Explore our magical world and embark on epic quests!</p>
+        
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-4">RPG Adventure Chat</h1>
+        
+        <!-- Chat messages would go here -->
+        <div class="bg-gray-800 rounded-lg p-4 mb-4 h-96 overflow-y-auto">
+            <!-- Sample message -->
+            <div class="mb-4">
+                <span class="font-bold text-orange-500">Hero:</span>
+                <span class="text-gray-300">Ready for the next quest!</span>
+            </div>
+        </div>
+        
+        <!-- Modern input element with buttons -->
+        <div class="relative">
+            <div class="chat-input flex items-center bg-gray-800 rounded-lg p-2">
+                <button id="addImage" class="text-gray-400 hover:text-white mr-2 focus:outline-none">
+                    <i class="fas fa-image"></i>
+                </button>
+                <input type="text" id="messageInput" placeholder="Type your message..." class="flex-grow bg-transparent text-white placeholder-gray-400 focus:outline-none">
+                <button id="emojiButton" class="text-gray-400 hover:text-white mx-2 focus:outline-none">
+                    <i class="far fa-smile"></i>
+                </button>
+                <button id="sendMessage" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 focus:outline-none">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div id="emojiPicker" class="emoji-picker">
+                <!-- Emojis will be populated here -->
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <script>
+        const searchIcon = document.getElementById('searchIcon');
+        const searchBar = document.getElementById('searchBar');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const cancelSearch = document.getElementById('cancelSearch');
+        const searchResults = document.getElementById('searchResults');
+        const resultsList = document.getElementById('resultsList');
+
+        searchIcon.addEventListener('click', () => {
+            searchBar.classList.remove('search-inactive');
+            searchBar.classList.add('search-active');
+            searchInput.focus();
+        });
+
+        cancelSearch.addEventListener('click', () => {
+            searchBar.classList.remove('search-active');
+            searchBar.classList.add('search-inactive');
+            searchResults.classList.remove('results-active');
+            searchResults.classList.add('results-inactive');
+            searchInput.value = '';
+            resultsList.innerHTML = '';
+        });
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if (query) {
+                // Simulated search results
+                const results = [
+                    'Epic Sword of Destiny',
+                    'Magical Potion of Healing',
+                    'Dragon\'s Lair Quest',
+                    'Enchanted Forest Map',
+                    'Legendary Armor Set'
+                ];
+
+                resultsList.innerHTML = '';
+                results.forEach(result => {
+                    const li = document.createElement('li');
+                    li.textContent = result;
+                    li.className = 'bg-gray-700 p-2 rounded hover:bg-gray-600 cursor-pointer';
+                    resultsList.appendChild(li);
+                });
+
+                searchResults.classList.remove('results-inactive');
+                searchResults.classList.add('results-active');
+            }
+        }
+    </script>
+
+<script>
+    const addImageButton = document.getElementById('addImage');
+    const messageInput = document.getElementById('messageInput');
+    const emojiButton = document.getElementById('emojiButton');
+    const sendMessageButton = document.getElementById('sendMessage');
+    const emojiPicker = document.getElementById('emojiPicker');
+
+    // Simulated image upload
+    addImageButton.addEventListener('click', () => {
+        alert('Image upload functionality would be implemented here.');
+    });
+
+    // Toggle emoji picker
+    emojiButton.addEventListener('click', () => {
+        emojiPicker.classList.toggle('active');
+    });
+
+    // Send message
+    sendMessageButton.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        const message = messageInput.value.trim();
+        if (message) {
+            console.log('Sending message:', message);
+            // Here you would typically send the message to a server
+            messageInput.value = '';
+        }
+    }
+
+    // Populate emoji picker
+    const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😊', '😇', '🙂', '🙃', '😉', '😌', '😍', '🥰', '😘', '😗', '😙', '😚', '😋', '😛', '😝', '😜', '🤪', '🤨', '🧐', '🤓', '😎', '🤩'];
+    
+    emojis.forEach(emoji => {
+        const span = document.createElement('span');
+        span.textContent = emoji;
+        span.addEventListener('click', () => {
+            messageInput.value += emoji;
+            emojiPicker.classList.remove('active');
+            messageInput.focus();
+        });
+        emojiPicker.appendChild(span);
+    });
+
+    // Close emoji picker when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!emojiButton.contains(e.target) && !emojiPicker.contains(e.target)) {
+            emojiPicker.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>

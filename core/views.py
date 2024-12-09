@@ -133,6 +133,29 @@ def blog_post(request, post_id):
             'n_cart_items': n_cart_items(request),
         })
 
+@login_required
+def add_blog_post(request):
+    if request.method == "POST":
+        category = request.POST['category']
+        title = request.POST['title']
+        leading_text = request.POST['leading']
+        cover = request.FILES.get('cover')
+        content = request.POST['content']
+
+        new_post = BlogPost.objects.create(
+            category = category,
+            title = title,
+            #leading = leading_text,
+            cover = cover,
+            content = content,
+        )
+        new_post.save()
+
+        return HttpResponseRedirect(reverse('core:ecommerce_dashboard'))
+
+    
+    return render(request,"core/admin/add_post.html")    
+
 
 
 def upload(request):
