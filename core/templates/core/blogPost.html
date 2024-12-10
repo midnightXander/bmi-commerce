@@ -1,0 +1,65 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %} Blog {% endblock title %}
+
+{% block meta_keywords %}
+Business Management Service Vente Cameroun vente en ligne business consulting
+Immigration en allemagne formation professionel 
+{% endblock meta_keywords %}
+
+
+{% block meta_description %}
+La page de blog
+{% endblock meta_description %}
+
+{% block content %}
+<style>
+    .blog-content img {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+    .blog-content h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .blog-content p {
+        margin-bottom: 1rem;
+    }
+    .blog-content a {
+        color: #3182ce;
+        text-decoration: underline;
+    }
+    .blog-content blockquote {
+        border-left: 4px solid #e2e8f0;
+        padding-left: 1rem;
+        font-style: italic;
+        margin: 1rem 0;
+    }
+</style>
+
+
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <article class="rounded-lg overflow-hidden">
+        <img id="coverImage" src="{{post.image.url}}" alt="Blog post cover" class="w-full h-64 object-cover">
+        <div class="py-6">
+            <h1 id="blogTitle" class="text-3xl font-bold text-gray-900 mb-2">{{post.title}}</h1>
+            <div class="flex items-center text-sm text-gray-600 mb-4">
+                <span id="authorName" class="mr-4"></span>
+                <span id="publishDate">{{post.date_added |date:'M d, Y'}}</span>
+            </div>
+            <p id="leadingText" class="text-xl text-gray-700 mb-6">{{post.leading}}</p>
+            <div id="blogContent" class="blog-content prose max-w-none">
+                {{post.content | safe}}
+            </div>
+        </div>
+    </article>
+
+   
+</main>
+
+
+{% endblock content %}

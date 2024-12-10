@@ -114,6 +114,25 @@ La page de blog
             </div>
         </article>
 
+        {% for post in posts %}
+        <article class="blog-post rounded-lg overflow-hidden  transition duration-300l" data-category="{{post.category}}">
+            <a href="#" class="" >
+                <img src="{{post.cover.url}}" alt="Blog post image" class="w-full rounded-lg h-60 hover:pointer object-cover">
+            </a>
+            <div class="py-6">
+                <h2 class="text-2xl text-[#5A0B29] font-semibold mb-2">{{post.title}}</h2>
+                <p class="text-gray-600 text-sm  mb-2">{{post.leading}}</p>
+                <a href="/blogposts/{{post.id}}" class="mb-4 text-[#5A0B29]">
+                    <i class="fas fa-search mr-2"></i>lire plus
+                </a>
+                <div class="mt-4 flex items-center justify-between">
+                    <span class="text-sm text-[#5A0B29] font-medium">{{post.category}}</span>
+                    <span class="text-sm text-gray-500">6 min read</span>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+
         <!-- Add more blog posts as needed -->
 
     </div>

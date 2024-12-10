@@ -206,7 +206,7 @@ def logout_view(request):
 
 def upload_image_to_s3(image):
     try:
-        print(image)
+        
         s3.upload_file(f'media/{image}', 'bmiecommercebucket', f'media/{image}')
         print('uploaded to s3')
     except Exception as e:

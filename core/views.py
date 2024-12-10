@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import *
 from partner.models import Provider
+from partner.views import upload_image_to_s3
 import uuid
 from django.db.models import Q,QuerySet
 import re
@@ -122,14 +123,18 @@ def message(request):
 
 
 def blog(request):
+    posts = BlogPost.objects.all().order_by('-date_added')
     return render(request,"core/blog.html",
         {
+            'posts': posts,
             'n_cart_items': n_cart_items(request),
         })
 
 def blog_post(request, post_id):
+    post = get_object_or_404(BlogPost, id = post_id)
     return render(request,"core/blogPost.html",
         {
+            'post': post,
             'n_cart_items': n_cart_items(request),
         })
 
@@ -138,17 +143,20 @@ def add_blog_post(request):
     if request.method == "POST":
         category = request.POST['category']
         title = request.POST['title']
-        leading_text = request.POST['leading']
+        leading_text = request.POST.get('leading', '')
         cover = request.FILES.get('cover')
         content = request.POST['content']
 
         new_post = BlogPost.objects.create(
             category = category,
             title = title,
-            #leading = leading_text,
+            leading = leading_text,
             cover = cover,
             content = content,
         )
+
+        upload_image_to_s3(new_post.cover)
+
         new_post.save()
 
         return HttpResponseRedirect(reverse('core:ecommerce_dashboard'))

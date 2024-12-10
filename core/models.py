@@ -112,12 +112,13 @@ CATEGORIES = ['business plan','not classified','social media', 'advertisement']
 class BlogPost(models.Model):
     author = models.CharField(max_length=50, default="Ngaikam")
     title = models.CharField(max_length=100)
+    leading = models.TextField(blank=True)
     category = models.CharField(choices = [
         (i,i) for i in CATEGORIES
     ], max_length=30)
     cover = models.ImageField()
     content = models.TextField()
-    date_added = models.DateField()
+    date_added = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.title}"
