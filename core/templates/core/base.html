@@ -181,6 +181,81 @@
         }
     
     </style>
+    <style>
+        /* Language selector styles */
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+
+            a,span{
+                display: none;
+            }
+            
+
+        }
+
+        
+
+       
+
+        /* Custom arrow */
+        .select-wrapper {
+            position: relative;
+            display: inline-block;
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: white;
+            border: 2px solid #5A0B29;
+            border-radius: 25px;
+            color: #5A0B29;
+            font-size: 16px;
+            padding: 10px 40px 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(90, 11, 41, 0.1);
+        }
+
+        select:hover {
+            background-color: #5A0B29;
+            color: white;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(90, 11, 41, 0.3);
+        }
+        select option {
+            background-color: white;
+            color: #5A0B29;
+        }
+
+
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            font-size: 12px;
+            color: #5A0B29;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .select-wrapper:hover::after {
+            color: white;
+        }
+
+        /* Option styles */
+       
+    </style>
     <body class="bg-gray-50" >
         <div id="mobileMenu" class="fixed inset-0 bg-[#5A0B29] z-50 flex flex-col justify-center items-center transform translate-x-full transition-transform duration-300 ease-in-out">
             <button id="closeMenu" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
@@ -227,18 +302,8 @@
                             </div>
                         </div>
                         <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Service</a>
-                        <a href="/produits" class="mx-4 hover:bg-opacity-90 transition-smooth">Boutique</a>
-                        
-                        <!-- <a href="" class="entreprise relative mx-4 hover:bg-opacity-90 transition-smooth">Entreprise <i class="ml-2 fas fa-angle-down" ></i> 
-                        <div class="absolute hidden flex space-y-2">
-                            <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Notre équipe</a>
-                            <a href="" class="mx-4 hover:bg-opacity-90 transition-smooth">Nos réalisation</a>
-                        </div>
-                        </a> -->
-                       
-                        
-                       
                         <a href="{% url 'core:blog' %}" class="mx-4 hover:bg-opacity-90 transition-smooth">Blog</a>
+                        <a href="/produits" class="mx-4 hover:bg-opacity-90 transition-smooth">Boutique</a>
                         <a href="/contact" class="mx-4 hover:bg-opacity-90 transition-smooth">Contact</a>
                         
                     </nav>
@@ -269,9 +334,23 @@
                 </div>
             </div>
         </nav>
-        <div class="relative">
+        <!-- <div class="relative">
              <div id="google_translate_element" class="fixed right-4 top-3 gte z-150" ></div>
-        </div>
+        </div> -->
+
+        <div class="language-selector">
+            <div id="google_translate_element" class="select-wrapper" ></div>
+       </div>
+        <!-- <div class="language-selector">
+        <div class="select-wrapper">
+            <select class="language-select" aria-label="Select language">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+            </select>
+        </div> -->
        
 
 <!-- loading Overlay  -->
