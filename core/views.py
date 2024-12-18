@@ -97,12 +97,21 @@ def index(request):
             'n_cart_items': n_cart_items(request),
         })
 
+
+def work(request):
+    return render(request,"core/work.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        }
+    )
+
 def contact(request):
     return render(request,"core/contact.html",
         {
             'n_cart_items': n_cart_items(request),
         }
     )
+
 
 def message(request):
     if request.method == 'POST':

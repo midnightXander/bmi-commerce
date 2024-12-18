@@ -8,6 +8,7 @@ urlpatterns = [
     path('upload', views.upload,name = 'upload'),
     path('message', views.message,name = 'message'),
     path('services',views.services, name='services'),
+    path('realisations',views.work, name='work'),
     path('notre-equipe',views.team, name='team'),
     path('produits',views.products, name='products'),
     path('produits/<str:ref>',views.product, name='product'),

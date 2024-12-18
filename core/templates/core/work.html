@@ -1,0 +1,127 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    
+    .work-item {
+        transition: all 0.5s ease-in-out;
+    }
+    .work-item:hover .work-overlay {
+        opacity: 1;
+    }
+    .work-overlay {
+        transition: opacity 0.3s ease-in-out;
+    }
+    .zoom-in {
+        animation: zoomIn 0.5s ease-in-out;
+    }
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
+
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl md:text-5xl font-bold text-[#5A0B29] mb-4 text-center">Nos Réalisations</h1>
+    <p class="text-gray-600 text-center px-5 mb-8">Des solutions innovantes pour vos besoins marketing</p>
+    <!-- Filtres -->
+    <div class="flex flex-wrap bg-white py-2 w-full shadow-md justify-center gap-4 mb-12">
+        <button class="filter-btn px-6 py-2  text-[#5A0B29] underline hover:text-[#5A0B29] transition duration-300" data-category="all">Tous</button>
+        <button class="filter-btn px-6 py-2  text-gray-700 hover:text-[#5A0B29] transition duration-300" data-category="design">Design</button>
+        <button class="filter-btn px-6 py-2  text-gray-700 hover:text-[#5A0B29] transition duration-300" data-category="charte-graphique">Charte Graphique</button>
+        <button class="filter-btn px-6 py-2  text-gray-700 hover:text-[#5A0B29] transition duration-300" data-category="site-web">Site Web</button>
+    </div>
+
+    <!-- Grille des réalisations -->
+    <div id="work-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Projet 1 -->
+        <div class="work-item relative overflow-hidden  shadow-lg" data-category="design">
+            <img src="https://cbdmi.org/wp-content/uploads/2023/10/Logo-1.png" alt="Projet de design" class="w-full h-72 object-cover">
+            <div class="work-overlay absolute inset-0 bg-black bg-opacity-90 opacity-0 flex flex-col justify-center items-center text-white p-4">
+                <h3 class="text-xl font-semibold mb-2">REALISATION DU LOGO MARTIAL NOVALIS</h3>
+                <!-- <p class="text-center mb-4">Une approche créative pour notre client dans le secteur de la mode.</p> -->
+                <a href="#" class="px-2 py-2 bg-white hover:bg-black hover:text-white text-black rounded-full hover:bg-opacity-90 transition duration-300">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+                    </svg>   
+                </a>
+            </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="work-item relative overflow-hidden  shadow-lg" data-category="charte-graphique">
+            <img src="https://cbdmi.org/wp-content/uploads/2023/10/Miniature-Martial-Novalis.png" alt="Charte graphique" class="w-full h-72 object-cover">
+            <div class="work-overlay absolute inset-0 bg-black bg-opacity-90 opacity-0 flex flex-col justify-center items-center text-white p-4">
+                <h3 class="text-xl font-semibold mb-2">REALISATION DE LA CHARTES GRAPHIQUE DE MARTIAL NOVALIS</h3>
+                <!-- <p class="text-center mb-4">Une identité visuelle cohérente pour une start-up technologique.</p> -->
+                <a href="#" class="px-2 py-2 bg-white hover:bg-black hover:text-white text-black rounded-full hover:bg-opacity-90 transition duration-300">
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+                    </svg>   
+                </a>
+            </div>
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="work-item relative overflow-hidden  shadow-lg" data-category="site-web">
+            <img src="https://cbdmi.org/wp-content/uploads/2023/10/desktop-computer-with-green-screen-home-office-businessman-background-2-scaled.jpg" alt="Site web" class="w-full h-72 object-cover">
+            <div class="work-overlay absolute inset-0 bg-black bg-opacity-90 opacity-0 flex flex-col justify-center items-center text-white p-4">
+                <h3 class="text-xl font-semibold mb-2">REALISATION DU SITE WEB MARTIAL NOVALIS</h3>
+                <p class="text-center text-pink-400 mb-4">www.martialnovalis.com</p>
+                <a href="#" class="px-2 py-2 bg-white hover:bg-black hover:text-white text-black rounded-full hover:bg-opacity-90 transition duration-300">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+                    </svg>   
+                </a>
+            </div>
+        </div>
+
+        <!-- Ajoutez d'autres projets ici en suivant le même modèle -->
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const workItems = document.querySelectorAll('.work-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Mise à jour de l'état du bouton actif
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('text-[#5A0B29]', 'underline');
+                    btn.classList.add('text-gray-700');
+                });
+                this.classList.remove('text-gray-700');
+                this.classList.add('text-[#5A0B29]', 'underline');
+
+                // Filtrage et animation des éléments
+                workItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.classList.add('zoom-in');
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('zoom-in');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+{% endblock content %}
