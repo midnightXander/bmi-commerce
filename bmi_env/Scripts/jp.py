@@ -1,4 +1,4 @@
-#!C:\Users\Ngaikam Al\Documents\alex\bmi_ecommerce\bmi_env\Scripts\python.exe
+#!E:\work\alex\bmi_ecommerce\bmi_env\Scripts\python.exe
 
 import sys
 import json

@@ -18,7 +18,7 @@ class Item(models.Model):
     ref = models.CharField(max_length=20)
     description = models.TextField()
     price = models.IntegerField()
-    provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE, related_name='items')
     image1 = models.ImageField(upload_to = "items/images/", blank=True)
     image2 = models.ImageField(upload_to = "items/images/", null=True)
     image3 = models.ImageField(upload_to = "items/images/", null=True)

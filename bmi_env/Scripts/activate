@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Ngaikam Al\Documents\alex\bmi_ecommerce\bmi_env"
+VIRTUAL_ENV="E:\work\alex\bmi_ecommerce\bmi_env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
