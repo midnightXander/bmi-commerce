@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
@@ -12,6 +12,11 @@ urlpatterns = [
     #providers
     path('providers', views.ProviderList.as_view()),
     path('providers/<int:pk>', views.ProviderDetail.as_view()),
+
+    #users
+    path('user', views.get_user),
+    path('user/auth/register', views.CreateUserView.as_view()),
+    
 
 
 ]

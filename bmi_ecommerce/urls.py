@@ -21,12 +21,24 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+from customJwt import customTokenObtainPairView
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls', namespace='core')),
     path('partner/',include('partner.urls', namespace='partner')),
     path('api/', include('api.urls', namespace='api')),
+
+    #restframework auth
+    path('api/token/', customTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name = 'token_refresh'),
+
+    #api-auth
+    path('auth', include('rest_framework.urls')),
 
 ]
 

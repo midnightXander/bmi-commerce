@@ -60,6 +60,13 @@ def item(request, pk,):
         item.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+@api_view(['GET'])
+def get_user(request):
+    """Get the user"""
+    user = request.user
+    serializer = UserSerializer(user)
+    return Response(serializer.data)
+
 
 class CompanyItemList(APIView):
     """
@@ -112,4 +119,7 @@ class ProviderDetail(APIView):
         return Response(serializer.data)        
 
 
-#class UserList()
+class CreateUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
