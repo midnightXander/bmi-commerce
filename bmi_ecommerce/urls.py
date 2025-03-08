@@ -31,22 +31,35 @@ from django.contrib.auth.models import User
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 
-
+import logging 
 class CustomTokenPairSerializer(TokenObtainPairSerializer):
 
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
         token['email'] = user.email
+        print(f'getting token... user email: {user.email}')
         return token
     
 
     def validate(self, attrs):
+        logging.debug(f"Received data: {attrs}")
+
+        email = attrs.get('email')
+        password = attrs.get('password')
+
+        if email is None or password is None:
+            raise serializers.ValidationError('Email and password required')
 
         try:
-            user = User.objects.get(email = attrs['email'])
+            user = User.objects.get(email = email)
         except User.DoesNotExist:
             raise serializers.ValidationError('Invalid email or password')    
+        
+        if not user.check_password(password):
+            raise serializers.ValidationError('Invalid email or password')
+        
+        attrs['username'] = user.username 
 
         return super().validate(attrs)
 
@@ -61,7 +74,7 @@ urlpatterns = [
     path('api/', include('api.urls', namespace='api')),
 
     #restframework auth
-    path('api/token/', customTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name = 'token_refresh'),
 
     #api-auth
@@ -69,8 +82,12 @@ urlpatterns = [
 
 ]
 
+
 if settings.DEBUG:
+    import debug_toolbar
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
 

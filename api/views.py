@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
@@ -61,12 +61,17 @@ def item(request, pk,):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET'])
-def get_user(request):
-    """Get the user"""
-    user = request.user
-    serializer = UserSerializer(user)
-    return Response(serializer.data)
+def get_user(request, email:str):
+    """Get the user from email"""
+    #user = request.user
 
+    try:
+        user = User.objects.get(email = email.strip())
+        serializer = UserSerializer(user)
+    except User.DoesNotExist:
+        raise Http404
+    
+    return Response(serializer.data)
 
 class CompanyItemList(APIView):
     """
@@ -123,3 +128,60 @@ class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
+
+    def perform_create(self, serializer):
+        user = serializer.save()
+        Profile.objects.create(user = user)
+        
+
+
+class ProfileList(APIView):
+
+    def perform_create(self, serializer):
+        serializer.save(user = self.request.user)
+
+
+    def get(self, request, format = None):
+        profiles = Profile.objects.all()
+        serializer = UserProfileSerializer(profiles, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        serializer = UserProfileSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class ProfileDetail(APIView):
+    
+    def get_profile(self, email):
+        try:
+            user = User.objects.get(email = email)
+            profile  = Profile.objects.get(user = user )
+            return profile
+
+        except User.DoesNotExist or Profile.DoesNotExist:
+            raise   Http404
+        
+
+    def put(self, request, email, format = None):
+        profile = self.get_profile(email) 
+        serializer = UserProfileSerializer(profile, data = request.data)
+        print("data: ", request.data)
+        print("profile: ", profile)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors,  status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, email, format = None):
+        profile = self.get_profile(email) 
+        serializer = UserProfileSerializer(profile)
+        return Response(serializer.data)
+     
+     

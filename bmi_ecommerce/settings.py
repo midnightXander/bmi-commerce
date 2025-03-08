@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 from storages.backends.s3boto3 import S3Boto3Storage
+
 load_dotenv()
 
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'debug_toolbar',
 
     'core',
     'partner',
@@ -69,6 +71,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 # CORS_ALLOWED_ORIGINS = [
@@ -76,6 +80,9 @@ MIDDLEWARE = [
 #     'http://127.0.0.1:8000',
 
 # ]
+
+INTERNAL_IPS = ['127.0.0.1']
+
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -219,3 +226,26 @@ if 'DATABASE_URL' in os.environ:
         conn_max_age=500,
         conn_health_checks=True,
     )
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#         },
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': os.path.join(BASE_DIR, 'debug.log'),
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'file'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }

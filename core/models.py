@@ -38,8 +38,9 @@ class ItemImage(models.Model):
     def __str__(self):
         return f"{self.item.name}"    
 
-class Client(models.Model): 
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+class Profile(models.Model): 
+    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name="profile")
+    phone = models.CharField(max_length=12, blank=True, default="XXXXXX")
 
     def __str__(self):
         return f"{self.user}"

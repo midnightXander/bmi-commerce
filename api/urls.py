@@ -14,9 +14,12 @@ urlpatterns = [
     path('providers/<int:pk>', views.ProviderDetail.as_view()),
 
     #users
-    path('user', views.get_user),
+    path('user/<str:email>', views.get_user),
     path('user/auth/register', views.CreateUserView.as_view()),
-    
+
+    #profiles
+    path('profiles', views.ProfileList.as_view()),
+    path('profiles/<str:email>', views.ProfileDetail.as_view()),    
 
 
 ]

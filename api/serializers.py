@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Item
+from core.models import Item,Profile
 from partner.models import Provider
 from django.contrib.auth.models import User
 
@@ -7,8 +7,43 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            'id', 'username', 'email',
+            'id', 'username', 'email', 'password'
         ]
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        print(validated_data)
+        # user = User(
+        #     email = validated_data['email'],
+        #     username = validated_data['username']
+        # )
+        # user.set_password(validated_data['password'])
+        #user.save()
+
+
+
+        return user    
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
+    class Meta:
+        model = Profile
+        fields = ['user', 'phone']
+
+    def update(self, instance, validated_data):
+        print("validated: ", validated_data)
+        user_data:dict = validated_data.pop('user')    
+        user:User = instance.user
+
+        instance.phone = validated_data.get('phone', instance.phone)
+        instance.save()
+        
+        user.username = user_data.get('username', user.username)
+        user.save()
+
+        return instance
 
 class ItemSerializer(serializers.ModelSerializer):
     #provider = ProviderSerializer(read_only = True)
