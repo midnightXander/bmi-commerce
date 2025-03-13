@@ -22,8 +22,13 @@ On peut ansi visualiser, voir en details les produits et passer une commande
 
 {% block content %}
 <main class="container mx-auto px-6 py-8">
-    
-    <h1 class="text-3xl font-bold text-[#5A0B29] mb-6">Tous les Produits</h1>
+    <div class="w-full mx-auto mb-8 bg-black px-8 py-16 rounded-lg">
+        <h1 class="text-3xl font-bold text-[#A71d46] mb-6">Bienvenue dans notre Boutique</h1>
+        <p class="text-gray-200">Découvrez notre sélection de produits de qualité à des prix abordables. Faites votre choix parmi nos produits de la marque BMI et ceux de nos partenaires.</p>
+
+    </div>
+
+    <h1 class="text-3xl font-bold text-[#5A0B29] mb-6">Nos Produits</h1>
     <!-- <div class="" style="width: 100px; height: 100px;" >
 
     
@@ -59,9 +64,50 @@ On peut ansi visualiser, voir en details les produits et passer une commande
 
     <h2 class="text-2xl font-bold text-[#5A0B29] mb-6">Produits de nos Partenaires</h2>
     
-    <div class="p-4">
+    <div class="px-4 mb-4">
         <input id="searchProducts" type="text" placeholder="Rechercher un produit..." oninput="searchProducts()" class="w-full p-2  rounded-full border focus:outline-none focus:ring-2 focus:ring-[#5A0B29]">
     </div>
+
+    <div class="categories overflow-x-auto mb-8 p-2">
+        <h2 class="text-xl font-bold text-[#5A0B29] mb-4">Categories</h2>
+        <div class="inline-flex py-2 space-x-4">
+            <button value="recent" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-clock text-xl"></i>
+                <span class="text-sm">Recent</span>
+            </button>
+            <button value="food" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-utensils text-xl"></i>
+                <span class="text-sm">Alimentaire</span>
+            </button>
+            <button value="beauty" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-spray-can-sparkles text-xl"></i>
+                <span class="text-sm">Cosmetique</span>
+            </button>
+            <button value="decoration" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-house text-xl"></i>
+                <span class="text-sm">Decoration</span>
+            </button>
+            <button value="cloths" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-shirt text-xl"></i>
+                <span class="text-sm">Vetements</span>
+            </button>
+            <button value="electronics" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-laptop text-xl"></i>
+                <span class="text-sm">Electronique</span>
+            </button>
+            <button value="others" class="category-button bg-gray-200 flex flex-col justify-center items-center rounded-full inline-block w-32 h-32 cursor-pointer hover:bg-gray-300  transition-colors duration-300">
+                <i class="fas fa-shuffle text-xl"></i>
+                <span class="text-sm">Autres</span>
+            </button>
+        </div>
+       
+
+
+        
+    </div>
+
+
+
     
     <div id="partner-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <!-- Partner products will be inserted here -->
@@ -85,47 +131,78 @@ On peut ansi visualiser, voir en details les produits et passer une commande
 
     function createProductCard(product) {
         return `
-            <a href = '/produits/${product.ref}' class="product bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+            <a href = '/produits/${product.ref}' class="product  rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300">
                 <img src="${product.image1}" alt="${product.name}" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-gray-800 font-semibold text-lg mb-2">${product.name}</h3>
                     <p class="text-gray-600"><span>${product.price}<span> XAF</p>
-                    <button class="mt-4 bg-[#5A0B29] text-white px-4 py-2 rounded hover:bg-[#5A0B00] transition-colors duration-300">Détails</button>
+                    <button class="mt-4 text-[#5A0B29]  py-2 rounded transition-colors duration-300">Détails</button> <i class='fas fa-chevron-right mx-2 text-[#5A0B00]'></i>
                 </div>
             </a>
         `;
     }
 
-    function renderProducts(filter = 'all') {
+    // function renderProducts(filter = 'all') {
+    //     const companyContainer = document.getElementById('company-products');
+    //     const partnerContainer = document.getElementById('partner-products');
+    //     companyContainer.innerHTML = '';
+    //     partnerContainer.innerHTML = '';
+
+    //     let count = 0;
+
+    //     products.forEach(product => {
+            
+    //         if (filter === 'all' || product.provider.label === filter) {
+    //             const card = createProductCard(product);
+    //             if (product.provider.label === 'company') {
+    //                 companyContainer.innerHTML += card;
+    //             } else {
+                    
+    //                 partnerContainer.innerHTML += card;
+                    
+    //             }
+    //             count++;
+    //         }else{
+
+    //         }
+    //     });
+
+    //     document.getElementById('product-count').textContent = count;
+    // }
+    function renderProducts(filter = 'recent', recent_count=5) {
         const companyContainer = document.getElementById('company-products');
         const partnerContainer = document.getElementById('partner-products');
-        companyContainer.innerHTML = '';
+        //companyContainer.innerHTML = '';
         partnerContainer.innerHTML = '';
-
         let count = 0;
+        
 
-        products.forEach(product => {
-            
-            if (filter === 'all' || product.provider.label === filter) {
-                const card = createProductCard(product);
-                if (product.provider.label === 'company') {
-                    companyContainer.innerHTML += card;
-                } else {
-                    
-                    partnerContainer.innerHTML += card;
-                    
-                }
+        for (let i = 0; i < products.length; i++) {
+        const product = products[i];
+        
+        if (filter === 'recent' || product.category === filter) {
+            const card = createProductCard(product);
+             
+            if (product.provider.label !== 'company') {
+                partnerContainer.innerHTML += card;
                 count++;
-            }else{
-
             }
-        });
+            if (count >= recent_count && filter === 'recent') {
+                break; // Stop the loop
+            }
+            
+            
+        }
+    }
 
         document.getElementById('product-count').textContent = count;
     }
 
-    document.getElementById('provider-filter').addEventListener('change', (e) => {
-        renderProducts(e.target.value);
+    // document.getElementById('provider-filter').addEventListener('change', (e) => {
+    //     renderProducts(e.target.value);
+    // });
+    $('.category-button').click(function(){
+        renderProducts($(this).val());
     });
 
     function searchProducts() {

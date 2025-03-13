@@ -48,6 +48,7 @@ def item_data(item:Item):
         "image4": item.image4.url if item.image4 else None,
         'status': 'Approuvé' if item.approved else 'En attente',
         'timestamp': item.date_added,
+        'category': item.category,
         "provider": {
             "label": item.provider.label,
             "id": item.provider.id,

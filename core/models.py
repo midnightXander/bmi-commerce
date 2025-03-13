@@ -11,6 +11,7 @@ class ItemColor(models.Model):
 
 
 
+PRODUCT_CATEGORIES = ['food', 'beauty', 'decoration', 'cloths', 'elelctronics', 'others']
 
 class Item(models.Model):
     
@@ -23,6 +24,9 @@ class Item(models.Model):
     image2 = models.ImageField(upload_to = "items/images/", null=True)
     image3 = models.ImageField(upload_to = "items/images/", null=True)
     image4 = models.ImageField(upload_to = "items/images/", null=True)
+    category = models.CharField(max_length=50, default = 'others', choices=[
+        (i,i) for i in PRODUCT_CATEGORIES
+    ] )
     date_added = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     
