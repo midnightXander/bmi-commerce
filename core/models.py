@@ -20,10 +20,10 @@ class Item(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE, related_name='items')
-    image1 = models.ImageField(upload_to = "items/images/", blank=True)
-    image2 = models.ImageField(upload_to = "items/images/", null=True)
-    image3 = models.ImageField(upload_to = "items/images/", null=True)
-    image4 = models.ImageField(upload_to = "items/images/", null=True)
+    image1 = models.ImageField(upload_to = "items/images/")
+    image2 = models.ImageField(upload_to = "items/images/", null=True,blank=True)
+    image3 = models.ImageField(upload_to = "items/images/", null=True,blank=True)
+    image4 = models.ImageField(upload_to = "items/images/", null=True,blank=True)
     category = models.CharField(max_length=50, default = 'others', choices=[
         (i,i) for i in PRODUCT_CATEGORIES
     ] )
