@@ -568,3 +568,9 @@ def order(request):
         return render(request,'core/order_finished.html', {
             'message': message
         })
+
+def app_page(request):
+    
+    return render(request,"core/download_app.html", {
+        'n_cart_items': n_cart_items(request),
+    })
