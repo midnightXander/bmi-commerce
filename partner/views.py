@@ -215,7 +215,7 @@ def upload_image_to_s3(image):
 def add_product(request):
     provider = get_partner(request)
     if request.method ==  "POST":
-        print("getting info...")
+        #print("getting info...")
         name = request.POST['productName']
         description = request.POST['productDescription']
         price = request.POST['productPrice']
@@ -224,6 +224,7 @@ def add_product(request):
         image3 = request.FILES.get('image3')
         image4 = request.FILES.get('image4')
         ref = item_ref(name)
+        category = request.POST.get('productCategory', 'others')
         new_product = Item.objects.create(
             provider = provider,
             name = name,
@@ -234,8 +235,9 @@ def add_product(request):
             image2 = image2,
             image3 = image3,
             image4 = image4,
+            category =  category,
         )
-        print("stored info...")
+        #print("stored info...")
     
         new_product.save()
         new_product.image1.name.split('/')[-1]

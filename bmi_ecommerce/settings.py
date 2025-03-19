@@ -30,8 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-vz6n^o6#_$(9a%7vwcf6al*a5#q32*n58l6fc)q=*hmxj^8caq')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://bmisolutions.org']
@@ -79,11 +79,9 @@ MIDDLEWARE = [
 # CORS_ALLOWED_ORIGINS = [
 #     'http://localhost:8000',
 #     'http://127.0.0.1:8000',
-
 # ]
 
 INTERNAL_IPS = ['127.0.0.1']
-
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -250,3 +248,11 @@ if 'DATABASE_URL' in os.environ:
 #         },
 #     },
 # }
+
+
+# Découvrez notre nouvel appartement, conçu pour votre confort et votre bien-être. Avec ses 2/3 chambres, son salon lumineux et sa cuisine équipée, vous vous sentirez chez vous
+# Profitez de nos équipements et services de haute qualité : piscine, salle de sport, jardin et parking sécurisé.
+# Situé le quartier calme et verdoyant de Biteng a Yaounde, notre appartement est à proximité des transports en commun et des commodités de la ville
+# Rejoignez notre communauté et faites de notre appartement votre nouveau chez-vous. Contactez-nous pour plus d'informations et pour planifier une visite.
+
+# Contactez-nous ou  Visitez notre site web
