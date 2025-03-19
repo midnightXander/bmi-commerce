@@ -450,7 +450,7 @@ def admin_dashboard(request):
     for product in company_products:
         company_products_data.append(item_data(product))
 
-    partners  = Provider.objects.filter(label = 'partners')
+    partners  = Provider.objects.filter(label = 'partners').order_by('-id')
     partners_data = []
     for partner in partners:
         partners_data.append(_provider_data(partner))    
