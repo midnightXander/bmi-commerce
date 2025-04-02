@@ -571,6 +571,16 @@ def order(request):
 
 def app_page(request):
     
+    if request.method == 'POST':
+        print('downloading...')
+        session_key = request.session.session_key
+        if not AppDownload.objects.filter(sk = session_key).exists():
+            #return JsonResponse({'status':'failure', 'message':'Download already recorded'})
+            new_download = AppDownload.objects.create(sk = session_key)
+            new_download.save()
+            return JsonResponse({'status':'success', 'message':'Download recorded'})
+
     return render(request,"core/download_app.html", {
         'n_cart_items': n_cart_items(request),
     })
+

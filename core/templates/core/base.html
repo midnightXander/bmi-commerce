@@ -275,6 +275,38 @@
         /* Option styles */
        
     </style>
+     <style>
+        /* Animation for slideDown */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        
+        /* Animation for slideUp */
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        
+        .slide-down {
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.3s ease-out forwards;
+        }
+        
+        /* Animation for floating button pulse */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
     <body class="bg-gray-50" >
         <div id="mobileMenu" class="fixed inset-0 bg-[#5A0B29] z-50 flex flex-col justify-center items-center transform translate-x-full transition-transform duration-300 ease-in-out">
             <button id="closeMenu" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
@@ -353,6 +385,205 @@
                 </div>
             </div>
         </nav>
+
+        <div id="top-app-banner" class="hidden fixed top-0 left-0 right-0 bg-primary dark:bg-primary-dark text-white py-3 px-4 z-50 shadow-md slide-down">
+            <div class="container mx-auto flex flex-wrap items-center justify-between">
+                <div class="flex items-center">
+                    <div class="hidden sm:block mr-3">
+                        <svg class="w-10 h-10" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="50" height="50" rx="10" fill="white" fill-opacity="0.2"/>
+                            <path d="M15 25H35M25 15V35" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium">Shop on the go with our mobile app!</p>
+                        <p class="text-sm opacity-90 hidden sm:block">Get exclusive app-only deals and faster checkout.</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+                    <a href="#" target="_blank" class="bg-white text-primary text-sm px-3 py-1.5 rounded flex items-center hover:bg-gray-100 transition-colors">
+                        <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
+                        </svg>
+                        iOS
+                    </a>
+                    <a href="#" target="_blank" class="bg-white text-primary text-sm px-3 py-1.5 rounded flex items-center hover:bg-gray-100 transition-colors">
+                        <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12l-10.183 10.186c-2.05-1.952-2.05-8.236 0-10.186zM13.792 12L5.814 4.021l12.277 3.251c1.936.512 1.936 4.966 0 5.478zm-9.255 4.045L12 12l7.463-4.045L12 12h-7.463zm11.641 6.141L5.814 19.979l7.978-7.979 7.463 4.045c-1.126 1.372-3.092 2.443-5.077 2.955z"/>
+                        </svg>
+                        Android
+                    </a>
+                    <button id="close-top-banner" class="text-white ml-2 p-1 hover:bg-white/20 rounded-full transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottom-app-banner" class=" fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-3 px-4 z-50 shadow-lg slide-up">
+            <div class="container mx-auto flex flex-wrap items-center justify-between">
+                <div class="flex items-center">
+                    <div class="mr-3 bg-[#5A0B29] rounded-lg p-2">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-800">Téléchargez notre application mobile</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Des achats plus rapides, des offres exclusives et plus encore</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+                    <a href="/download" class="bg-black text-white text-sm px-3 py-1.5 rounded flex items-center hover:bg-gray-800 transition-colors">
+                        <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12l-10.183 10.186c-2.05-1.952-2.05-8.236 0-10.186zM13.792 12L5.814 4.021l12.277 3.251c1.936.512 1.936 4.966 0 5.478zm-9.255 4.045L12 12l7.463-4.045L12 12h-7.463zm11.641 6.141L5.814 19.979l7.978-7.979 7.463 4.045c-1.126 1.372-3.092 2.443-5.077 2.955z"/>
+                        </svg>
+                        En savoir plus
+                    </a>
+                    
+                    <!-- <a href="#" target="_blank" class="bg-black text-white text-sm px-3 py-1.5 rounded flex items-center hover:bg-gray-800 transition-colors">
+                        <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
+                        </svg>
+                        App Store
+                    </a>
+                    <a href="#" target="_blank" class="bg-black text-white text-sm px-3 py-1.5 rounded flex items-center hover:bg-gray-800 transition-colors">
+                        <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12l-10.183 10.186c-2.05-1.952-2.05-8.236 0-10.186zM13.792 12L5.814 4.021l12.277 3.251c1.936.512 1.936 4.966 0 5.478zm-9.255 4.045L12 12l7.463-4.045L12 12h-7.463zm11.641 6.141L5.814 19.979l7.978-7.979 7.463 4.045c-1.126 1.372-3.092 2.443-5.077 2.955z"/>
+                        </svg>
+                        Google Play
+                    </a> -->
+                    <button id="close-bottom-banner" class="text-gray-600 dark:text-gray-400 ml-2 p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="floating-app-button" class="hidden fixed right-6 bottom-6 z-50">
+            <!-- Floating button -->
+            <button id="open-app-modal" class="bg-primary dark:bg-primary-dark text-white p-3 rounded-full shadow-lg hover:bg-primary/90 dark:hover:bg-primary-dark/90 transition-colors pulse">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 18V12M12 12V6M12 12H18M12 12H6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <!-- Modal (initially hidden) -->
+            <div id="app-modal" class="absolute right-0 bottom-16 w-[280px] bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 border border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="font-bold text-gray-800 dark:text-gray-200">Get our mobile app</h3>
+                    <button id="close-app-modal" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center mb-3">
+                    <div class="mr-3 bg-primary/10 dark:bg-primary-dark/10 p-2 rounded-full">
+                        <svg class="w-6 h-6 text-primary dark:text-primary-dark" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                        </svg>
+                    </div>
+                    <div class="text-sm">
+                        <p class="font-medium text-gray-800 dark:text-gray-200">Download the app now!</p>
+                        <p class="text-gray-600 dark:text-gray-400">Enjoy exclusive features & deals</p>
+                    </div>
+                </div>
+                
+                <!-- App Store buttons -->
+                <div class="flex space-x-2">
+                    <a href="#" target="_blank" class="flex-1 flex justify-center items-center gap-1 bg-black text-white text-xs px-2 py-2 rounded hover:bg-gray-800 transition-colors">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
+                        </svg>
+                        App Store
+                    </a>
+                    <a href="#" target="_blank" class="flex-1 flex justify-center items-center gap-1 bg-black text-white text-xs px-2 py-2 rounded hover:bg-gray-800 transition-colors">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.609 1.814L13.792 12l-10.183 10.186c-2.05-1.952-2.05-8.236 0-10.186zM13.792 12L5.814 4.021l12.277 3.251c1.936.512 1.936 4.966 0 5.478zm-9.255 4.045L12 12l7.463-4.045L12 12h-7.463zm11.641 6.141L5.814 19.979l7.978-7.979 7.463 4.045c-1.126 1.372-3.092 2.443-5.077 2.955z"/>
+                        </svg>
+                        Google Play
+                    </a>
+                </div>
+                
+                <!-- QR Code (optional) -->
+                <div class="mt-3 border-t border-gray-200 dark:border-gray-700 pt-3 text-center">
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mb-2">Or scan this QR code:</p>
+                    <div class="mx-auto w-24 h-24 bg-white p-1">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="white"/>
+                            <rect x="25" y="25" width="5" height="5" fill="black"/>
+                            <rect x="30" y="25" width="5" height="5" fill="black"/>
+                            <rect x="35" y="25" width="5" height="5" fill="black"/>
+                            <rect x="40" y="25" width="5" height="5" fill="black"/>
+                            <rect x="45" y="25" width="5" height="5" fill="black"/>
+                            <rect x="50" y="25" width="5" height="5" fill="black"/>
+                            <rect x="55" y="25" width="5" height="5" fill="black"/>
+                            <rect x="70" y="25" width="5" height="5" fill="black"/>
+                            <rect x="25" y="30" width="5" height="5" fill="black"/>
+                            <rect x="55" y="30" width="5" height="5" fill="black"/>
+                            <rect x="65" y="30" width="5" height="5" fill="black"/>
+                            <rect x="70" y="30" width="5" height="5" fill="black"/>
+                            <rect x="25" y="35" width="5" height="5" fill="black"/>
+                            <rect x="35" y="35" width="5" height="5" fill="black"/>
+                            <rect x="40" y="35" width="5" height="5" fill="black"/>
+                            <rect x="45" y="35" width="5" height="5" fill="black"/>
+                            <rect x="55" y="35" width="5" height="5" fill="black"/>
+                            <rect x="70" y="35" width="5" height="5" fill="black"/>
+                            <rect x="25" y="40" width="5" height="5" fill="black"/>
+                            <rect x="35" y="40" width="5" height="5" fill="black"/>
+                            <rect x="40" y="40" width="5" height="5" fill="black"/>
+                            <rect x="45" y="40" width="5" height="5" fill="black"/>
+                            <rect x="55" y="40" width="5" height="5" fill="black"/>
+                            <rect x="70" y="40" width="5" height="5" fill="black"/>
+                            <rect x="25" y="45" width="5" height="5" fill="black"/>
+                            <rect x="35" y="45" width="5" height="5" fill="black"/>
+                            <rect x="40" y="45" width="5" height="5" fill="black"/>
+                            <rect x="45" y="45" width="5" height="5" fill="black"/>
+                            <rect x="55" y="45" width="5" height="5" fill="black"/>
+                            <rect x="70" y="45" width="5" height="5" fill="black"/>
+                            <rect x="25" y="50" width="5" height="5" fill="black"/>
+                            <rect x="55" y="50" width="5" height="5" fill="black"/>
+                            <rect x="70" y="50" width="5" height="5" fill="black"/>
+                            <rect x="25" y="55" width="5" height="5" fill="black"/>
+                            <rect x="30" y="55" width="5" height="5" fill="black"/>
+                            <rect x="35" y="55" width="5" height="5" fill="black"/>
+                            <rect x="40" y="55" width="5" height="5" fill="black"/>
+                            <rect x="45" y="55" width="5" height="5" fill="black"/>
+                            <rect x="50" y="55" width="5" height="5" fill="black"/>
+                            <rect x="55" y="55" width="5" height="5" fill="black"/>
+                            <rect x="60" y="55" width="5" height="5" fill="black"/>
+                            <rect x="65" y="55" width="5" height="5" fill="black"/>
+                            <rect x="70" y="55" width="5" height="5" fill="black"/>
+                            <rect x="30" y="60" width="5" height="5" fill="black"/>
+                            <rect x="45" y="60" width="5" height="5" fill="black"/>
+                            <rect x="60" y="60" width="5" height="5" fill="black"/>
+                            <rect x="30" y="65" width="5" height="5" fill="black"/>
+                            <rect x="35" y="65" width="5" height="5" fill="black"/>
+                            <rect x="40" y="65" width="5" height="5" fill="black"/>
+                            <rect x="45" y="65" width="5" height="5" fill="black"/>
+                            <rect x="50" y="65" width="5" height="5" fill="black"/>
+                            <rect x="60" y="65" width="5" height="5" fill="black"/>
+                            <rect x="65" y="65" width="5" height="5" fill="black"/>
+                            <rect x="30" y="70" width="5" height="5" fill="black"/>
+                            <rect x="35" y="70" width="5" height="5" fill="black"/>
+                            <rect x="45" y="70" width="5" height="5" fill="black"/>
+                            <rect x="55" y="70" width="5" height="5" fill="black"/>
+                            <rect x="65" y="70" width="5" height="5" fill="black"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+
+
         <!-- <div class="relative">
              <div id="google_translate_element" class="fixed right-4 top-3 gte z-150" ></div>
         </div> -->
@@ -513,6 +744,86 @@
               new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
             }
         </script> 
+        <script>
+            // Banner management functions
+            function showBanner(type) {
+                // Hide all banners first
+                hideAllBanners();
+                
+                // Show the selected banner
+                if (type === 'top') {
+                    document.getElementById('top-app-banner').classList.remove('hidden');
+                } else if (type === 'bottom') {
+                    document.getElementById('bottom-app-banner').classList.remove('hidden');
+                } else if (type === 'floating') {
+                    document.getElementById('floating-app-button').classList.remove('hidden');
+                }
+                
+                // Store preference in localStorage to remember user's choice
+                localStorage.setItem('appBannerPreference', type);
+            }
+            
+            function hideAllBanners() {
+                document.getElementById('top-app-banner').classList.add('hidden');
+                document.getElementById('bottom-app-banner').classList.add('hidden');
+                document.getElementById('floating-app-button').classList.add('hidden');
+                document.getElementById('app-modal').classList.add('hidden');
+            }
+            
+            // Event listeners for close buttons
+            document.getElementById('close-top-banner').addEventListener('click', function() {
+                document.getElementById('top-app-banner').classList.add('hidden');
+                localStorage.setItem('topBannerDismissed', 'true');
+            });
+            
+            document.getElementById('close-bottom-banner').addEventListener('click', function() {
+                document.getElementById('bottom-app-banner').classList.add('hidden');
+                localStorage.setItem('bottomBannerDismissed', 'true');
+            });
+            
+            // Floating button and modal functionality
+            document.getElementById('open-app-modal').addEventListener('click', function() {
+                const modal = document.getElementById('app-modal');
+                modal.classList.toggle('hidden');
+            });
+            
+            document.getElementById('close-app-modal').addEventListener('click', function() {
+                document.getElementById('app-modal').classList.add('hidden');
+            });
+            
+            // Close modal when clicking outside of it
+            document.addEventListener('click', function(event) {
+                const modal = document.getElementById('app-modal');
+                const button = document.getElementById('open-app-modal');
+                
+                if (!modal.classList.contains('hidden') && 
+                    !modal.contains(event.target) && 
+                    event.target !== button && 
+                    !button.contains(event.target)) {
+                    modal.classList.add('hidden');
+                }
+            });
+            
+            // Check for stored preference on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                const preference = localStorage.getItem('appBannerPreference');
+                const topDismissed = localStorage.getItem('topBannerDismissed');
+                const bottomDismissed = localStorage.getItem('bottomBannerDismissed');
+                
+                if (preference && preference !== 'none') {
+                    if (preference === 'top' && topDismissed !== 'true') {
+                        showBanner('top');
+                    } else if (preference === 'bottom' && bottomDismissed !== 'true') {
+                        showBanner('bottom');
+                    } else if (preference === 'floating') {
+                        showBanner('floating');
+                    }
+                } else {
+                    // Default banner if no preference is set
+                    showBanner('top');
+                }
+            });
+        </script>
         <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
         

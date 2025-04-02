@@ -2,20 +2,26 @@
 {% load static %}
 
 {% block content %}
-<title>Download Our Mobile App | ShopEase</title>
-        <a target="_blank" download="clevershop.apk" href="{% static 'apps/clever-shop/clevershop.apk' %}">Download</a>
+<title>Download Our Mobile App | CLEVER-SHOP</title>
+      
         
         
             
             
             <script>
+                // function download() {
+                //     var link = document.createElement('a');
+                //     link.href = "{% static 'apps/clever-shop/clevershop.apk' %}";
+                //     link.download = 'clevershop.apk';
+                //     link.click();
+                // }
                 tailwind.config = {
                     darkMode: 'class',
                     theme: {
                         extend: {
                             colors: {
                                 primary: {
-                                    DEFAULT: '#5D5CDE',
+                                    DEFAULT: '#5A0B29',
                                     dark: '#7A79E3',
                                 }
                             }
@@ -43,22 +49,38 @@
                 <section class="py-12 md:py-20 px-4">
                     <div class="container mx-auto flex flex-col md:flex-row items-center">
                         <div class="md:w-1/2 md:pr-10">
-                            <h1 class="text-3xl md:text-5xl font-bold mb-6">Shop Anytime, Anywhere with Our Mobile App</h1>
-                            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Get exclusive app-only deals, personalized recommendations, and a faster checkout experience on your mobile device.</p>
+                            <h1 class="text-[#5A0B29] text-3xl md:text-5xl font-bold mb-6">Achetez à tout moment, n'importe où avec notre application mobile</h1>
+                            <p class=" text-lg text-gray-600 dark:text-gray-400 mb-8">Bénéficiez d'offres exclusives sur l'application, de recommandations personnalisées et d'une expérience de paiement plus rapide sur votre appareil mobile.</p>
                             
                             <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                                <!-- App Store Button -->
-                                <a href="#" target="_blank" class="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
-                                    <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                                <a  target="_blank" download="clevershop.apk" href="{% static 'apps/clever-shop/clevershop.apk' %}" class="download-link inline-flex items-center bg-[#5A0B29] text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                                    <!-- <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
-                                    </svg>
+                                    </svg> -->
+                                    <i class="fas fa-download text-2xl mr-4"></i>
                                     <div>
-                                        <div class="text-xs">Download on the</div>
+                                        <div class="text-xs">Telechargez Maintenant</div>
+                                        <div class="text-xl font-semibold -mt-1">CLEVER SHOP</div>
+                                    </div>
+                                </a>
+                
+                            </div>
+
+
+                            <!-- <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                                <!-- App Store Button 
+                                <a href="#" target="_blank" class="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                                    <!-- <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
+                                    </svg> 
+                                    <i class="fas fa-download text-2xl mx-2"></i>
+                                    <div>
+                                        <div class="text-xs">Telechargez Maintenant</div>
                                         <div class="text-xl font-semibold -mt-1">App Store</div>
                                     </div>
                                 </a>
                                 
-                                <!-- Google Play Button -->
+                                <!-- Google Play Button 
                                 <a href="#" target="_blank" class="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
                                     <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M3.609 1.814L13.792 12l-10.183 10.186c-2.05-1.952-2.05-8.236 0-10.186zM13.792 12L5.814 4.021l12.277 3.251c1.936.512 1.936 4.966 0 5.478zm-9.255 4.045L12 12l7.463-4.045L12 12h-7.463zm11.641 6.141L5.814 19.979l7.978-7.979 7.463 4.045c-1.126 1.372-3.092 2.443-5.077 2.955z"/>
@@ -68,7 +90,7 @@
                                         <div class="text-xl font-semibold -mt-1">Google Play</div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> -->
                             
                             <div class="flex items-center space-x-4">
                                 <div class="flex">
@@ -88,7 +110,7 @@
                                         </svg>
                                     </span>
                                 </div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Join <span class="font-medium">50,000+</span> happy shoppers</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Rejoignez <span class="font-medium">50,000+</span> joyeux acheteurs</p>
                             </div>
                         </div>
                         
@@ -106,50 +128,54 @@
                                             <rect width="280" height="574" fill="#F8F8F8" />
                                             
                                             <!-- Status Bar -->
-                                            <rect y="0" width="280" height="36" fill="#5D5CDE" />
+                                            <rect y="0" width="280" height="36" fill="#5A0B29" />
                                             <circle cx="24" cy="18" r="6" fill="white" opacity="0.9" />
                                             <rect x="200" y="13" width="24" height="10" rx="5" fill="white" opacity="0.9" />
                                             <rect x="230" y="13" width="24" height="10" rx="5" fill="white" opacity="0.9" />
                                             
                                             <!-- App Header -->
-                                            <rect y="36" width="280" height="60" fill="#5D5CDE" />
+                                            <rect y="36" width="280" height="60" fill="#5A0B29" />
                                             <rect x="16" y="55" width="160" height="24" rx="12" fill="white" opacity="0.2" />
                                             <circle cx="240" cy="67" r="16" stroke="white" stroke-opacity="0.3" stroke-width="2" />
                                             <path d="M240 60V74M233 67H247" stroke="white" stroke-opacity="0.9" stroke-width="2" stroke-linecap="round" />
                                             
                                             <!-- Main Content -->
                                             <rect x="16" y="112" width="248" height="120" rx="8" fill="white" />
-                                            <rect x="30" y="128" width="120" height="16" rx="4" fill="#5D5CDE" opacity="0.8" />
+                                            <rect x="30" y="128" width="120" height="16" rx="4" fill="#5A0B29" opacity="0.8" />
                                             <rect x="30" y="152" width="220" height="10" rx="4" fill="#DDD" />
                                             <rect x="30" y="170" width="170" height="10" rx="4" fill="#DDD" />
-                                            <rect x="30" y="196" width="70" height="20" rx="10" fill="#5D5CDE" />
+                                            <rect x="30" y="196" width="70" height="20" rx="10" fill="#5A0B29" />
                                             
                                             <!-- Products Section -->
                                             <rect x="16" y="248" width="120" height="120" rx="8" fill="white" />
-                                            <rect x="16" y="248" width="120" height="80" rx="8" fill="#F3F4F6" />
+                                            <!-- <rect x="16" y="248" width="120" height="80" rx="8" fill="#F3F4F6" /> -->
+                                            <image xlink:href="https://images.unsplash.com/photo-1545165393-011d14b0dcf0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGUlMjBjb21tZXJjZSUyMHByb2R1Y3RzfGVufDB8fDB8fHww" x="16" y="248" width = "120" height = '80'  />
                                             <rect x="26" y="338" width="70" height="10" rx="4" fill="#333" />
-                                            <rect x="26" y="354" width="40" height="6" rx="3" fill="#5D5CDE" />
+                                            <rect x="26" y="354" width="40" height="6" rx="3" fill="#5A0B29" />
                                             
                                             <rect x="144" y="248" width="120" height="120" rx="8" fill="white" />
-                                            <rect x="144" y="248" width="120" height="80" rx="8" fill="#F3F4F6" />
+                                            <!-- <rect x="144" y="248" width="120" height="80" rx="8" fill="#F3F4F6" /> -->
+                                            <image xlink:href="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2F0Y2h8ZW58MHx8MHx8fDA%3D" x="144" y="248" width="120" height="80" rx="8"  />
                                             <rect x="154" y="338" width="70" height="10" rx="4" fill="#333" />
-                                            <rect x="154" y="354" width="40" height="6" rx="3" fill="#5D5CDE" />
+                                            <rect x="154" y="354" width="40" height="6" rx="3" fill="#5A0B29" />
                                             
                                             <rect x="16" y="384" width="120" height="120" rx="8" fill="white" />
-                                            <rect x="16" y="384" width="120" height="80" rx="8" fill="#F3F4F6" />
+                                            <!-- <rect x="16" y="384" width="120" height="80" rx="8" fill="#F3F4F6" /> -->
+                                            <image x="16" y="384" width="120" height="80" xlink:href="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"/>
                                             <rect x="26" y="474" width="70" height="10" rx="4" fill="#333" />
-                                            <rect x="26" y="490" width="40" height="6" rx="3" fill="#5D5CDE" />
+                                            <rect x="26" y="490" width="40" height="6" rx="3" fill="#5A0B29" />
                                             
                                             <rect x="144" y="384" width="120" height="120" rx="8" fill="white" />
-                                            <rect x="144" y="384" width="120" height="80" rx="8" fill="#F3F4F6" />
+                                            <!-- <rect x="144" y="384" width="120" height="80" rx="8" fill="#F3F4F6" /> -->
+                                            <image x="144" y="384" width="120" height="80" xlink:href="https://images.unsplash.com/flagged/photo-1585052201332-b8c0ce30972f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9iZXxlbnwwfHwwfHx8MA%3D%3D"/>
                                             <rect x="154" y="474" width="70" height="10" rx="4" fill="#333" />
-                                            <rect x="154" y="490" width="40" height="6" rx="3" fill="#5D5CDE" />
+                                            <rect x="154" y="490" width="40" height="6" rx="3" fill="#5A0B29" />
                                             
                                             <!-- Navigation -->
                                             <rect y="524" width="280" height="50" fill="white" />
-                                            <path d="M35 544H45M35 550H45M35 556H45" stroke="#5D5CDE" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M140 538L140 558M130 548H150" stroke="#5D5CDE" stroke-width="2" stroke-linecap="round" />
-                                            <circle cx="230" cy="548" r="10" stroke="#5D5CDE" stroke-width="2" />
+                                            <path d="M35 544H45M35 550H45M35 556H45" stroke="#5A0B29" stroke-width="2" stroke-linecap="round" />
+                                            <path d="M140 538L140 558M130 548H150" stroke="#5A0B29" stroke-width="2" stroke-linecap="round" />
+                                            <circle cx="230" cy="548" r="10" stroke="#5A0B29" stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
@@ -159,55 +185,55 @@
                 </section>
         
                 <!-- Features Section -->
-                <section class="py-16 bg-gray-50 dark:bg-gray-800 px-4">
+                <section class="py-16 bg-gray-50  px-4">
                     <div class="container mx-auto text-center mb-12">
-                        <h2 class="text-3xl font-bold mb-4">Why Download Our App?</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Experience shopping like never before with features designed to make your life easier.</p>
+                        <h2 class="text-3xl font-bold mb-4">Pourquoi télécharger notre application ?</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Vivez une expérience de shopping comme jamais auparavant avec des fonctionnalités conçues pour vous simplifier la vie.</p>
                     </div>
                     
                     <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <!-- Feature 1 -->
                         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                             <div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-primary dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-[#5A0B29]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-2">Lightning Fast Shopping</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Browse and purchase products with blazing speed, optimized for mobile.</p>
+                            <h3 class="text-xl font-semibold mb-2">Achats ultra-rapides</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Parcourez et achetez des produits à une vitesse fulgurante, optimisés pour les mobiles.</p>
                         </div>
                         
                         <!-- Feature 2 -->
                         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                             <div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-primary dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-[#5A0B29]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-2">Real-Time Tracking</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Track your orders in real-time and receive instant delivery updates.</p>
+                            <h3 class="text-xl font-semibold mb-2">Suivi en temps réel</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Suivez vos commandes en temps réel et recevez des mises à jour de livraison instantanées.</p>
                         </div>
                         
                         <!-- Feature 3 -->
                         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                             <div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-primary dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-[#5A0B29]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-2">Exclusive Deals</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Access app-only discounts and promotions not available anywhere else.</p>
+                            <h3 class="text-xl font-semibold mb-2">Offres exclusives</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Accédez à des remises et promotions réservées à l'application, non disponibles ailleurs.</p>
                         </div>
                         
                         <!-- Feature 4 -->
                         <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                             <div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-primary dark:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-[#5A0B29]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-semibold mb-2">Secure Shopping</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Enhanced security features including biometric authentication and secure checkout.</p>
+                            <h3 class="text-xl font-semibold mb-2">Achats sécurisés</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Fonctionnalités de sécurité améliorées, notamment l’authentification biométrique et le paiement sécurisé.</p>
                         </div>
                     </div>
                 </section>
@@ -215,8 +241,8 @@
                 <!-- App Screenshots Section -->
                 <section class="py-16 px-4">
                     <div class="container mx-auto text-center mb-12">
-                        <h2 class="text-3xl font-bold mb-4">Discover the App Experience</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">See how our intuitive design makes shopping a breeze on any device.</p>
+                        <h2 class="text-3xl font-bold mb-4">Découvrez l'expérience de l'application</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Découvrez comment notre conception intuitive facilite vos achats sur n'importe quel appareil.</p>
                     </div>
                     
                     <div class="container mx-auto flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory">
@@ -232,39 +258,39 @@
                                             <rect width="280" height="500" fill="#F8F8F8" />
                                             
                                             <!-- Status Bar -->
-                                            <rect y="0" width="280" height="36" fill="#5D5CDE" />
+                                            <rect y="0" width="280" height="36" fill="#5A0B29" />
                                             
                                             <!-- App Header -->
-                                            <rect y="36" width="280" height="60" fill="#5D5CDE" />
+                                            <rect y="36" width="280" height="60" fill="#5A0B29" />
                                             <rect x="16" y="55" width="160" height="24" rx="12" fill="white" opacity="0.2" />
                                             <circle cx="240" cy="67" r="16" stroke="white" stroke-opacity="0.3" stroke-width="2" />
                                             
                                             <!-- Categories -->
-                                            <rect x="20" y="116" width="70" height="30" rx="15" fill="#5D5CDE" />
+                                            <rect x="20" y="116" width="70" height="30" rx="15" fill="#5A0B29" />
                                             <rect x="100" y="116" width="70" height="30" rx="15" fill="#E5E7EB" />
                                             <rect x="180" y="116" width="70" height="30" rx="15" fill="#E5E7EB" />
                                             
                                             <!-- Featured Banner -->
                                             <rect x="20" y="166" width="240" height="120" rx="8" fill="#F3F4F6" />
-                                            <rect x="40" y="196" width="120" height="16" rx="4" fill="#5D5CDE" opacity="0.8" />
-                                            <rect x="40" y="220" width="80" height="12" rx="4" fill="#5D5CDE" />
-                                            <rect x="40" y="240" width="60" height="10" rx="4" fill="#5D5CDE" opacity="0.6" />
+                                            <rect x="40" y="196" width="120" height="16" rx="4" fill="#5A0B29" opacity="0.8" />
+                                            <rect x="40" y="220" width="80" height="12" rx="4" fill="#5A0B29" />
+                                            <rect x="40" y="240" width="60" height="10" rx="4" fill="#5A0B29" opacity="0.6" />
                                             
                                             <!-- Products Grid -->
                                             <rect x="20" y="306" width="110" height="140" rx="8" fill="white" />
                                             <rect x="20" y="306" width="110" height="80" rx="8" fill="#F3F4F6" />
                                             <rect x="30" y="396" width="70" height="12" rx="4" fill="#333" />
-                                            <rect x="30" y="414" width="40" height="8" rx="3" fill="#5D5CDE" />
+                                            <rect x="30" y="414" width="40" height="8" rx="3" fill="#5A0B29" />
                                             
                                             <rect x="150" y="306" width="110" height="140" rx="8" fill="white" />
                                             <rect x="150" y="306" width="110" height="80" rx="8" fill="#F3F4F6" />
                                             <rect x="160" y="396" width="70" height="12" rx="4" fill="#333" />
-                                            <rect x="160" y="414" width="40" height="8" rx="3" fill="#5D5CDE" />
+                                            <rect x="160" y="414" width="40" height="8" rx="3" fill="#5A0B29" />
                                         </svg>
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="text-center font-medium mt-4">Home Screen</h3>
+                            <h3 class="text-center font-medium mt-4">Écran d'accueil</h3>
                         </div>
                         
                         <!-- Screenshot 2 -->
@@ -279,10 +305,10 @@
                                             <rect width="280" height="500" fill="#F8F8F8" />
                                             
                                             <!-- Status Bar -->
-                                            <rect y="0" width="280" height="36" fill="#5D5CDE" />
+                                            <rect y="0" width="280" height="36" fill="#5A0B29" />
                                             
                                             <!-- App Header -->
-                                            <rect y="36" width="280" height="60" fill="#5D5CDE" />
+                                            <rect y="36" width="280" height="60" fill="#5A0B29" />
                                             <path d="M30 66H50" stroke="white" stroke-width="2" stroke-linecap="round" />
                                             <path d="M240 60L228 72M240 72L228 60" stroke="white" stroke-width="2" stroke-linecap="round" />
                                             
@@ -291,7 +317,7 @@
                                             
                                             <!-- Product Info -->
                                             <rect x="20" y="316" width="160" height="20" rx="4" fill="#333" />
-                                            <rect x="20" y="346" width="80" height="18" rx="4" fill="#5D5CDE" />
+                                            <rect x="20" y="346" width="80" height="18" rx="4" fill="#5A0B29" />
                                             
                                             <!-- Product Description -->
                                             <rect x="20" y="384" width="240" height="8" rx="4" fill="#DDD" />
@@ -299,13 +325,13 @@
                                             <rect x="20" y="416" width="180" height="8" rx="4" fill="#DDD" />
                                             
                                             <!-- Add to Cart Button -->
-                                            <rect x="20" y="450" width="240" height="50" rx="25" fill="#5D5CDE" />
+                                            <rect x="20" y="450" width="240" height="50" rx="25" fill="#5A0B29" />
                                             <rect x="85" y="467" width="110" height="16" rx="4" fill="white" />
                                         </svg>
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="text-center font-medium mt-4">Product Details</h3>
+                            <h3 class="text-center font-medium mt-4">Détails du produit</h3>
                         </div>
                         
                         <!-- Screenshot 3 -->
@@ -320,10 +346,10 @@
                                             <rect width="280" height="500" fill="#F8F8F8" />
                                             
                                             <!-- Status Bar -->
-                                            <rect y="0" width="280" height="36" fill="#5D5CDE" />
+                                            <rect y="0" width="280" height="36" fill="#5A0B29" />
                                             
                                             <!-- App Header -->
-                                            <rect y="36" width="280" height="60" fill="#5D5CDE" />
+                                            <rect y="36" width="280" height="60" fill="#5A0B29" />
                                             <path d="M30 66H50" stroke="white" stroke-width="2" stroke-linecap="round" />
                                             <rect x="100" y="55" width="80" height="24" rx="12" fill="white" opacity="0.2" />
                                             
@@ -331,14 +357,14 @@
                                             <rect x="20" y="116" width="240" height="80" rx="8" fill="white" />
                                             <rect x="30" y="126" width="60" height="60" rx="4" fill="#F3F4F6" />
                                             <rect x="100" y="130" width="110" height="12" rx="4" fill="#333" />
-                                            <rect x="100" y="150" width="60" height="10" rx="4" fill="#5D5CDE" />
+                                            <rect x="100" y="150" width="60" height="10" rx="4" fill="#5A0B29" />
                                             <rect x="100" y="170" width="40" height="8" rx="3" fill="#DDD" />
                                             <path d="M220 150L230 140M220 140L230 150" stroke="#F87171" stroke-width="2" stroke-linecap="round" />
                                             
                                             <rect x="20" y="206" width="240" height="80" rx="8" fill="white" />
                                             <rect x="30" y="216" width="60" height="60" rx="4" fill="#F3F4F6" />
                                             <rect x="100" y="220" width="110" height="12" rx="4" fill="#333" />
-                                            <rect x="100" y="240" width="60" height="10" rx="4" fill="#5D5CDE" />
+                                            <rect x="100" y="240" width="60" height="10" rx="4" fill="#5A0B29" />
                                             <rect x="100" y="260" width="40" height="8" rx="3" fill="#DDD" />
                                             <path d="M220 240L230 230M220 230L230 240" stroke="#F87171" stroke-width="2" stroke-linecap="round" />
                                             
@@ -353,16 +379,16 @@
                                             <rect x="180" y="360" width="40" height="8" rx="3" fill="#DDD" />
                                             
                                             <rect x="30" y="386" width="80" height="10" rx="4" fill="#333" />
-                                            <rect x="170" y="386" width="50" height="10" rx="4" fill="#5D5CDE" />
+                                            <rect x="170" y="386" width="50" height="10" rx="4" fill="#5A0B29" />
                                             
                                             <!-- Checkout Button -->
-                                            <rect x="20" y="426" width="240" height="50" rx="25" fill="#5D5CDE" />
+                                            <rect x="20" y="426" width="240" height="50" rx="25" fill="#5A0B29" />
                                             <rect x="85" y="443" width="110" height="16" rx="4" fill="white" />
                                         </svg>
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="text-center font-medium mt-4">Shopping Cart</h3>
+                            <h3 class="text-center font-medium mt-4">Panier</h3>
                         </div>
                         
                         <!-- Screenshot 4 -->
@@ -377,10 +403,10 @@
                                             <rect width="280" height="500" fill="#F8F8F8" />
                                             
                                             <!-- Status Bar -->
-                                            <rect y="0" width="280" height="36" fill="#5D5CDE" />
+                                            <rect y="0" width="280" height="36" fill="#5A0B29" />
                                             
                                             <!-- App Header -->
-                                            <rect y="36" width="280" height="60" fill="#5D5CDE" />
+                                            <rect y="36" width="280" height="60" fill="#5A0B29" />
                                             <path d="M30 66H50" stroke="white" stroke-width="2" stroke-linecap="round" />
                                             <rect x="100" y="55" width="80" height="24" rx="12" fill="white" opacity="0.2" />
                                             
@@ -393,34 +419,34 @@
                                             <!-- Menu Items -->
                                             <rect x="20" y="236" width="240" height="50" rx="8" fill="white" />
                                             <rect x="50" y="257" width="100" height="8" rx="3" fill="#333" />
-                                            <circle cx="35" cy="261" r="6" fill="#5D5CDE" />
+                                            <circle cx="35" cy="261" r="6" fill="#5A0B29" />
                                             <path d="M225 261L235 251M225 251L235 261" stroke="#DDD" stroke-width="2" stroke-linecap="round" />
                                             
                                             <rect x="20" y="296" width="240" height="50" rx="8" fill="white" />
                                             <rect x="50" y="317" width="100" height="8" rx="3" fill="#333" />
-                                            <circle cx="35" cy="321" r="6" fill="#5D5CDE" />
+                                            <circle cx="35" cy="321" r="6" fill="#5A0B29" />
                                             <path d="M225 321L235 311M225 311L235 321" stroke="#DDD" stroke-width="2" stroke-linecap="round" />
                                             
                                             <rect x="20" y="356" width="240" height="50" rx="8" fill="white" />
                                             <rect x="50" y="377" width="100" height="8" rx="3" fill="#333" />
-                                            <circle cx="35" cy="381" r="6" fill="#5D5CDE" />
+                                            <circle cx="35" cy="381" r="6" fill="#5A0B29" />
                                             <path d="M225 381L235 371M225 371L235 381" stroke="#DDD" stroke-width="2" stroke-linecap="round" />
                                             
                                             <rect x="20" y="416" width="240" height="50" rx="8" fill="white" />
                                             <rect x="50" y="437" width="100" height="8" rx="3" fill="#333" />
-                                            <circle cx="35" cy="441" r="6" fill="#5D5CDE" />
+                                            <circle cx="35" cy="441" r="6" fill="#5A0B29" />
                                             <path d="M225 441L235 431M225 431L235 441" stroke="#DDD" stroke-width="2" stroke-linecap="round" />
                                         </svg>
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="text-center font-medium mt-4">User Account</h3>
+                            <h3 class="text-center font-medium mt-4">Compte utilisateur</h3>
                         </div>
                     </div>
                 </section>
         
                 <!-- QR Code Section -->
-                <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+                <!-- <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
                     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
                         <div class="md:w-1/2">
                             <h2 class="text-3xl font-bold mb-4">Download Instantly</h2>
@@ -452,7 +478,7 @@
                         
                         <div class="md:w-1/2 flex justify-center">
                             <div class="relative p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md max-w-xs">
-                                <!-- QR Code (Generated SVG) -->
+                                <!-- QR Code (Generated SVG) 
                                 <svg class="w-64 h-64" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="200" height="200" fill="white"/>
                                     <rect x="50" y="50" width="10" height="10" fill="black"/>
@@ -514,8 +540,8 @@
                                     <rect x="110" y="140" width="10" height="10" fill="black"/>
                                     <rect x="130" y="140" width="10" height="10" fill="black"/>
                                     
-                                    <!-- Logo in the center of QR -->
-                                    <rect x="85" y="85" width="30" height="30" rx="15" fill="#5D5CDE"/>
+                                    <!-- Logo in the center of QR 
+                                    <rect x="85" y="85" width="30" height="30" rx="15" fill="#5A0B29"/>
                                     <path d="M95 100H105M95 95H105M95 105H105" stroke="white" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
                                 <div class="text-center mt-2 text-gray-700 dark:text-gray-300 text-sm">
@@ -524,16 +550,27 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
         
                 <!-- CTA Section -->
-                <section class="py-16 px-4 bg-primary dark:bg-primary-dark text-white">
+                <section class="py-16 px-4">
                     <div class="container mx-auto text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Shopping Experience?</h2>
-                        <p class="text-lg mb-8 max-w-2xl mx-auto">Download our app today and enjoy a seamless shopping experience with exclusive deals, faster checkout, and real-time order tracking.</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à transformer votre expérience d’achat ?</h2>
+                        <p class="text-lg mb-8 max-w-2xl mx-auto">Téléchargez notre application dès aujourd'hui et profitez d'une expérience d'achat fluide avec des offres exclusives, un paiement plus rapide et un suivi des commandes en temps réel..</p>
                         
                         <div class="flex flex-col sm:flex-row justify-center gap-4">
-                            <!-- App Store Button -->
+                            <a target="_blank" download="clevershop.apk" href="{% static 'apps/clever-shop/clevershop.apk' %}" class="download-link inline-flex items-center bg-[#5A0B29] text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                                <!-- <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
+                                </svg> -->
+                                <i class="fas fa-download text-2xl mr-4"></i>
+                                <div>
+                                    <div class="text-xs">Telechargez Maintenant</div>
+                                    <div class="text-xl font-semibold -mt-1">CLEVER SHOP</div>
+                                </div>
+                            </a> 
+                            
+                            <!-- App Store Button
                             <a href="#" target="_blank" class="inline-flex items-center bg-white text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                                 <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.36C2.79 15.57 3.5 7.59 8.45 7.31c1.41.06 2.37.94 3.08.94.74 0 2.12-1.14 3.56-.97 1.55.17 2.5.77 3.25 1.9-2.81 1.82-2.35 5.96.72 7.11-.55 1.58-1.34 3.15-2.01 3.99zM17.5 7.5a4.17 4.17 0 0 1-3.89-2.5c2.57-.54 4.71 1.2 4.91 2.51-.34-.01-.67-.01-1.02-.01z"/>
@@ -544,7 +581,7 @@
                                 </div>
                             </a>
                             
-                            <!-- Google Play Button -->
+                            <!-- Google Play Button 
                             <a href="#" target="_blank" class="inline-flex items-center bg-white text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                                 <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M3.609 1.814L13.792 12l-10.183 10.186c-2.05-1.952-2.05-8.236 0-10.186zM13.792 12L5.814 4.021l12.277 3.251c1.936.512 1.936 4.966 0 5.478zm-9.255 4.045L12 12l7.463-4.045L12 12h-7.463zm11.641 6.141L5.814 19.979l7.978-7.979 7.463 4.045c-1.126 1.372-3.092 2.443-5.077 2.955z"/>
@@ -553,11 +590,30 @@
                                     <div class="text-xs">GET IT ON</div>
                                     <div class="text-xl font-semibold -mt-1">Google Play</div>
                                 </div>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </section>
             </main>
         
-            
+    <script>
+              function download() {
+            $.ajax({
+              url: "/download",
+              type: "POST",
+              data: { csrfmiddlewaretoken: '{{csrf_token}}' },
+              success: function (response) {
+                //console.log(response);
+                alert('Votre telechargement a commence');
+              },
+            });
+          }
+
+        $('.download-link').on('click',download)  
+          
+        //   // select the element that has the class download-link
+        //   const downloadLink = document.querySelector(".download-link");
+        //   // add a listener to the downloadLink element.
+        //   downloadLink.addEventListener("click", download);
+    </script>
 {% endblock content %}

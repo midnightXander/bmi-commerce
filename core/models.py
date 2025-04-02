@@ -11,7 +11,7 @@ class ItemColor(models.Model):
 
 
 
-PRODUCT_CATEGORIES = ['food', 'beauty', 'decoration', 'cloths', 'elelctronics', 'others']
+PRODUCT_CATEGORIES = ['food', 'beauty', 'decoration', 'cloths', 'electronics', 'others']
 
 class Item(models.Model):
     
@@ -131,3 +131,11 @@ class BlogPost(models.Model):
 
     
 
+class AppDownload(models.Model):
+    sk = models.CharField(max_length=50, primary_key=True)
+    #email = models.EmailField()
+    date_added = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        date = self.date_added
+        return f"{date}"
