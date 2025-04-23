@@ -7,6 +7,11 @@ urlpatterns = [
     path('',views.index, name='index'),
     path('upload', views.upload,name = 'upload'),
     path('message', views.message,name = 'message'),
+
+    path('travel-pro',views.travelpro, name='about'),
+    path('clever-life',views.cleverlife, name='about'),
+    path('business-consulting',views.consulting, name='about'),
+    
     path('services',views.services, name='services'),
     path('realisations',views.work, name='work'),
     path('notre-equipe',views.team, name='team'),

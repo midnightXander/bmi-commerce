@@ -8,89 +8,60 @@ Immigration en allemagne formation professionel
 
 
 {% block meta_description %}
-La page de connexion pour un partenaire vendeur de  l'entreprise BMI,
-si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interface de gestion de ses produits ou il peut ajouter, modifer, supprimer et gerer ses commandes
+Realisez vos 
+
 {% endblock meta_description %}
 
 {% block content %}
 <style>
+.sge{
+    font-family: "Special Gothic Expanded One";
+    font-weight: 400;
+    font-style: normal;
+}
+.sgb{
+    font-family: "Special Gothic Bold";
+    font-weight: 400;
+    font-style: normal;
+}
+.f-mono{
+    font-family: "Monospace";
+    font-style: normal;
+}
+.eav{
+    font-family: "Edu AU VIC WA NT Arrows";
+    font-optical-sizing: auto;
+    font-style: normal;
+}
 
-    .slogan-section {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .slogan {
-        width: calc(33.333% - 20px);
-        height: 300px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .slogan:hover {
-        transform: translateY(-5px);
-    }
-
-    .slogan-bg {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        transition: transform 0.3s ease;
-    }
-
-    .slogan:hover .slogan-bg {
-        transform: scale(1.1);
-    }
-
-    .slogan-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(133, 10, 57, 0.644);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 20px;
-        color: white;
-    }
-
-    .slogan-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .slogan-text {
-        font-size: 14px;
-        opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-        .slogan {
-            width: calc(50% - 20px);
-        }
-    }
-
-    @media (max-width: 480px) {
-        .slogan {
-            width: 100%;
-        }
-    }
 </style>
+
+
 
 <main>
     <!-- Home section remains unchanged -->
-    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+     <section  class="top-section text-center flex flex-col justify-center items-center">
+        <div class="text-sm font-semibold .space-mono-bold-italic" >Bienvenue sur</div>
+        <h1 class="sge text-size-large font-bold mb-6 bg-gradient-to-r from-[#f392b7] to-[#5A0B29] text-transparent bg-clip-text">
+            BUSINESS MANAGEMENT AND INNOVATION
+        </h1>
+
+        <div class="flex justify-center items-center space-x-4 mb-6 font-bold sge text-sm">
+            <a href="#travel-pro" class="hover:text-[#A71D46] hover:cursor-pointer" ><i class=" fas fa-plane text-[#A71D46] mr-2"></i>Travel Pro</a>
+            <a href="#cleverlife" class="hover:text-[#A71D46] hover:cursor-pointer"><i class=" fa-solid fa-bag-shopping text-[#A71D46] mr-2"></i>Clever Life</a>
+            <a href="#consulting" class="hover:text-[#A71D46] hover:cursor-pointer"><i class=" fas fa-book text-[#A71D46] mr-2"></i>Business Consulting</a>
+        </div>
+
+        <a href="#travel-pro" class="border-1 border-[#A71D46] text-[#A71D46] hover:bg-[#A71D46] hover:text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300 mb-6">
+            <!-- <svg class="" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 448 512">
+                <path d="M207.029 381.476L12.686 187.029c-15.124-15.124-4.412-40.971 16.971-40.971h96V40c0-22.091 17.909-40 40-40h128c22.091 0 40 17.909 40 40v106.058h96c21.383 0 32.095 25.847 16.971 40.971L240.971 381.476c-9.373 9.373-24.569 9.373-33.942 0z"/>
+            </svg>   -->
+            <i class="fa-solid fa-arrow-down text-3xl"></i>
+        </a>
+          
+
+    </section>
+    <!-- <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -99,7 +70,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
         <div class="carousel-inner">
           <div class="carousel-item relative active">
             <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%">
-            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
+            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> 
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
             <div class="container">
                 
@@ -118,7 +89,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
           </div>
           <div class="carousel-item relative ">
             <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/african-american-business-woman-working-computer-bar-scaled.jpg" width="100%" height="100%">
-            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
+            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> 
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
             <div class="container">
                 
@@ -126,9 +97,9 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
                 
                 <h1 class="text-2xl top-20  font-bold mb-8 animate-fadeIn text-white">
                     Besoin d’un emploi en EUROPE, d'une formation professionnelle spécialisée ou d’un 
-                        accompagnement pour développer votre entreprise ? BMI vous guide à chaque étape. Ensemble, 
-                        construisons votre avenir.
-                    <!-- l'accompagnement des entreprises avec des strategies de marketing numerique, l'innovation et la réalisation de vos idées de projet -->
+                    accompagnement pour développer votre entreprise ? BMI vous guide à chaque étape. Ensemble, 
+                    construisons votre avenir.
+                    <!-- l'accompagnement des entreprises avec des strategies de marketing numerique, l'innovation et la réalisation de vos idées de projet 
                  </h1>
                 <p class="opacity-50" >Rejoignez-nous</p>
                 <a href="/services" class="bg-[#5A0B29] text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Nos Services</a>
@@ -142,7 +113,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
           </div>
           <div class="carousel-item relative ">
             <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/10/businessman-with-chart-1-scaled-e1697967648346.jpg" width="100%" height="100%">
-            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> -->
+            <!-- <img class="bd-placeholder-img carousel-img" src="https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg" width="100%" height="100%"> 
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%"/></svg>
             <div class="container">
                 
@@ -168,95 +139,96 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>
-
-    <!-- <section id="services" class="py-20">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 hidden-element">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hidden-element">
-                   
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hidden-element">
-                   
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hidden-element">
-                   
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <section class="py-16 bg-gray-50">
+      </div> -->
+    <h1 class="sge text-4xl text-center font-bold text-[#5A0B29] mb-4">
+        Decouvrez nos <span class="text-[#A71D46]" >3</span> Filiales
+    </h1>
+    <section id="travel-pro" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="flex mb-8 flex-col md:flex-row items-center gap-8 hidden-element">
                 <!-- Image à gauche sur desktop, en haut sur mobile -->
-                <div class="md:w-1/2 animate-fadeInUp">
-                    <img src="https://cbdmi.org/wp-content/uploads/2023/10/black-man-worried-expression-2048x1707.jpg" alt="Image de marketing digital" class="rounded-lg shadow-md w-full h-auto">
+                <div class="md:w-1/2 animate-fadeInUp p-4 border-1 border-[#5A0B29] rounded-lg">
+                    
+                    <!-- <img src="https://cbdmi.org/wp-content/uploads/2023/10/black-man-worried-expression-2048x1707.jpg" alt="Image de marketing digital" class=" img rounded-xl shadow-md w-full h-auto"> -->
+                    <!-- <img src="{% static 'images/building-2.jpg' %}" alt="Image de immigration" class="obscure-img rounded-lg shadow-md w-full h-auto"> -->
+                    <img src="https://images.unsplash.com/photo-1599513354687-47bb8aa17ff1?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image de immigration" class="obscure-img rounded-lg shadow-md w-full h-auto">
                 </div>
     
                 <!-- Contenu à droite sur desktop, en bas sur mobile -->
                 <div class="md:w-1/2 animate-fadeInUp">
-                    <h2 class="text-3xl font-bold text-[#5A0B29] mb-4">MISSION</h2>
+                    <h2 class="sge text-3xl font-bold text-[#5A0B29] mb-4">TRAVEL PRO</h2>
+                     
                     <p class="text-gray-600 mb-6">
-                        <!-- Accompagner les entreprises dans l’atteinte de leurs objectifs en développant des solutions et concepts marketing adéquats, innovantes et nécessaires. -->
-                        Offrir des solutions complètes et personnalisées en matière d’immigration professionnelle vers 
-                        l’Europe, de formations spécialisées et de conseil en développement d’entreprise. Notre mission 
-                        est de faciliter l'accès à des opportunités internationales tout en soutenant les professionnels dans 
-                        chaque étape de leur parcours vers la réussite.
+                        Jouissant de 25 années dans le domaine de l’immigration professionnelle, nous assurons votre procédure de voyage vers l’Europe. 
+                        Que ce soit en tant qu’étudiant pour une formation rémunérée dans le pays d’accueil ou un contrat de travail dans divers secteurs d’activité,
+                        notre processus vous permet de réaliser vos rêves de voyage et ouvre les portes à un monde d’opportunités. 
                     </p>
+
+                   <ul class="list-none list-inside mb-4 space-y-2">
+                    <li><i class='fas  fa-check-circle text-[#5A0B29] mr-2'></i>Visa assuré à 95%</li>
+                    <li><i class='fas  fa-check-circle text-[#5A0B29] mr-2'></i>Plus de 100 etudiants et travailleur deja accompagnée</li>
+                    <li><i class='fas  fa-check-circle text-[#5A0B29] mr-2'></i>Procédure accelerée pour les contrats de travail</li>
+                </ul>
                     <!-- <h2 class="text-3xl font-bold text-[#5A0B29] mb-4"></h2>
                     <p class="text-gray-600 mb-6">
                         Besoin d’un emploi en EUROPE, d'une formation professionnelle spécialisée ou d’un 
                         accompagnement pour développer votre entreprise ? BMI vous guide à chaque étape. Ensemble, 
                         construisons votre avenir.
                     </p> -->
-                    <a href="/services" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
-                        Découvrir nos services
+                    <a href="/travel-pro" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition duration-300">
+                        En savoir plus<i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="flex mb-8 flex-col-reverse md:flex-row items-center gap-8 hidden-element">
+            <div id="cleverlife" class="flex mb-8 flex-col-reverse md:flex-row items-center gap-8 hidden-element">
 
                 <!-- Contenu à droite sur desktop, en bas sur mobile -->
                 <div class="md:w-1/2 animate-fadeInUp">
-                    <h2 class="text-3xl font-bold text-[#5A0B29] mb-4">NOTRE VISION</h2>
+                    <h2 class="sge text-3xl font-bold text-[#5A0B29] mb-4">CLEVER LIFE</h2>
                     <p class="text-gray-600 mb-6">
                        <!-- Développer à court, moyen et long terme votre business dans le but d’accroître votre notoriété et vos parts de marché. -->
-                       Offrir des opportunités à tout le monde pour un meilleur avenir de chacun par l'acquisition des compétences nécessaires au développement. 
+                       Notre filiale Clever Life a pour objectif de mettre en avant les produits innovants des producteurs et artisans camerounais ambitieux et désireux d’avoir une place bien assise dans le monde digital international.
+                       Nous proposons une solution marketing bien précise et optimisé pour leur croissance sur le marché local et international.
                     </p>
-                    <a href="/contact" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
-                        Contactez-nous
+                    <ul class="list-none list-inside mb-4 space-y-2">
+                        <li><i class='fas  fa-check-circle text-[#5A0B29] mr-2'></i>Page web personalisé et hebergé sur notre serveur pour vos produits</li>
+                        <li><i class='fas  fa-check-circle text-[#5A0B29] mr-2'></i>Marketing adapté a votre activité</li>
+                        <li><i class='fas  fa-check-circle text-[#5A0B29] mr-2'></i>Consulting one on one</li>
+                    </ul>
+                    <a href="/clever-life" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition duration-300">
+                        En Savoir plus<i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
                 <!-- Image à gauche sur desktop, en haut sur mobile -->
-                <div class="md:w-1/2 animate-fadeInUp">
-                    <img src="https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg" alt="Image de marketing digital" class="rounded-lg shadow-md w-full h-auto">
+                <div class="md:w-1/2 animate-fadeInUp p-4 border-1 border-[#5A0B29] rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1562577309-2592ab84b1bc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="accronyme SEO representant le marketing digital" class="rounded-lg shadow-md w-full h-auto">
                 </div>
             </div>
 
-            <div class="flex mb-8 flex-col md:flex-row items-center gap-8 hidden-element">
+            <div id="consulting" class="flex mb-8 flex-col md:flex-row items-center gap-8 hidden-element">
                 <!-- Image à gauche sur desktop, en haut sur mobile -->
-                <div class="md:w-1/2 animate-fadeInUp">
-                    <img src="https://cbdmi.org/wp-content/uploads/2023/09/services-2.webp" alt="Image de marketing digital" class="rounded-lg shadow-md w-full h-auto">
+                <div class="md:w-1/2 animate-fadeInUp p-4 border-1 border-[#5A0B29] rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="representation du business consulting pour entreprise avec des hommes d'affaires en reunion" class="rounded-lg shadow-md w-full h-90">
                 </div>
     
                 <!-- Contenu à droite sur desktop, en bas sur mobile -->
                 <div class="md:w-1/2 animate-fadeInUp">
-                    <h2 class="text-3xl font-bold text-[#5A0B29] mb-4">NOTRE AMBITION</h2>
+                    <h2 class="sge text-3xl font-bold text-[#5A0B29] mb-4">Business Consulting</h2>
                     <p class="text-gray-600 mb-6">
-                        Devenir incontournable dans le conseil et l’accompagnement des entreprises
+                        Nous vous accompagnons dans la réalisation de vos idées de projet avec des conseils,
+                        une stratégie marketing et un suivi jusqu’à l’atteinte de vos objectifs. 
                     </p>
-                    <a href="/services" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
-                        Découvrir nos services
+                    <a href="/business-consulting" class="inline-block bg-[#5A0B29] text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition duration-300">
+                        En savoir plus<i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
   
-    <section class="slogan-section bg-[#FFFAF6]">
+    <!-- <section class="slogan-section bg-[#FFFAF6]">
         <div class="slogan">
             <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
             <div class="slogan-overlay">
@@ -353,7 +325,7 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
                 <button type="submit" class="bg-[#5A0B29] text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300 w-full">Envoyer</button>
             </form>
         </div>
-    </section>
+    </section> -->
 </main>
 
 

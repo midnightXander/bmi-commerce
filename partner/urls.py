@@ -14,4 +14,8 @@ urlpatterns = [
     path('accounts/password/recover', views.password_recover, name = 'password_recover'),
     path('accounts/password/reset', views.password_reset, name = 'password_reset'),
 
+    #partners pages
+    path('clever-life', views.cleverlife, name = 'growth_hair_oil'),
+    
+
 ]

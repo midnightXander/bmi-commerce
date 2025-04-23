@@ -1,0 +1,255 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* body {
+        font-family: 'Inter', sans-serif;
+    } */
+
+    .seller-section {
+        transition: all 0.3s ease;
+    }
+
+    .seller-logo {
+        transition: transform 0.5s ease;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .seller-section:hover .seller-logo {
+        transform: scale(1.05) rotate(3deg);
+    }
+
+    @media (max-width: 768px) {
+        .seller-section:hover .seller-logo {
+            transform: scale(1.05) rotate(0deg);
+        }
+        .top-section{
+            height: auto;
+        }
+    }
+
+    .text-gradient {
+        background: linear-gradient(90deg, #A71D46, #e7e4e4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+    /* .height-all{
+        height: 100vh;
+    } */
+</style>
+<style>
+    
+    header {
+      background-color: #161213;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .product-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    .title {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+    .price {
+      font-size: 1.5rem;
+      
+      margin: 0.5rem 0;
+    }
+    .btn-buy {
+      /* background-color: #814c27;
+      color: #fff;
+      padding: 0.75rem 1.5rem; */
+      border: none;
+      /* border-radius: 8px;
+      cursor: pointer; */
+    }
+    .section-2 {
+      margin-top: 2rem;
+    }
+    .section-2 h2 {
+      color: #4b2e2e;
+    }
+    
+   
+  </style>
+<section class="seller-section relative  top-section w-full mx-auto bg-white flex ">
+    <div class="flex flex-col md:flex-row">
+        <!-- Seller Logo (Left Side) -->
+        <div class="w-full md:w-2/5 p-8 flex justify-center items-center bg-gradient-to-br from-[#e7e4e4] to-[#A71D46]">
+            <div class="relative">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-[#A71D46] to-[#5A0B00] rounded-full blur opacity-30"></div>
+                <div class="seller-logo w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white overflow-hidden relative">
+                    <img src="{% static 'images/logo-cleverlife-2.jpg' %}" alt="Clever Life Logo" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seller Description (Right Side) -->
+        <div id="seller description" class="relative w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+            <h2 class="sge text-3xl md:text-4xl font-bold mb-2">Clever-Life Distribution</h2>
+            <p class="text-gradient text-lg font-semibold mb-4">La qualité locale a porter de tous</p>
+            
+            <div class="mb-6">
+                <div class="flex items-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span class="text-gray-500 ml-2">(4.9 - 248 avis)</span>
+                </div>
+                <div class="flex space-x-2 mb-6">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Vendeur Verifié</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Livraison Express</span>
+                </div>
+            </div>
+            
+            <p class="text-gray-700 mb-6 ">
+                Nous distribuons des produits de haute qualite fait localement. Nos produits passent des control de qualite vigoureux pour fournir a nos consommateurs les meilleurs produits sur le marche a des prix defiant toute concurrence
+            </p>
+            
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-2">Produits populaire:</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A71D46] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Huile de cheveux pousse rapide</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A71D46] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Bol Artisanal</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A71D46] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Table en ceramic</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A71D46] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Vetements personnalisé</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+                <a href="#next" class="px-6 py-3 bg-[#A71D46] text-white rounded-lg font-medium hover:bg-[#A71D46] transition duration-300"><i class=" fas fa-arrow-turn-right mr-2"></i>Visiter</a>
+                <a target="_blank" href="https://wa.me/237676930927" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition duration-300"><i class=" fab fa-whatsapp text-[#A71D46] mr-2"></i>Contacter Vendeur</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="next" class="">
+    
+    <header class="">
+        <h1>CLever Life</h1>
+        <p>Explorez nos produits de qualité superieur</p>
+    </header>
+      <div class="container">
+        <img id="main-image-1" src="{% static 'images/cleverlife/ghh-2.jpg' %}" alt="Growth Hair Oil" class="product-image mb-4">
+        <div class="grid grid-cols-4 gap-4" id="thumbnail-container">
+            <img src="{% static 'images/cleverlife/ghh-2.jpg' %}" alt="Growth hair oil 2" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage(1,`{% static 'images/cleverlife/ghh-2.jpg' %}`)">
+            <img src="{% static 'images/cleverlife/ghh-1.jpg' %}" alt="Growth hair oil 2" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage(1,`{% static 'images/cleverlife/ghh-1.jpg' %}`)">
+            <img src="{% static 'images/cleverlife/ghh-3.jpg' %}" alt="Growth hair oil 2" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage(1,`{% static 'images/cleverlife/ghh-3.jpg' %}`)">
+            <img src="{% static 'images/cleverlife/ghh-4.jpg' %}" alt="Growth hair oil 2" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage(1,`{% static 'images/cleverlife/ghh-4.jpg' %}`)">
+        </div>
+        <h2 class="title">Growth Hair Oil</h2>
+        <p class="price text-[#A71D46] text-3xl mb-2">2 500 FCFA</p>
+        <a target="_blank" href="https://wa.me/237676930927" class="btn-buy py-2 px-4 rounded-lg mb-4 bg-[#A71D46] text-white">Acheter maintenant</a>
+    
+        <div class="section-2">
+          <h2 class="font-bold text-2xl">Description</h2>
+          <p>Un chocolat riche, 100% cacao camerounais, fabriqué de manière artisanale par la maison TITA. Savourez la pureté et l'authenticité d'un produit local de haute qualité.</p>
+        </div>
+    
+        <div class="section-2">
+          <h2>Mode d'emploie</h2>
+          <p>Appliquez deux fois par jour sur cheveux humide(apres rincage) en massant delicatement le cuir chevelu.</p>
+          <p>Remontez avec l'huile depuis les pointes pour ceux ayant des chevelu assez longs.</p>
+
+          <p>Results visible apres 15-21 jours</p>
+        </div>
+
+        <div class="section-2">
+            <h2 class="mb-2">Action</h2>
+            <div class="grid grid-cols-4 gap-4" id="thumbnail-container">
+                <div class="w-full">
+                    <img src="{% static 'images/cleverlife/action-1.jpeg' %}" alt="Action 1" class="w-full h-32 max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth mb-4">
+                    <p>Pousse rapide</p>
+                </div>
+                <div class="w-full">
+                    <img src="{% static 'images/cleverlife/action-2.jpg' %}" alt="Action 1" class="w-full h-32 max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth mb-4">
+                    <p>Soigne l'Alopecie</p>
+                </div>
+                <div class="w-full">
+                    <img src="{% static 'images/cleverlife/action-3.jpg' %}" alt="Action 1" class="w-full h-32 max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth mb-4">
+                    <p>Repare le cuir chevelu</p>
+                </div>
+                <div class="w-full">
+                    <img src="{% static 'images/cleverlife/action-4.jpg' %}" alt="Action 1" class="w-full h-32 max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth mb-4">
+                    <p>adoucie les cheveux</p>
+                </div>
+                
+                
+                <!-- <img src="{% static 'images/cleverlife/ghh-1.jpg' %}" alt="Action 2" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" >
+                <img src="{% static 'images/cleverlife/ghh-3.jpg' %}" alt="Action 3" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" >
+                <img src="{% static 'images/cleverlife/ghh-4.jpg' %}" alt="Action 4" class="w-full h-auto max-h-32 object-cover rounded cursor-pointer hover:opacity-75 transition-smooth" > -->
+            </div>
+        </div>
+    
+        <div class="section-2">
+          <h2>Avis clients</h2>
+          <p>⭐⭐⭐⭐⭐ "Très efficace pour la pousse de cheveux, je recommande à 100% !"</p>
+          <p>⭐⭐⭐⭐ "Mes pointes sont de nouveaux vivantes, super produit."</p>
+        </div>
+      </div>
+    
+       
+    
+</section>
+
+
+
+
+<script>
+   function createThumbnail(src, index) {
+        return `
+            <img src="${src}" alt="Thumbnail ${index + 1}" class="w-full h-auto rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage('${src}')">
+        `;
+    }
+
+    function changeMainImage(productIndex,src) {
+        document.getElementById(`main-image-${productIndex}`).src = src;
+    }
+</script>
+
+{% endblock content %}

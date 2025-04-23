@@ -113,6 +113,28 @@ def contact(request):
         }
     )
 
+def travelpro(request):
+    return render(request,"core/travelpro.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        }
+    )
+
+def cleverlife(request):
+    return render(request,"core/cleverlife.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        }
+    )
+
+def consulting(request):
+    return render(request,"core/consulting.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        }
+    )
+
+
 
 def message(request):
     if request.method == 'POST':

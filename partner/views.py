@@ -204,6 +204,19 @@ def logout_view(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse("core:index"))
 
+
+####PARTNER VIEWS####
+def cleverlife(request):
+
+    return render(request, "partner/pages/cleverlife.html",{
+        'title': 'Growth Hair Oil',
+        })
+
+
+
+###END PARTNER VIEWS####
+
+
 def upload_image_to_s3(image):
     try:
         

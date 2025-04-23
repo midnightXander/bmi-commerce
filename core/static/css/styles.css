@@ -1,0 +1,33 @@
+
+/*fonts */
+.sge{
+    font-family: "Special Gothic Expanded One";
+    font-weight: 400;
+    font-style: normal;
+}
+.sgb{
+    font-family: "Special Gothic Bold";
+    font-weight: 400;
+    font-style: normal;
+}
+.f-mono{
+    font-family: "Monospace";
+    font-style: normal;
+}
+.eav{
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/*image effects */
+.obscure-img{
+    filter: brightness(60%);
+    /* opacity: 0.7; */
+    /* transition: filter 0.3s ease-in-out; */
+}
+
+.obscure-img:hover{
+    filter: brightness(100%);
+    /* opacity: 1; */
+    /* transition: filter 0.3s ease-in-out; */
+}

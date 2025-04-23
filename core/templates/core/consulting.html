@@ -1,0 +1,287 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+Cabinet de Conseil en Stratégie et Développement d'Entreprise | BMI Consulting
+{% endblock title %}
+
+{% block meta_keywords %}
+consulting, conseil, business consulting, stratégie, marketing digital, développement commercial, entreprise, Cameroun, Afrique, start-up, PME, croissance, innovation
+{% endblock meta_keywords %}
+
+
+{% block meta_description %}
+Cabinet de conseil en stratégie, développement commercial, marketing digital et accompagnement entrepreneurial au Cameroun et à l'international
+{% endblock meta_description %}
+
+
+
+
+{% block content %}
+{% block style %}
+<style>
+
+   
+    
+    
+    .slogan-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .slogan {
+        width: calc(33.333% - 20px);
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .slogan:hover {
+        transform: translateY(-5px);
+    }
+
+    .slogan-bg {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease;
+    }
+
+    .slogan:hover .slogan-bg {
+        transform: scale(1.1);
+    }
+
+    .slogan-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(133, 10, 57, 0.644);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        color: white;
+    }
+
+    .slogan-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .slogan-text {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    
+
+    @media (max-width: 768px) {
+        .slogan {
+            width: calc(50% - 20px);
+        }
+        .text-size-large{
+            font-size: 2rem;
+        }
+        .top-section{
+            padding-top: 150px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .slogan {
+            width: 100%;
+        }
+       
+    }
+</style>
+<style>
+    .top-section{
+        
+        width: 100%;
+        height: 100vh;
+        background: url("https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        backdrop-filter: brightness(0.1);
+        filter: brightness(0.7);
+    }
+    .text-size-large{
+        font-size: 4rem;
+        max-width: 70%;
+        }
+    
+        @media (max-width: 768px) {
+        
+        .text-size-large{
+            font-size: 2rem;
+        }
+        .top-section{
+            padding-top: 150px;
+        }
+    }    
+    </style>
+{% endblock style %}
+
+<section  class="top-section text-white text-center flex flex-col justify-center items-center">
+    
+    <h1 class="sge text-size-large font-bold mb-6 bg-gradient-to-r from-[#5A0B29] to-[#A71D46] text-transparent bg-clip-text">
+        SOLUTIONS DE GESTION D'ENTREPRISE ET D'INNOVATION
+    </h1>
+
+    <div class="flex justify-center text-white items-center space-x-4 mb-6 font-bold sge text-sm">
+        <p class="text-center w-1/2">
+            Votre partenaire en stratégie, croissance et transformation digitale
+        </p>
+    </div>
+
+   
+      
+
+</section>
+<section class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Services de Conseil aux Entreprises</h2>
+    <p class="text-center max-w-3xl mx-auto text-gray-600 mb-10">
+      Chez <strong>CLever Consulting</strong>, nous aidons les entreprises au Cameroun et à l'international à développer leur activité grâce à des solutions sur mesure en stratégie, marketing, organisation et transformation digitale. Nos experts accompagnent les PME, start-ups et entrepreneurs vers une croissance durable et performante.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-[#5A0B29] mb-2">Stratégie d'entreprise</h3>
+        <p class="text-sm text-gray-600">Analyse stratégique, positionnement, business model, planification à moyen et long terme.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-[#5A0B29] mb-2">Développement commercial</h3>
+        <p class="text-sm text-gray-600">Optimisation de la force de vente, prospection, stratégie de croissance, fidélisation client.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-[#5A0B29] mb-2">Marketing digital</h3>
+        <p class="text-sm text-gray-600">SEO, réseaux sociaux, publicité en ligne, branding et tunnel de conversion.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-[#5A0B29] mb-2">Création d'entreprise</h3>
+        <p class="text-sm text-gray-600">Business plan, enregistrement, choix du statut juridique, étude de marché.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-[#5A0B29] mb-2">Transformation digitale</h3>
+        <p class="text-sm text-gray-600">Digitalisation des process, intégration d’outils numériques, automatisation des tâches.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-[#5A0B29] mb-2">Coaching & Mentorat</h3>
+        <p class="text-sm text-gray-600">Accompagnement personnalisé pour dirigeants, porteurs de projets et équipes.</p>
+      </div>
+    </div>
+  </section>
+
+ 
+
+<section class="slogan-section py-8 bg-[#FFFAF6]">
+    <div class="slogan">
+        <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
+        <div class="slogan-overlay">
+            <h2 class="slogan-title">Valeurs</h2>
+            <p class="slogan-text">Le professionalisme, lengagement et l'envie
+
+            </p>
+        </div>
+    </div>
+    <div class="slogan">
+        <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
+        <div class="slogan-overlay">
+            <h2 class="slogan-title">Passion</h2>
+            <p class="slogan-text">Apporter des solutions qui vont au-dela des attentes de nos partenaires, collaborateurs et clients</p>
+        </div>
+    </div>
+    <div class="slogan">
+        <div class="slogan-bg" style="background-image: url('https://cbdmi.org/wp-content/uploads/2023/09/dark-skinned-woman-colleagues-corporate-start-up-office-working-finish-project-diverse-team-business-people-analyzing-company-financial-reports-from-computer-scaled.jpg');"></div>
+        <div class="slogan-overlay">
+            <h2 class="slogan-title">Innovation</h2>
+            <p class="slogan-text">
+                Apporter de nouvelles solutions qui répondent aux attentes spécifiques de nos clients
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="process" class="py-20 bg-[#FFFAF6]">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-[#5A0B29] text-[3rem] text-center mb-12 hidden-element">Processus</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+            <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                <div class="process-card flex flex-col items-center space-y-4">
+                    <svg class="w-20 h-20 text-[#5A0B29] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                      </svg>
+                      <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Analyse du problème</h2>
+                      <p>Cette étape consiste à identifier et à comprendre les besoins des parties prenantes, afin de garantir que le projet réponde à leurs attentes.</p>
+                </div>
+            </div>
+            <img src="{% static 'svg/up-right-arrow.png' %}" class="w-12 h-12" >
+            <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                <div class="process-card flex flex-col items-center space-y-4">
+                    <i class="text-[40pt] text-[#5A0B29] fas fa-bullseye text-center" ></i>
+                      <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Définition de l'objectif</h2>
+                      <p>La stratégie définit les objectifs et les priorités de l’organisation, ce qui permet aux projets de se concentrer sur les activités qui contribueront le plus à la réussite.</p>
+                      
+
+                </div>
+            </div>
+            <img src="{% static 'svg/up-right-arrow.png' %}" class="w-12 h-12" >
+            <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                <div class="process-card flex flex-col items-center space-y-4">
+                    <i class="text-[40pt] text-[#5A0B29] fas fa-dot-circle text-center" ></i>
+                      <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Exécution du projet</h2>
+                      <p>La mise en œuvre du plan de projet permet d’atteindre les objectifs du projet, en respectant les délais, le budget et les exigences des parties prenantes préalablement définies.</p>
+
+                </div>
+            </div>
+            <img src="{% static 'svg/up-right-arrow.png' %}" class="w-12 h-12" >
+            <div class=" p-6 rounded-lg text-center w-64 hidden-element">
+                <div class="process-card flex flex-col items-center space-y-4">
+                    <i class="text-[40pt] text-[#5A0B29] fas fa-paper-plane text-center" ></i>
+                      <h2 class="text-[#5A0B29] text-[25pt] font-bold ">Suivi et évaluation</h2>
+                      <p>Cette phase permet de garantir la réussite des projets, en identifiant les risques et les opportunités et en prenant des mesures correctives si nécessaire.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-[#5A0B29] flex flex-wrap justify-center items-center space-x-8 text-white p-4 top-0 z-50 hidden-element"></header>
+    <p class="text-4xl font-bold text-[40pt] py-[30px]">Explorons votre projet</p>
+    <a href="#contact" class="bg-[#5A0B29] border border-gray-100 hover:bg-pink-600 text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Contactez-nous</a>
+</section>
+
+
+<section class="bg-red-50 py-12">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold mb-4">Pourquoi choisir BMI Consulting ?</h3>
+      <p class="text-gray-700 max-w-3xl mx-auto mb-6">
+        Notre cabinet se distingue par son expertise locale et internationale, une approche orientée résultats, et une grande capacité d’adaptation aux besoins spécifiques de chaque client. Notre objectif : faire grandir votre entreprise.
+      </p>
+      <a href="https://wa.me/237675949069" target="_blank" class="inline-block bg-[#A71D46] text-white px-6 py-3 rounded-xl font-semibold hover:bg-bg-[#A71D46] transition">
+        📞 Contactez-nous sur WhatsApp
+      </a>
+    </div>
+  </section>
+
+
+
+
+{% endblock content %}

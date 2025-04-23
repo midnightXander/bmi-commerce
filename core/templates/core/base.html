@@ -9,8 +9,9 @@
         
         <meta name="f7ab17b949df039aa00150da2a4b519ca2619d2f" content="f7ab17b949df039aa00150da2a4b519ca2619d2f" />
         
-        <meta name="description" content="{% block meta_description %}Page d'acueille de l'entreprise Business Management and Innovation qui offre des services d'accompagnement d'entreprise, marketing, Formations,et Immigration en Allemagne {% endblock meta_description %}">
-        <meta name="keywords" content="{% block meta_keywords %}Formation Immigration Allemagne E-commerce Vente de Produits au cameroun Boutique en ligne{% endblock meta_keywords %}">
+        <meta name="description" content="{% block meta_description %}
+        Management and Innovation qui offre des services d'accompagnement d'entreprise, marketing, Formations,et Immigration en Allemagne {% endblock meta_description %}">
+        <meta name="keywords" content="{% block meta_keywords %} Formation, Immigration Allemagne, E-commerce, Vente de Produits au cameroun, Boutique en ligne,{% endblock meta_keywords %}">
         <meta property = "og:image" content = "{% static 'images/logo.jpg' %}" >
         <meta property = "og:url" content = "https://bmisolutions.org">
         
@@ -22,14 +23,104 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Quicksand:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{% static 'css/output.css' %}" >
     <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     <link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{% static 'images/logo.jpg' %}">
     
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <style>
+        body {
+        font-family: 'Quicksand', 'Poppins', sans-serif;
+        font-size: 16px; /* Default font size for the body */
+        line-height: 1.5; /* Default line height for the body */
+        color: #333; /* Default text color for the body */
+        background-color: #f8f9fa; /* Default background color for the body */
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    /*fonts */
+    .sge{
+        font-family: "Special Gothic Expanded One";
+        font-weight: 400;
+        font-style: normal;
+    }
+    .sgb{
+        font-family: "Special Gothic Bold";
+        font-weight: 400;
+        font-style: normal;
+    }
+    .f-mono{
+        font-family: "Monospace";
+        font-style: normal;
+    }
+    .eav{
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    .space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    .space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    }
+
+    .space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+    }
+
+    .space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+    }
+
+    </style>
+<style>
+    .top-section{
+        width: 100%;
+        height: 100vh;
+        /* background: url("{% static 'images/bg-3.jpg' %}"); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* backdrop-filter: brightness(0.5); */
+    }
+    .text-size-large{
+        font-size: 4rem;
+        max-width: 70%;
+        }
+    
+        @media (max-width: 768px) {
+        
+        .text-size-large{
+            font-size: 2rem;
+        }
+        .top-section{
+            padding-top: 150px;
+        }
+    }    
+</style>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -64,252 +155,16 @@
 </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .transition-smooth {
-            transition: all 0.3s ease-in-out;
-        }
-        .cover{
-            height: 400px;
-            background-image: url("https://cbdmi.org/wp-content/uploads/2023/09/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .hero-bg {
-            background-image: url("{% static 'images/side-view-businesswoman-showing-analytical-charts-her-male-coworker-scaled.jpg' %}");
-            background-size: cover;
-            background-position: center;
-            /* background-attachment: fixed; */
-        }
-        .tcolor{
-            color: #5A0B29;
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Monospace:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+         
     </style>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-in-out;
-        }
-        .hidden-element {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-        .visible-element {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-    </style>
-     <style>
-        .hover-container {
-            position: relative;
-            width: max-content;
-        }
-
-        .hover-trigger {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .hover-content {
-            position: absolute;
-            z-index: 1000;
-            top: 100%;
-            left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-20px);
-            transition: all 0.3s ease;
-        }
-
-        .hover-container:hover .hover-content {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .carousel-img{
-            filter: saturate(70%)
-        }
-        .gte  {
-            
-            select{
-                margin-top: 0.5rem;
-                display: block;
-                height: 30px;
-                box-shadow: 1px 1px 1px silver;
-                border: 1px solid #5A0B29;
-                color: white;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                background-color: #aa0f4b;
-                border-radius: 3px;
-            }
-            a,span{
-                display: none;
-            }
-
-            
-
-        }
-
-    </style>
-    <style>
-        .messages{
-        
-        .message{
-            padding: 10px;
-            border-radius: 3px;
-            
-        }
-    .error{
-        
-        background: rgba(255,0,0,0.3);
-        color: red;    
-    }
-    .success{
-        
-        background: rgba(105, 240, 105, 0.3);
-        color: rgb(8, 252, 8); 
-    }
-    }
-    </style>
-    <style>
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 10, 10, 0.5);
-            z-index: 30;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .loading-overlay.active {
-            display: flex;
-        }
-    
-    </style>
-    <style>
-        /* Language selector styles */
-        .language-selector {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            z-index: 1000;
-
-            a,span{
-                display: none;
-            }
-            
-
-        }
-
-        
-
+   
        
-
-        /* Custom arrow */
-        .select-wrapper {
-            position: relative;
-            display: inline-block;
-
-        select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-color: white;
-            border: 2px solid #5A0B29;
-            border-radius: 25px;
-            color: #5A0B29;
-            font-size: 16px;
-            padding: 10px 40px 10px 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(90, 11, 41, 0.1);
-        }
-
-        select:hover {
-            background-color: #5A0B29;
-            color: white;
-        }
-
-        select:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(90, 11, 41, 0.3);
-        }
-        select option {
-            background-color: white;
-            color: #5A0B29;
-        }
-
-
-        }
-
-        .select-wrapper::after {
-            content: '▼';
-            font-size: 12px;
-            color: #5A0B29;
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        .select-wrapper:hover::after {
-            color: white;
-        }
-
-        /* Option styles */
-       
-    </style>
-     <style>
-        /* Animation for slideDown */
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-        
-        /* Animation for slideUp */
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-        
-        .slide-down {
-            animation: slideDown 0.3s ease-out forwards;
-        }
-        
-        .slide-up {
-            animation: slideUp 0.3s ease-out forwards;
-        }
-        
-        /* Animation for floating button pulse */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-    </style>
     <body class="bg-gray-50" >
-        <div id="mobileMenu" class="fixed inset-0 bg-[#5A0B29] z-50 flex flex-col justify-center items-center transform translate-x-full transition-transform duration-300 ease-in-out">
-            <button id="closeMenu" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+        <div id="mobileMenu" class="fixed inset-0 bg-[#5A0B29] z-50 flex flex-col  justify-end items-center transform translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="closeMenu" class="absolute top-20 right-4 text-white text-3xl">&times;</button>
             <nav class="text-center">
                 <ul class="space-y-6">
                     <li><a href="/" class="mx-4 text-white text-2xl hover:text-gray-300 transition duration-300">Acceuil</a></li>
@@ -327,19 +182,16 @@
                 </ul>      
             </nav>
         </div>
-        <nav class="bg-white shadow-md">
+        <nav class="position-absolute top-0 left-0 right-0 z-50">
             <div class="container mx-auto px-6 py-3 flex justify-between items-center">
                 <div class="flex items-center">
-                    <a href="/" class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
-                        <img src="{% static 'images/logo.jpg' %}" class="h-20 w-20" >
+                    <a href="/" class="inline-block text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
+                        <img src="{% static 'images/logo-nobg.png' %}" class="h-32 w-32" >
                     </a>
                 </div>
-                <div class="flex items-center">
-                    <nav class="font-semibold text-[#5A0B29] hidden md:flex">
-                        
-                        
-
-                        <a href="/" class="mx-4 hover:bg-opacity-90 transition-smooth">Acceuil</a>
+                <div class="flex items-center ">
+                    <nav class="px-2 py-4 shadow-md  bg-[#5A0B29] rounded-full font-Quicksand font-semibold text-white hidden md:flex">
+                        <a href="/" class="mx-4 hover:bg-opacity-90 transition-smooth">Acceuille</a>
                         <div class="hover-container">
                             <a href="#" class="hover-trigger mx-4 hover:bg-opacity-90 transition-smooth">
                                 Entreprise <i class="ml-2 fas fa-angle-down" ></i>
@@ -352,41 +204,56 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Service</a>
+                        <div class="hover-container">
+                            <a href="#" class="hover-trigger mx-4 hover:bg-opacity-90 transition-smooth">
+                                Services <i class="ml-2 fas fa-angle-down" ></i>
+                            </a>
+                            <div class="hover-content  bg-white mt-2 p-4 rounded-lg shadow-lg w-64">
+                                <ul class="space-y-2">
+                                    <li class="text-[#5A0B29]"><a href="/travel-pro" class="mx-4 hover:bg-opacity-90 transition-smooth">Travel Pro</a></li>
+                                    <li class="text-[#5A0B29]"><a href="/business-consulting" class="mx-4 hover:bg-opacity-90 transition-smooth">Consulting</a></li>
+                                    <li class="text-[#5A0B29]"><a href="/clever-life" class="mx-4 hover:bg-opacity-90 transition-smooth">Distribution</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <a href="/services" class="mx-4 hover:bg-opacity-90 transition-smooth">Services</a> -->
                         <a href="{% url 'core:blog' %}" class="mx-4 hover:bg-opacity-90 transition-smooth">Blog</a>
-                        <a href="/produits" class="mx-4 hover:bg-opacity-90 transition-smooth">Boutique</a>
+                        <!-- <a href="/produits" class="mx-4 hover:bg-opacity-90 transition-smooth">Boutique</a> -->
                         <a href="/contact" class="mx-4 hover:bg-opacity-90 transition-smooth">Contact</a>
                         
                     </nav>
+                </div>
+                <div class="flex items-center">
+                    <!-- <a href="#" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
+                        <i class="fas fa-search"></i>
+                    </a> -->
+                    <div class="language-selector">
+                        <div id="google_translate_element" class="select-wrapper" ></div>
+                   </div>
                     
-                    <div class="flex items-center">
-                        <!-- <a href="#" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
-                            <i class="fas fa-search"></i>
-                        </a> -->
-                        
-                        <a href="/cart" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
-                            <i class="fas fa-shopping-cart relative">
-                                <div id="n_cart_items" class="notifier absolute top-0 start-100 translate-middle bg-red-500 text-white text-sm  rounded-full w-5 h-5 flex items-center justify-center">{{n_cart_items}}</div>
-                            </i>
-                        </a>
-                        <a href="/profile" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
-                            <i class="fas fa-user"></i>
-                        </a>
-                        {% if  request.user.is_authenticated %}
-                        <a href="{% url 'partner:logout' %}" class="text-red-500 hover:underline"><i class="fas fa-sign-out mr-4"></i></a>
-                        {% endif %}
-                        <button id="menuToggle" class="md:hidden" >
-                            <svg class="w-6 h-6 tcolor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
-                        </svg>
-                        </button>
-        
-                    </div>
+                    <a href="/cart" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
+                        <i class="fas fa-shopping-cart relative">
+                            <div id="n_cart_items" class="notifier absolute top-0 start-100 translate-middle bg-red-500 text-white text-sm  rounded-full w-5 h-5 flex items-center justify-center">{{n_cart_items}}</div>
+                        </i>
+                    </a>
+                    <a href="/profile" class="text-[#5A0B29] hover:text-[#5A0B00] transition-smooth mx-4">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    {% if  request.user.is_authenticated %}
+                    <a href="{% url 'partner:logout' %}" class="text-red-500 hover:underline"><i class="fas fa-sign-out mr-4"></i></a>
+                    {% endif %}
+                    <button id="menuToggle" class="md:hidden" >
+                        <svg class="w-6 h-6 tcolor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+                    </svg>
+                    </button>
+    
                 </div>
             </div>
         </nav>
 
-        <div id="top-app-banner" class="hidden fixed top-0 left-0 right-0 bg-primary dark:bg-primary-dark text-white py-3 px-4 z-50 shadow-md slide-down">
+        <!-- <div id="top-app-banner" class="hidden fixed top-0 left-0 right-0 bg-primary dark:bg-primary-dark text-white py-3 px-4 z-50 shadow-md slide-down">
             <div class="container mx-auto flex flex-wrap items-center justify-between">
                 <div class="flex items-center">
                     <div class="hidden sm:block mr-3">
@@ -420,9 +287,9 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div id="bottom-app-banner" class=" fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-3 px-4 z-50 shadow-lg slide-up">
+        <div id="bottom-app-banner" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-3 px-4 z-50 shadow-lg slide-up">
             <div class="container mx-auto flex flex-wrap items-center justify-between">
                 <div class="flex items-center">
                     <div class="mr-3 bg-[#5A0B29] rounded-lg p-2">
@@ -431,7 +298,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="font-medium text-gray-800">Téléchargez notre application mobile</p>
+                        <p class="font-medium text-gray-800">Téléchargez notre application mobile.</p>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Des achats plus rapides, des offres exclusives et plus encore</p>
                     </div>
                 </div>
@@ -624,80 +491,12 @@
                   
             </button>
             </a>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const menuToggle = document.getElementById('menuToggle');
-                const mobileMenu = document.getElementById('mobileMenu');
-                const closeMenu = document.getElementById('closeMenu');
         
-                if(menuToggle){
-                    menuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.remove('translate-x-full');
-                });
-        
-                closeMenu.addEventListener('click', function() {
-                    mobileMenu.classList.add('translate-x-full');
-                });
-                }
-                
-            });
-      
-           
-        
-                const form = document.querySelector('#messageForm');
-                if(form){
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    $.ajax({
-                    url : `/message`,
-                    type: 'POST',
-                    data: { 
-                        csrfmiddlewaretoken: '{{csrf_token}}',
-                        name: $('#name').val(),
-                        message: $('#message').val(),
-                        phone: $('phone').val() || '',
-                        email : $('email').val(),
-                    },
-                    beforeSend: function(){
-                    },
-                    success: function(res) {
-                        
-                        if(res.status == 'success'){
-                            
-                            alert('Merci pour votre message, on vous contactera sous peu!');
-                            form.reset();
-                        }
-
-                    },
-                    complete: function(){
-                    },
-
-                    error: function(jqXHR,textstatus,errorThrown){
-                    }
-
-        })
-                   
-                });
-            }
-        
-                // Intersection Observer for smooth animations
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible-element');
-                        }
-                    });
-                }, { threshold: 0.1 });
-        
-                const hiddenElements = document.querySelectorAll('.hidden-element');
-                hiddenElements.forEach(el => observer.observe(el));
-        
-        </script>
-        <footer class="bg-[#5A0B29] text-white py-8">
+        <footer class="border-1 border-t-[#5A0B29] text-[#5A0B29] relative py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-between">
                     <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                        <h3 class="text-xl font-bold mb-2">BMI</h3>
+                        <h3 class="text-xl text-[#5A0B29] font-bold mb-2">BMI</h3>
                         <p class="text-gray-400 w-48 ">
                             Développer en court, moyen et long
                             terme votre business dans le but
@@ -706,36 +505,37 @@
                         </p>
                     </div>
                     <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                        <h3 class="text-xl font-bold mb-2">Liens</h3>
+                        <h3 class="text-xl text-[#5A0B29] font-bold mb-2">Liens</h3>
                         <ul>
-                            <li><a href="/" class="text-gray-400 hover:text-white">Acceuil</a></li>
-                            <li><a href="/services" class="text-gray-400 hover:text-white">Services</a></li>
-                            <li><a href="/blog" class="text-gray-400 hover:text-white">Blog</a></li>
-                            <li><a href="/produits" class="text-gray-400 hover:text-white">Boutique</a></li>
-                            <li><a href="/notre-equipe" class="text-gray-400 hover:text-white">Notre équipe</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white">Nos réalisons</a></li>
+                            <li><a href="/" class="text-gray-400 hover:text-[#5A0B29]">Acceuil</a></li>
+                            <li><a href="/services" class="text-gray-400 hover:text-[#5A0B29]">Services</a></li>
+                            <li><a href="/blog" class="text-gray-400 hover:text-[#5A0B29]">Blog</a></li>
+                            <li><a href="/produits" class="text-gray-400 hover:text-[#5A0B29]">Boutique</a></li>
+                            <li><a href="/notre-equipe" class="text-gray-400 hover:text-[#5A0B29]">Notre équipe</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-[#5A0B29]">Nos réalisons</a></li>
                             
                         </ul>
                         
                     </div>
                     <div class="w-full md:w-1/3">
-                        <h3 class="text-xl font-bold mb-2">Parlez avec nous</h3>
+                        <h3 class="text-xl text-[#5A0B29] font-bold mb-2">Parlez avec nous</h3>
                         <div class="flex space-x-4">
-                            <a href="https://www.facebook.com/share/fDrRTRTMPKkJN7RS/" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.linkedin.com/company/business-management-innovation/?viewAsMember=true" class="text-gray-400 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/bmi281/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.tiktok.com/@bmi.261?_r=1&_d=eh08jddm8593me&sec_uid=MS4wLjABAAAAgrQ7tWnkYR3ZzhqMjY8RAFFILp588FecVcSLZf101pLoDzdUZBAHtYe3It9IEWBv&share_author_id=7430792149962441733&sharer_language=fr&source=h5_m&u_code=eh1ijmabk0e5a4&timestamp=1730971635&user_id=7430792149962441733&sec_user_id=MS4wLjABAAAAgrQ7tWnkYR3ZzhqMjY8RAFFILp588FecVcSLZf101pLoDzdUZBAHtYe3It9IEWBv&utm_source=more&utm_campaign=client_share&utm_medium=android&share_iid=7432633264509159174&share_link_id=88ac1d19-e08e-4b2a-8a4c-14704494746b&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb4907&social_share_type=5&enable_checksum=1" class="text-gray-400 hover:text-white"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="https://www.facebook.com/share/fDrRTRTMPKkJN7RS/" class="text-gray-400 hover:text-[#5A0B29]"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/company/business-management-innovation/?viewAsMember=true" class="text-gray-400 hover:text-[#5A0B29]"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/bmi281/" class="text-gray-400 hover:text-[#5A0B29]"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@bmi.261?_r=1&_d=eh08jddm8593me&sec_uid=MS4wLjABAAAAgrQ7tWnkYR3ZzhqMjY8RAFFILp588FecVcSLZf101pLoDzdUZBAHtYe3It9IEWBv&share_author_id=7430792149962441733&sharer_language=fr&source=h5_m&u_code=eh1ijmabk0e5a4&timestamp=1730971635&user_id=7430792149962441733&sec_user_id=MS4wLjABAAAAgrQ7tWnkYR3ZzhqMjY8RAFFILp588FecVcSLZf101pLoDzdUZBAHtYe3It9IEWBv&utm_source=more&utm_campaign=client_share&utm_medium=android&share_iid=7432633264509159174&share_link_id=88ac1d19-e08e-4b2a-8a4c-14704494746b&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb4907&social_share_type=5&enable_checksum=1" class="text-gray-400 hover:text-[#5A0B29]"><i class="fa-brands fa-tiktok"></i></a>
                         </div>
                         <div class="mt-4 flex flex-col space-y-4">
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-2"></i>00237 675 94 90 69</a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-2"></i>00237 689 79 19 07</a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-2"></i>00352 661 810 304</a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-envelope mr-2"></i>contact@bmisolutions.org</a>
+                            <a href="#" class="text-gray-400 hover:text-[#5A0B29]"><i class="fab fa-whatsapp mr-2"></i>00237 675 94 90 69</a>
+                            <a href="#" class="text-gray-400 hover:text-[#5A0B29]"><i class="fab fa-whatsapp mr-2"></i>00237 689 79 19 07</a>
+                            <a href="#" class="text-gray-400 hover:text-[#5A0B29]"><i class="fab fa-whatsapp mr-2"></i>00352 661 810 304</a>
+                            <a href="#" class="text-gray-400 hover:text-[#5A0B29]"><i class="fas fa-envelope mr-2"></i>contact@bmisolutions.org</a>
+                            <a href="#" class="text-gray-400 hover:text-[#5A0B29]"><i class="fas fa-location-dot mr-2"></i>YAOUNDE, Cameroun</a>
                         </div>
                     </div>
                 </div>
                 <div class="mt-8 border-t border-gray-700 pt-8 text-center">
-                    <p class="text-gray-400">&copy; 2024 BMI. Tous droits reserver.</p>
+                    <p class="text-gray-400">&copy; 2025 BMI. Tous droits reserver.</p>
                 </div>
             </div>
         </footer>
@@ -744,86 +544,8 @@
               new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
             }
         </script> 
-        <script>
-            // Banner management functions
-            function showBanner(type) {
-                // Hide all banners first
-                hideAllBanners();
-                
-                // Show the selected banner
-                if (type === 'top') {
-                    document.getElementById('top-app-banner').classList.remove('hidden');
-                } else if (type === 'bottom') {
-                    document.getElementById('bottom-app-banner').classList.remove('hidden');
-                } else if (type === 'floating') {
-                    document.getElementById('floating-app-button').classList.remove('hidden');
-                }
-                
-                // Store preference in localStorage to remember user's choice
-                localStorage.setItem('appBannerPreference', type);
-            }
-            
-            function hideAllBanners() {
-                document.getElementById('top-app-banner').classList.add('hidden');
-                document.getElementById('bottom-app-banner').classList.add('hidden');
-                document.getElementById('floating-app-button').classList.add('hidden');
-                document.getElementById('app-modal').classList.add('hidden');
-            }
-            
-            // Event listeners for close buttons
-            document.getElementById('close-top-banner').addEventListener('click', function() {
-                document.getElementById('top-app-banner').classList.add('hidden');
-                localStorage.setItem('topBannerDismissed', 'true');
-            });
-            
-            document.getElementById('close-bottom-banner').addEventListener('click', function() {
-                document.getElementById('bottom-app-banner').classList.add('hidden');
-                localStorage.setItem('bottomBannerDismissed', 'true');
-            });
-            
-            // Floating button and modal functionality
-            document.getElementById('open-app-modal').addEventListener('click', function() {
-                const modal = document.getElementById('app-modal');
-                modal.classList.toggle('hidden');
-            });
-            
-            document.getElementById('close-app-modal').addEventListener('click', function() {
-                document.getElementById('app-modal').classList.add('hidden');
-            });
-            
-            // Close modal when clicking outside of it
-            document.addEventListener('click', function(event) {
-                const modal = document.getElementById('app-modal');
-                const button = document.getElementById('open-app-modal');
-                
-                if (!modal.classList.contains('hidden') && 
-                    !modal.contains(event.target) && 
-                    event.target !== button && 
-                    !button.contains(event.target)) {
-                    modal.classList.add('hidden');
-                }
-            });
-            
-            // Check for stored preference on page load
-            document.addEventListener('DOMContentLoaded', function() {
-                const preference = localStorage.getItem('appBannerPreference');
-                const topDismissed = localStorage.getItem('topBannerDismissed');
-                const bottomDismissed = localStorage.getItem('bottomBannerDismissed');
-                
-                if (preference && preference !== 'none') {
-                    if (preference === 'top' && topDismissed !== 'true') {
-                        showBanner('top');
-                    } else if (preference === 'bottom' && bottomDismissed !== 'true') {
-                        showBanner('bottom');
-                    } else if (preference === 'floating') {
-                        showBanner('floating');
-                    }
-                } else {
-                    // Default banner if no preference is set
-                    showBanner('top');
-                }
-            });
-        </script>
+         <script src="{% static 'js/base.js' %}"></script>
+        <script src="{% static 'js/banners.js' %}"></script>
         <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
         
