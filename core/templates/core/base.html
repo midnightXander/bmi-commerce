@@ -50,7 +50,7 @@
         position: relative;
     }
     /*fonts */
-    .sge{
+    .sge, h1,h2, h3{
         font-family: "Special Gothic Expanded One";
         font-weight: 400;
         font-style: normal;
@@ -162,7 +162,7 @@
     </style>
    
        
-    <body class="bg-gray-50" >
+    <body class="bg-gray-50 relative" >
         <div id="mobileMenu" class="fixed inset-0 bg-[#5A0B29] z-50 flex flex-col  justify-end items-center transform translate-x-full transition-transform duration-300 ease-in-out">
             <button id="closeMenu" class="absolute top-20 right-4 text-white text-3xl">&times;</button>
             <nav class="text-center">
@@ -182,7 +182,7 @@
                 </ul>      
             </nav>
         </div>
-        <nav class="position-absolute top-0 left-0 right-0 z-50">
+        <nav id="navbar-top" class="relative top-0 left-0 right-0 z-50">
             <div class="container mx-auto px-6 py-3 flex justify-between items-center">
                 <div class="flex items-center">
                     <a href="/" class="inline-block text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700">
@@ -289,7 +289,7 @@
             </div>
         </div> -->
 
-        <div id="bottom-app-banner" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-3 px-4 z-50 shadow-lg slide-up">
+        <div id="bottom-app-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200  py-3 px-4 z-50 shadow-lg slide-up">
             <div class="container mx-auto flex flex-wrap items-center justify-between">
                 <div class="flex items-center">
                     <div class="mr-3 bg-[#5A0B29] rounded-lg p-2">
@@ -299,7 +299,7 @@
                     </div>
                     <div>
                         <p class="font-medium text-gray-800">Téléchargez notre application mobile.</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Des achats plus rapides, des offres exclusives et plus encore</p>
+                        <p class="text-sm text-gray-600 ">Des achats plus rapides, des offres exclusives et plus encore</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-2 mt-2 sm:mt-0">

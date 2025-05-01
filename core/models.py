@@ -139,3 +139,16 @@ class AppDownload(models.Model):
     def __str__(self):
         date = self.date_added
         return f"{date}"
+    
+
+class ClientProfile(models.Model):
+    number = models.CharField(max_length = 50)
+    cv = models.FileField(upload_to = "cv/")
+    date_added = models.DateField(auto_now_add=True)
+    email = models.EmailField()
+    name = models.CharField(max_length = 50)
+    job = models.CharField(max_length = 50) 
+    
+    def __str__(self):
+        return f"{self.job}: {self.number} : {self.name}"
+    

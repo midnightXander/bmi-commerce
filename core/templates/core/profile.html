@@ -15,11 +15,11 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
 {% endblock meta_description %}
 
 {% block content %}
-<main class="container mx-auto mt-8 px-4">
+<main class="container mx-auto px-4">
     {% if  not request.user.is_authenticated %}
     <section id="partnerLoginForm" class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8 animate-fadeIn">
         <h2 class="text-3xl font-bold text-[#5A0B29] mb-6">Connectez-vous a votre compte partenaire BMI</h2>
-        <form  class="space-y-4" action="{% url 'partner:login' %}" method="post" >
+        <form  class="space-y-4" action="{% url 'partner:login' %}" method = "post" >
             {% csrf_token %}
             <div class="messages">
                 {% for message in messages %}
@@ -378,6 +378,8 @@ si il n'a pas de compte il peut le creer, une fois fait il a accès a l'interfac
 </main>
 
 <script>
+    // $('#navbar-top').removeClass('absolute')
+    // $('#navbar-top').addClass('relative')
     function switchForm(){
         const loginForm = document.querySelector("#partnerLoginForm")
         const registerForm = document.querySelector("#partnerRegisterForm")
