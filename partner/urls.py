@@ -16,6 +16,7 @@ urlpatterns = [
 
     #partners pages
     path('clever-life', views.cleverlife, name = 'growth_hair_oil'),
+    path('page/<str:slug>', views.partner_page, name = 'partner_page'),
     
 
 ]

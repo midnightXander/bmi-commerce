@@ -19,6 +19,7 @@ from core.utility import *
 import boto3
 from dotenv import load_dotenv
 import string,random,secrets
+from .utility import generate_slug 
 
 load_dotenv()
 
@@ -34,6 +35,8 @@ s3 = boto3.client( 's3',
 def get_partner(request):
     try:
         provider = Provider.objects.get(user = request.user)
+        provider.page_slug = generate_slug(provider.name)
+        provider.save()
     except Exception as e:
         provider = None
 
@@ -154,9 +157,11 @@ def register(request, referall_code = ""):
                     product_type = product_type,
                     phone_number = phone_number,
                     city = city,
-                    label = 'partners' 
+                    label = 'partners',
+                    page_slug = generate_slug(name), 
                     )
-                
+                subscription = Subscription.objects.create(provider = new_partner)
+                subscription.save()
                 user_auth = auth.authenticate(username = name,password=password1)
                 auth.login(request,user_auth)
                 new_user.save()
@@ -205,16 +210,7 @@ def logout_view(request):
     return HttpResponseRedirect(reverse("core:index"))
 
 
-####PARTNER VIEWS####
-def cleverlife(request):
 
-    return render(request, "partner/pages/cleverlife.html",{
-        'title': 'Growth Hair Oil',
-        })
-
-
-
-###END PARTNER VIEWS####
 
 
 def upload_image_to_s3(image):
@@ -343,3 +339,32 @@ def delete_product(request, product_id):
     
 
 
+####PARTNER VIEWS####
+def cleverlife(request):
+
+    return render(request, "partner/pages/cleverlife.html",{
+        'title': 'Growth Hair Oil',
+        })
+
+
+def partner_page(request,slug):
+    try:
+        partner = Provider.objects.get(page_slug = slug)
+    except: 
+        raise Http404
+    
+    subscription = Subscription.objects.get(provider = partner) 
+    if subscription.tier == 'free' and subscription.date_started + datetime.timedelta(days=30) < datetime.datetime.now().date():
+        #delete subscription and provider
+        subscription.delete()
+        #partner.delete()
+        if request.user == partner.user:
+            messages.error(request, "Votre abonnement a expiré. Veuillez vous abonner à un nouveau plan")
+            return redirect(reverse("core:profile"))
+        else:
+            raise Http404
+
+    return render(request, f"partner/pages/{slug}.html")    
+
+
+###END PARTNER VIEWS####

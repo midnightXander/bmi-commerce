@@ -3,4 +3,5 @@ from .models import *
 
 admin.site.register(Provider)
 admin.site.register(PasswordRecoveryCode)
+admin.site.register(Subscription)
 

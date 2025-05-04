@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+<script>
+   function createThumbnail(src, index) {
+        return `
+            <img src="${src}" alt="Thumbnail ${index + 1}" class="w-full h-auto rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage('${src}')">
+        `;
+    }
+
+    function changeMainImage(productIndex,src) {
+        document.getElementById(`main-image-${productIndex}`).src = src;
+    }
+
+    $('#navbar-top').addClass('hidden')
+</script>
+
+{% endblock content %}

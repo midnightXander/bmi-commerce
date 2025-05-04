@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator,MaxValueValidator
 import uuid
+from .utility import generate_slug
 
 PROVIDER_LABELS = ['company', 'partners']
 
@@ -9,6 +10,8 @@ PROVIDER_LABELS = ['company', 'partners']
 
 
 class Provider(models.Model):
+    """This model represents the partner in the system"""
+    
     name = models.CharField(max_length=70)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     phone_number = models.CharField(max_length=50)
@@ -17,6 +20,9 @@ class Provider(models.Model):
     label = models.CharField(max_length=30, choices=[
         (i,i) for i in PROVIDER_LABELS
     ], default='company')
+
+    page_slug = models.CharField(max_length = 100, default = "")
+    
 
     def __str__(self):
         return f"{self.city}: {self.name}"
@@ -35,7 +41,12 @@ class Subscription(models.Model):
     """This models represents the subscription tier in which the partner is"""
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
     date_started = models.DateField(auto_now_add=True)
+    tier = models.CharField(max_length=50, choices=[
+        ('free', 'Free'),
+        ('premium', 'Premium'),
+        ('enterprise', 'Enterprise')
+    ], default='free')
     #expiry_date = models.DateField()
 
     def __str__(self):
-        return f"{self.provider} from {self.date_started.day}"
+        return f"{self.provider} from {self.date_started.day}/{self.date_started.month}/{self.date_started.year}"

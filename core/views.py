@@ -21,6 +21,7 @@ from partner.views import get_partner
 import uuid
 from django.core.files.storage import FileSystemStorage
 import yagmail
+from partner.utility import generate_slug
 
 def get_session_key(request):
     session = request.session
@@ -475,6 +476,8 @@ def admin_dashboard(request):
     partners  = Provider.objects.filter(label = 'partners').order_by('-id')
     partners_data = []
     for partner in partners:
+        partner.page_slug = generate_slug(partner.name)
+        partner.save()
         partners_data.append(_provider_data(partner))    
 
     if request.method == 'POST':
