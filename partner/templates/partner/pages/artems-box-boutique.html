@@ -1,0 +1,132 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %} Artem's Box - Beauté Naturelle & Soins Made in Cameroon {% endblock title %}
+{% block meta_keywords %} produit beaute, skin care, bbl, fessier, Artem's Box {% endblock meta_keywords %}
+{% block meta_description %}Découvrez Artem's Box : la boutique en ligne made in Cameroon spécialisée en brumes parfumées, soins visage et produits naturels de beauté. {% endblock meta_description %}
+{% block favicon %}{% static "images/fly-express-services/logo.jpg" %}{% endblock favicon %}
+{% block content %}
+
+<style>
+    body{
+        font-family: 'Space Mono';
+    }
+    h1,h2,h3, span{
+        font-style: italic;
+        font-family: 'Space Mono';
+    }
+</style>
+
+<section class="bg-pink-100 py-20 px-6 text-center">
+    <h1 class="text-5xl font-bold mb-4">Bienvenue chez <span class="text-pink-600" >Artem's Box</span></h1>
+    <p class="text-xl mb-6 max-w-2xl mx-auto">Votre destination beauté 100% camerounaise : brumes de parfums, gels nettoyants et soins visage naturels, livrés partout !</p>
+    <a href="#produits" class="bg-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-700 transition">Découvrir nos produits</a>
+  </section>
+
+  <!-- PRODUITS -->
+  <section id="produits" class="py-16 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">Nos Best-Sellers</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound2052251592479720837.jpg" alt="Brume parfumée" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Brume Parfumée brésiliennes Douce</h3>
+        <p class="text-gray-600 my-2">Les brumes parfumées brésiliennes envelopperons votre corps ainsi que vos cheveux d'une senteur rafraîchissante exotique et sensuelle tout au long de la journée</p>
+        <span class="text-pink-600 font-bold text-lg">7 500 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound4760189714337927249.jpg" alt="Gel nettoyant visage" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Gel Nettoyant Visage Purifiant</h3>
+        <p class="text-gray-600 my-2">Formule douce à base de plantes pour une peau éclatante sans impuretés.</p>
+        <span class="text-pink-600 font-bold text-lg">10 500 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound3989316677231820353.jpg" alt="Crème raffraîchissante" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Acne foaming cream cleanser 4%</h3>
+        <p class="text-gray-600 my-2">Aide à éliminer l'acné les points blancs les points noirs sans sécheresse ni desquamation de la peau</p>
+        <span class="text-pink-600 font-bold text-lg">7 500 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound3372995325931808527.jpg" alt="Crème raffraîchissante" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Crème raffermissante brazilian bum bum 75ml</h3>
+        <p class="text-gray-600 my-2">Crème pour le corps à absorption rapide qui tend et raffermie visiblement la peau procure une hydratation intense laisse la peau parfaitement douce et agréablement parfumée lumineuse, elle favorise les défense naturelle de la peau</p>
+        <span class="text-pink-600 font-bold text-lg">8 000 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound7677079646685253673.jpg" alt="Crème raffraîchissante" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Eucerin crème solaire oil control</h3>
+        <p class="text-gray-600 my-2">Hydratation profonde et éclat immédiat, sans fini gras.</p>
+        <span class="text-pink-600 font-bold text-lg">8 500 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound2153750082066111276.jpg" alt="Crème raffraîchissante" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Anua niacinamide 10%Txa 4 %</h3>
+        <p class="text-gray-600 my-2">Ce sérum formulé avec 10 % de niacinamide et 4% d'acide tranexamique estompe les tâches brunes et 
+            d'acné pour lutter contre l'hyperpigmentation il contient de l'alpha arbutin pour éclaircir et unifier le teint ainsi que de l'acide hyaluronique et des huiles végétales pour hydrater et apaiser la peau</p>
+        <span class="text-pink-600 font-bold text-lg">9 500 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <img src="https://bmiecommercebucket.s3.amazonaws.com/media/items/images/inbound3869739071165807346.jpg" alt="Crème raffraîchissante" class="rounded mb-4">
+        <h3 class="text-xl font-semibold">Panoxyl acne foaming wash</h3>
+        <p class="text-gray-600 my-2">Il est le nettoyant le plus puissant sans ordonnance disponible. Son ingredients actif la benzoyle peroxide a 10% est spécialement formulé pour éliminer avec succès les inflammation et tuer plus de 99% de bactéries responsable de l'acné</p>
+        <span class="text-pink-600 font-bold text-lg">8 500 FCFA</span>
+        <a href="https://wa.me/237699031795" target="_blank" class="inline-block flex justify-center mt-4 bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 w-full">Ajouter au panier</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICES -->
+  <section class="bg-gray-100 py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Pourquoi choisir Artem's Box ?</h2>
+    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-left">
+      <div><h4 class="font-semibold text-lg mb-2">🌿 Produits naturels</h4><p>Nos formules sont douces, sans parabènes, idéales pour les peaux sensibles.</p></div>
+      <div><h4 class="font-semibold text-lg mb-2">📦 Livraison rapide</h4><p>Livraison express à Douala, Yaoundé et dans tout le Cameroun.</p></div>
+      <div><h4 class="font-semibold text-lg mb-2">💖 Expertise locale</h4><p>Des soins pensés par et pour les femmes camerounaises modernes.</p></div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-8">Elles ont adoré !</h2>
+    <div class="grid md:grid-cols-2 gap-8 text-left">
+      <blockquote class="bg-white p-6 rounded shadow">
+        <p>"La crème raffraîchissante est une merveille. Ma peau est transformée!"</p>
+        <footer class="mt-4 text-sm text-pink-600">— Aïcha N., Yaoundé</footer>
+      </blockquote>
+      <blockquote class="bg-white p-6 rounded shadow">
+        <p>"Le parfum tient toute la journée, c’est devenu mon indispensable."</p>
+        <footer class="mt-4 text-sm text-pink-600">— Carole T., Douala</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-pink-600 text-white py-12 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Rejoignez le mouvement beauté Artem's Box</h2>
+    <p class="mb-6">Des soins uniques, des senteurs inoubliables, livrés chez vous.</p>
+    <a href="https://wa.me/237699031795" target="_blank" class="bg-white text-pink-600 px-6 py-3 rounded-full font-bold hover:bg-pink-100 transition">Je découvre la boutique</a>
+  </section>
+
+
+
+
+<script>
+   function createThumbnail(src, index) {
+        return `
+            <img src="${src}" alt="Thumbnail ${index + 1}" class="w-full h-auto rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage('${src}')">
+        `;
+    }
+
+    function changeMainImage(productIndex,src) {
+        document.getElementById(`main-image-${productIndex}`).src = src;
+    }
+
+    $('#navbar-top').addClass('hidden')
+</script>
+
+{% endblock content %}
+

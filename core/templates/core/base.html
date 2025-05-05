@@ -12,7 +12,7 @@
         <meta name="description" content="{% block meta_description %}
         Management and Innovation qui offre des services d'accompagnement d'entreprise, marketing, Formations,et Immigration en Allemagne {% endblock meta_description %}">
         <meta name="keywords" content="{% block meta_keywords %} Formation, Immigration Allemagne, E-commerce, Vente de Produits au cameroun, Boutique en ligne,{% endblock meta_keywords %}">
-        <meta property = "og:image" content = "{% static 'images/logo.jpg' %}" >
+        <meta property = "og:image" content = "{% block favicon %} {% static 'images/logo.jpg' %} {% endblock favicon %} " >
         <meta property = "og:url" content = "https://bmisolutions.org">
         
         <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->

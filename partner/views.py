@@ -364,7 +364,9 @@ def partner_page(request,slug):
         else:
             raise Http404
 
-    return render(request, f"partner/pages/{slug}.html")    
+    return render(request, f"partner/pages/{slug}.html", {
+        'provider': partner,
+    })    
 
 
 ###END PARTNER VIEWS####
