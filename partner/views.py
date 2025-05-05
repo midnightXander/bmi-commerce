@@ -350,10 +350,11 @@ def cleverlife(request):
 def partner_page(request,slug):
     try:
         partner = Provider.objects.get(page_slug = slug)
+        subscription = Subscription.objects.get(provider = partner) 
     except: 
         raise Http404
     
-    subscription = Subscription.objects.get(provider = partner) 
+    
     if subscription.tier == 'free' and subscription.date_started + datetime.timedelta(days=30) < datetime.datetime.now().date():
         #delete subscription and provider
         subscription.delete()

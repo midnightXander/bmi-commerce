@@ -1,102 +1,106 @@
 {% extends "core/base.html" %}
 {% load static %}
-{% block title %} Artem's Box - Beauté Naturelle & Soins Made in Cameroon {% endblock title %}
-{% block meta_keywords %} produit beaute, skin care, bbl, fessier, Artem's Box {% endblock meta_keywords %}
-{% block meta_description %}Découvrez Artem's Box : la boutique en ligne made in Cameroon spécialisée en brumes parfumées, soins visage et produits naturels de beauté. {% endblock meta_description %}
+{% block title %} Fly Express Services - Livraison et Logistique à Douala {% endblock title %}
+{% block meta_keywords %}livraison Cameroun, service colis, transport colis Yaoundé Douala, livraison express Cameroun, Fly Express {% endblock meta_keywords %}
+{% block meta_description %}Service de livraison rapide, fiable et traçable de colis à Douala, Yaoundé et dans tout le Cameroun. Obtenez un devis en ligne. {% endblock meta_description %}
 {% block favicon %}{% static "images/fly-express-services/logo.jpg" %}{% endblock favicon %}
 {% block content %}
 
 <style>
-    *{
+    body{
         font-family: 'Space Mono';
     }
-    /* h1,h2,h3, span{
-        font-style: italic;
-        font-family: 'Space Mono';
-    } */
 </style>
 
-<section class="bg-blue-100 py-20 px-6 text-center">
-    <h1 class="text-5xl font-bold mb-4">Bienvenue chez La Vitrine du 237</h1>
-    <p class="text-xl mb-6 max-w-2xl mx-auto">Votre fournisseur d’électroménager de confiance : des produits durables, puissants et livrés partout au Cameroun.</p>
-    <a href="#produits" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">Voir nos offres</a>
+  <!-- HEADER -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-orange-700">Fly Express Services</h1>
+      <nav class="space-x-6 text-sm font-medium text-gray-600">
+        <a href="#services" class="hover:text-orange-700">Services</a>
+        <a href="#tarifs" class="hover:text-orange-700">Tarifs</a>
+        <a href="#temoignages" class="hover:text-orange-700">Avis</a>
+        <a href="#cta" class="text-orange-700 font-semibold">Commander</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-br from-orange-100 to-white py-20 px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-orange-700 mb-4">Vos colis ne prennent pas de vacances,<br> nous non plus !</h2>
+    <p class="text-lg max-w-xl mx-auto mb-6">Avec <strong>Fly Express Services</strong>, profitez d’un service rapide et fiable à Douala. Stockage, livraisons, expéditions et plus.</p>
+    <a href="#cta" class="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-700 transition">Commander maintenant</a>
   </section>
 
-  <!-- PRODUITS -->
-  <section id="produits" class="py-16 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12">Nos Produits Vedettes</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-white shadow rounded-lg p-6">
-        <img src="https://static.fnac-static.com/multimedia/Images/FR/MDM/2f/af/19/18460463/1541-1/tsp20250410073548/Micro-ondes-Gril-Moulinex-MO28EGBL2-1150-W-Noir-et-Argent.jpg" alt="Micro-Ondes Moulinex" class="rounded mb-4">
-        <h3 class="text-xl font-semibold">Micro-Ondes Moulinex 25L</h3>
-        <p class="text-gray-600 my-2">Chauffage rapide, 5 niveaux de puissance, design compact pour toutes cuisines.</p>
-        <span class="text-blue-600 font-bold text-lg">45 000 FCFA</span>
-        <a href="https://wa.me/237650697888" class="mt-4 bg-blue-600 text-white px-4 py-2 inline-block flex justify-center rounded hover:bg-blue-700 w-full" >Ajouter au panier </a>
+  <!-- SERVICES -->
+  <section id="services" class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold mb-8 text-center text-orange-700">Nos Services</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-md rounded-lg p-6 border border-orange-100">
+        <h4 class="text-xl font-semibold mb-2">📦 Stockage</h4>
+        <p>Gardez vos colis en sécurité jusqu’à expédition ou récupération.</p>
       </div>
-      <div class="bg-white shadow rounded-lg p-6">
-        <img src="https://boulanger.scene7.com/is/image/Boulanger/3497674177010_h_f_l_1?wid=400&hei=270" alt="Centrifugeuse" class="rounded mb-4">
-        <h3 class="text-xl font-semibold">Centrifugeuse Multifruits</h3>
-        <p class="text-gray-600 my-2">Extracteur puissant pour jus frais et vitamines chaque matin.</p>
-        <span class="text-blue-600 font-bold text-lg">25 000 FCFA</span>
-        <a href="https://wa.me/237650697888" class="mt-4 bg-blue-600 text-white px-4 py-2 inline-block flex justify-center rounded hover:bg-blue-700 w-full" >Ajouter au panier </a>
+      <div class="bg-white shadow-md rounded-lg p-6 border border-orange-100">
+        <h4 class="text-xl font-semibold mb-2">🚚 Livraisons & Expéditions</h4>
+        <p>Livraison rapide et fiable dans toute la ville et au-delà.</p>
       </div>
-      <div class="bg-white shadow rounded-lg p-6">
-        <img src="https://miassar.fr/wp-content/uploads/2023/11/FI.jpg" alt="Filtre à Eau" class="rounded mb-4">
-        <h3 class="text-xl font-semibold">Filtre à Eau à Gravité 14L</h3>
-        <p class="text-gray-600 my-2">Eau pure garantie. Idéal pour la maison et le bureau.</p>
-        <span class="text-blue-600 font-bold text-lg">20 000 FCFA</span>
-        
-        <a href="https://wa.me/237650697888" class="mt-4 bg-blue-600 text-white px-4 py-2 inline-block flex justify-center rounded hover:bg-blue-700 w-full" >Ajouter au panier </a>
+      <div class="bg-white shadow-md rounded-lg p-6 border border-orange-100">
+        <h4 class="text-xl font-semibold mb-2">📍 Ramassage & Retrait</h4>
+        <p>Nous ramassons ou vous recevez directement à notre point de retrait.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-lg p-6 border border-orange-100">
+        <h4 class="text-xl font-semibold mb-2">🍱 Livraison de Repas</h4>
+        <p>Service spécial pour les restaurateurs et traiteurs.</p>
       </div>
     </div>
   </section>
 
-  <!-- AVANTAGES -->
-  <section class="bg-gray-100 py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Pourquoi choisir La Vitrine du 237 ?</h2>
-    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-left">
-      <div><h4 class="font-semibold text-lg mb-2">⚡ Performance garantie</h4><p>Des marques réputées comme Moulinex, LG et Samsung disponibles.</p></div>
-      <div><h4 class="font-semibold text-lg mb-2">🚚 Livraison express</h4><p>Livraison rapide à domicile à Douala, Yaoundé, Bafoussam et plus.</p></div>
-      <div><h4 class="font-semibold text-lg mb-2">🛠️ Garantie constructeur</h4><p>Jusqu’à 2 ans de garantie selon les modèles.</p></div>
+  <!-- TARIFS -->
+  <section id="tarifs" class="bg-white py-16 px-6 max-w-4xl mx-auto text-center">
+    <h3 class="text-3xl text-orange-700 font-bold mb-6">Tarifs Simples et Transparents</h3>
+    <div class="grid md:grid-cols-3 gap-6 text-left">
+      <div>
+        <h4 class="font-semibold mb-1">📍 Douala / Yaoundé</h4>
+        <p class="text-gray-600">À partir de <strong>1000 FCFA</strong></p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">📦 Inter-ville</h4>
+        <p class="text-gray-600">Entre 3 500 et 8 000 FCFA selon la distance et le poids</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">🏪 Entreprises</h4>
+        <p class="text-gray-600">Tarifs sur mesure avec ramassage régulier et facturation mensuelle</p>
+      </div>
     </div>
   </section>
 
-  <!-- AVIS CLIENTS -->
-  <section class="py-16 px-6 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-8">Ce que disent nos clients</h2>
+  <!-- TEMOIGNAGES -->
+  <section id="temoignages" class=" py-16 px-6 max-w-5xl mx-auto">
+    <h3 class="text-3xl font-bold text-orange-700 text-center mb-10">Ils nous font confiance</h3>
     <div class="grid md:grid-cols-2 gap-8 text-left">
-      <blockquote class="bg-white p-6 rounded shadow">
-        <p>"J’ai acheté un micro-ondes Moulinex ici, très satisfait du service et de la rapidité."</p>
-        <footer class="mt-4 text-sm text-blue-600">— Alain B., Douala</footer>
-      </blockquote>
-      <blockquote class="bg-white p-6 rounded shadow">
-        <p>"Le filtre à eau m’a changé la vie. Plus besoin d’eau en sachet !"</p>
-        <footer class="mt-4 text-sm text-blue-600">— Monique T., Yaoundé</footer>
-      </blockquote>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <p>"J’utilise ExpressCamer pour toutes mes livraisons de boutique en ligne. Jamais eu de souci."</p>
+        <footer class="mt-4 text-sm text-orange-700">— Cédric N., Entrepreneur e-commerce</footer>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <p>"Service rapide et courtois. Le livreur m’appelle avant d’arriver, très professionnel."</p>
+        <footer class="mt-4 text-sm text-orange-700">— Véronique D., Yaoundé</footer>
+      </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-blue-600 text-white py-12 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Passez à l’électroménager de qualité</h2>
-    <p class="mb-6">Des produits durables, testés et livrés chez vous rapidement.</p>
-    <a href="#produits" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-100 transition">Voir nos offres</a>
+  <!-- CALL TO ACTION -->
+  <section id="cta" class="bg-orange-600 text-white py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-4">Besoin de livrer ?</h3>
+    <p class="mb-6">Appelez-nous maintenant pour organiser votre livraison ou expédition en toute simplicité à Douala.</p>
+    <a href="tel:+237693433966" class="bg-white text-orange-700 px-6 py-3 rounded-full font-bold hover:bg-orange-100 transition">📞 +237 6 93 43 39 66</a>
   </section>
+
+
 
 
 
 
 <script>
-   function createThumbnail(src, index) {
-        return `
-            <img src="${src}" alt="Thumbnail ${index + 1}" class="w-full h-auto rounded cursor-pointer hover:opacity-75 transition-smooth" onclick="changeMainImage('${src}')">
-        `;
-    }
-
-    function changeMainImage(productIndex,src) {
-        document.getElementById(`main-image-${productIndex}`).src = src;
-    }
-
     $('#navbar-top').addClass('hidden')
 </script>
 
