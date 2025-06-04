@@ -8,9 +8,10 @@ urlpatterns = [
     path('upload', views.upload,name = 'upload'),
     path('message', views.message,name = 'message'),
 
-    path('travel-pro',views.travelpro, name='about'),
-    path('clever-life',views.cleverlife, name='about'),
-    path('business-consulting',views.consulting, name='about'),
+    path('formations',views.formations, name='formations'),
+    path('travel-pro',views.travelpro, name='travel-pro'),
+    path('clever-life',views.cleverlife, name='clever-life'),
+    path('business-consulting',views.consulting, name='business-consulting'),
     
     path('services',views.services, name='services'),
     path('realisations',views.work, name='work'),

@@ -114,6 +114,13 @@ def contact(request):
         }
     )
 
+def formations(request):
+    return render(request,"core/formations.html",
+        {
+            'n_cart_items': n_cart_items(request),
+        }
+    )
+
 def travelpro(request):
     return render(request,"core/travelpro.html",
         {
