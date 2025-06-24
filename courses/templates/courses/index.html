@@ -1,0 +1,269 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Préparez les tests TOEFL et TCF avec nos cours en ligne gratuits et payants. Accédez à des modules interactifs, corrigés et simulateurs officiels.">
+  <title>Prépa TOEFL & TCF – BMI-Travel Pro </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Quicksand:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Monospace:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+    body{
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px; /* Default font size for the body */
+        line-height: 1.5; /* Default line height for the body */
+        color: #333; /* Default text color for the body */
+        background-color: #f8f9fa; /* Default background color for the body */
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+  </style>
+</head> -->
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %} Blog {% endblock title %}
+
+{% block meta_keywords %}
+Business Management Service Vente Cameroun vente en ligne business consulting
+Immigration en allemagne formation professionel 
+{% endblock meta_keywords %}
+
+
+{% block meta_description %}
+La page de blog
+{% endblock meta_description %}
+
+{% block content %}
+<style>
+    .top-section{
+        width: 100%;
+        height: 100vh;
+        background: url("https://static.studyusa.com/article/aws_wgjN8ZRfDx6q2-0tploeJ7EBhNiurgI5_sm_2x.jpg?format=webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
+  <!-- HEADER -->
+  <!-- <header class="bg-[#A71D46] text-white py-5 shadow">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Prépa Langues – TOEFL | TCF</h1>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="#cours" class="hover:underline">Cours</a>
+        <a href="#offres" class="hover:underline">Tarifs</a>
+        <a href="#inscription" class="hover:underline">Inscription</a>
+      </nav>
+    </div>
+  </header> -->
+
+  <!-- HERO CAROUSEL -->
+<!-- <section class="bg-blue-50 py-16 px-6 text-center" x-data="{ activeSlide: 0, slides: 3 }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides, 5000)">
+    <div class="max-w-5xl mx-auto relative">
+  
+      <!-- SLIDE 1 
+      <div x-show="activeSlide === 0" x-transition class="transition-all duration-500 ease-in-out">
+        <h2 class="text-4xl font-extrabold text-[#5A0B29] mb-4">Préparez votre avenir linguistique dès aujourd’hui</h2>
+        <p class="text-lg text-gray-700 mb-6">Des modules gratuits, des cours avancés et un coaching personnalisé pour réussir votre test.</p>
+        <a href="#formules" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">Voir les formules</a>
+      </div>
+  
+      <!-- SLIDE 2 
+      <div x-show="activeSlide === 1" x-transition class="transition-all duration-500 ease-in-out absolute top-0 left-0 w-full">
+        <h2 class="text-4xl font-extrabold text-[#5A0B29] mb-4">Rejoignez notre plateforme interactive</h2>
+        <p class="text-lg text-gray-700 mb-6">Accès aux simulateurs TOEFL et TCF, corrigés automatisés, fiches et vidéos exclusives.</p>
+        <a href="#contenus" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">Explorer le contenu</a>
+      </div>
+  
+      <!-- SLIDE 3 
+      <div x-show="activeSlide === 2" x-transition class="transition-all duration-500 ease-in-out absolute top-0 left-0 w-full">
+        <h2 class="text-4xl font-extrabold text-[#5A0B29] mb-4">Un projet de voyage ou d’études en Europe ?</h2>
+        <p class="text-lg text-gray-700 mb-6">Nos formateurs et conseillers vous accompagnent dans chaque étape.</p>
+        <a href="#europe" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">Prenez rendez-vous</a>
+      </div>
+  
+      <!-- SLIDE CONTROLS 
+      <div class="mt-10 flex justify-center space-x-2">
+        <button @click="activeSlide = 0" :class="activeSlide === 0 ? 'bg-[#5A0B29]' : 'bg-blue-300'" class="w-3 h-3 rounded-full"></button>
+        <button @click="activeSlide = 1" :class="activeSlide === 1 ? 'bg-[#5A0B29]' : 'bg-blue-300'" class="w-3 h-3 rounded-full"></button>
+        <button @click="activeSlide = 2" :class="activeSlide === 2 ? 'bg-[#5A0B29]' : 'bg-blue-300'" class="w-3 h-3 rounded-full"></button>
+      </div>
+    </div>
+  </section> -->
+  
+
+  <!-- HERO -->
+  <section class="bg-red-50 py-16 px-6 text-center">
+    <h2 class="text-4xl font-extrabold text-[#5A0B29] mb-4">Préparez-vous aux examens TOEFL et TCF en ligne</h2>
+    <p class="text-lg max-w-3xl mx-auto mb-6">Cours interactifs, exercices corrigés, simulateurs d'examen, modules gratuits et premium. Apprenez à votre rythme sur notre plateforme numérique.</p>
+    <div class="">
+        <a href="#inscription" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">S'entrainer</a>
+        <a href="#inscription" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">S'abonner</a>
+    </div>
+    
+  </section>
+
+   <!-- AVANTAGES -->
+   <section id="avantages" class="py-16 px-6 bg-white text-center">
+    <h3 class="text-3xl font-bold text-[#A71D46] mb-10">Pourquoi choisir BMI-Travel Pro ?</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div><h4 class="font-bold mb-2">📚 Cours actualisés</h4><p>Des modules rédigés par des linguistes certifiés, basés sur les dernières versions des tests.</p></div>
+      <div><h4 class="font-bold mb-2">👨‍🏫 Coaching personnalisé</h4><p>Accompagnement individuel avec un professeur dédié jusqu’à votre date d’examen.</p></div>
+      <div><h4 class="font-bold mb-2">🌍 Opportunités internationales</h4><p>Assistance pour bourse, inscription universitaire et demande de visa Europe.</p></div>
+    </div>
+  </section>
+
+
+
+  <!-- COURS DISPONIBLES -->
+  <section id="cours" class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center text-[#A71D46] mb-10">Modules disponibles</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 shadow rounded">
+        <h4 class="text-xl font-semibold text-[#5A0B29] mb-2">📝 TOEFL - Préparation Complète</h4>
+        <p>Stratégies, vocabulaire, listening, reading, writing. Accès 60 jours.</p>
+        <span class="block text-blue-600 font-bold mt-4">20 000 FCFA</span>
+      </div>
+      <div class="bg-white p-6 shadow rounded">
+        <h4 class="text-xl font-semibold text-[#5A0B29] mb-2">🇫🇷 TCF - Révision Intégrale</h4>
+        <p>Compréhension écrite et orale, expression écrite et orale. + Simulateurs.</p>
+        <span class="block text-blue-600 font-bold mt-4">15 000 FCFA</span>
+      </div>
+      <div class="bg-white p-6 shadow rounded">
+        <h4 class="text-xl font-semibold text-[#5A0B29] mb-2">🎓 Cours Gratuits</h4>
+        <p>Accès libre à des vidéos, tests blancs partiels et modules de base.</p>
+        <span class="block text-green-600 font-bold mt-4">0 FCFA</span>
+      </div>
+    </div>
+  </section>
+
+    <!-- CONTENUS GRATUITS -->
+    <section id="contenus" class="py-16 px-6 bg-white">
+        <h3 class="text-3xl font-bold text-[#A71D46] text-center mb-10">Contenus récents</h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-sm">
+          <div class="bg-[#A71D46] bg-opacity-50 p-4 rounded shadow">
+            <h4 class="font-bold text-[#5A0B29] mb-2">📥 PDF – 200 mots clés TOEFL</h4>
+            <img class="h-64 w-full object-cover" src="https://www.affairesuniversitaires.ca/wp-content/uploads/2024/11/capcompetences-plandecours-644.jpg" />
+            <p class="text-white mt-2" >Liste de vocabulaire thématique pour le reading & writing. Téléchargement libre.</p>
+            <button class="bg-[#A71D46] rounded-3xl px-4 py-2 text-white mt-4">Ouvrir</button>
+          </div>
+          <div class="bg-[#A71D46] bg-opacity-50 p-4 rounded shadow">
+            <h4 class="font-bold text-[#5A0B29] mb-2">🎧 Podcast – Écoute active</h4>
+            <img class="h-64 w-full object-cover" src="https://www.affairesuniversitaires.ca/wp-content/uploads/2024/11/capcompetences-plandecours-644.jpg" />
+            <p class="text-white mt-2" >Exercice d'écoute basé sur un extrait TOEFL Listening avec questions corrigées.</p>
+            <button class="bg-[#A71D46] rounded-3xl px-4 py-2 text-white mt-4">Ouvrir</button>
+          </div>
+          <div class="bg-[#A71D46] bg-opacity-50 p-4 rounded shadow">
+            <h4 class="font-bold text-[#5A0B29] mb-2">📹 Vidéo – Simulateur TCF</h4>
+            <img class="h-64 w-full object-cover" src="https://www.affairesuniversitaires.ca/wp-content/uploads/2024/11/capcompetences-plandecours-644.jpg" />
+            <p class="text-white mt-2" >Présentation interactive du déroulement du TCF Canada – modèle officiel 2025.</p>
+            <button class="bg-[#A71D46] rounded-3xl px-4 py-2 text-white mt-4">Ouvrir</button>
+          </div>
+          
+        </div>
+        <div class="p-4 text-center underline text-[#5A0B29] mt-4">
+            <a href="#">Plus de contenu</a>
+          </div>
+      </section>
+
+  <!-- TARIFS & ACCÈS -->
+  <!-- <section id="offres" class="bg-gray-50 py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold text-[#A71D46] mb-6">Offres & Abonnements</h3>
+    <p class="text-lg max-w-xl mx-auto text-gray-700 mb-8">Des tarifs simples, accès illimité pendant la période choisie, avec possibilité de suivi par un coach linguistique.</p>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+      <div class="bg-white p-6 rounded shadow">
+        <h4 class="font-bold mb-2">🎯 Prépa Solo (Accès 1 mois)</h4>
+        <ul class="list-disc list-inside text-gray-600 text-sm">
+          <li>Modules TOEFL ou TCF</li>
+          <li>Corrections automatiques</li>
+          <li>Accès illimité pendant 30 jours</li>
+        </ul>
+        <p class="mt-4 text-[#A71D46] font-bold">15 000 FCFA</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h4 class="font-bold mb-2">💡 Prépa + Coach (3 mois)</h4>
+        <ul class="list-disc list-inside text-gray-600 text-sm">
+          <li>Accès aux 2 modules TOEFL + TCF</li>
+          <li>Coaching 1:1</li>
+          <li>Évaluations hebdomadaires</li>
+        </ul>
+        <p class="mt-4 text-[#A71D46] font-bold">35 000 FCFA</p>
+      </div>
+    </div>
+  </section> -->
+   <!-- FORMULES PAYANTES -->
+   <section id="formules" class="py-16 px-6 bg-gray-100 text-center">
+    <h3 class="text-3xl font-bold text-[#A71D46] mb-8">Formules disponibles</h3>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+      <div class="bg-white p-6 rounded shadow">
+        <h4 class="text-xl font-bold mb-2">TOEFL – Accès 30 jours</h4>
+        <ul class="list-disc list-inside text-gray-700 mb-4">
+          <li>4 sections complètes + corrigés</li>
+          <li>1 simulateur complet</li>
+          <li>Accès illimité sur 1 mois</li>
+        </ul>
+        <p class="text-[#A71D46] font-bold">20 000 FCFA</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h4 class="text-xl font-bold mb-2">TCF Canada + Coaching 1:1</h4>
+        <ul class="list-disc list-inside text-gray-700 mb-4">
+          <li>Formation + suivi hebdomadaire</li>
+          <li>Correction orale personnalisée</li>
+          <li>Simulations orales enregistrées</li>
+        </ul>
+        <p class="text-[#A71D46] font-bold">35 000 FCFA</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- PROFESSEURS -->
+  <section id="professeurs" class="bg-gray-50 py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold text-[#A71D46] mb-10">Rencontrez nos experts</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white p-6 rounded shadow text-left">
+        <img src="https://www.alliancefrancaise.ca/media/website_pages/en/language/adult-classes/iStock-1206058881_1092x726a.jpg" class="rounded-full mb-4" alt="Professeur 1">
+        <h4 class="text-xl font-semibold text-[#5A0B29]">Mme Diane T.</h4>
+        <p class="text-sm text-gray-600">Formatrice TOEFL certifiée ETS. 7 ans d’expérience, bilingue FR/EN.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow text-left">
+        <img src="https://www.alliancefrancaise.ca/media/website_pages/en/language/adult-classes/iStock-1206058881_1092x726a.jpg" class="rounded-full mb-4" alt="Professeur 2">
+        <h4 class="text-xl font-semibold text-[#5A0B29]">M. Laurent K.</h4>
+        <p class="text-sm text-gray-600">Expert TCF / DALF, spécialisé en stratégies écrites et orales C1/C2.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow text-left">
+        <img src="https://www.alliancefrancaise.ca/media/website_pages/en/language/adult-classes/iStock-1206058881_1092x726a.jpg" class="rounded-full mb-4" alt="Professeur 3">
+        <h4 class="text-xl font-semibold text-[#5A0B29]">Mme Emmanuelle F.</h4>
+        <p class="text-sm text-gray-600">Coach en expression orale, animatrice des ateliers de simulation TCF Canada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIPTION -->
+  <!-- <section id="inscription" class="bg-[#A71D46] text-white py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-4">Inscrivez-vous et accédez à votre espace</h3>
+    <p class="mb-6 text-lg">Créez un compte gratuitement et débutez votre formation aujourd’hui. Compatible mobile & ordinateur.</p>
+    <a href="/inscription" class="bg-white text-[#A71D46] px-6 py-3 rounded-full font-bold hover:bg-blue-100 transition">Créer mon compte</a>
+    <p class="mt-4">Besoin d’aide ? Contactez-nous : <strong>prepa@cleverlife.com</strong></p>
+  </section> -->
+
+    <!-- SECTION EUROPE / CENTRE -->
+    <section id="europe" class="bg-[#A71D46] text-white py-16 px-6 text-center">
+        <h3 class="text-3xl font-bold mb-4">Un projet d’étude ou de voyage en Europe ?</h3>
+        <p class="mb-6 text-lg">Nous accompagnons nos apprenants dans la constitution de dossier, l’inscription dans les universités partenaires, et la demande de visa. Venez en discuter à notre centre !</p>
+        <a href="tel:+237691234567" class="bg-white text-[#A71D46] px-6 py-3 rounded-full font-bold hover:bg-blue-100 transition">📞 Nous appeler ou prendre RDV</a>
+    </section>
+{% endblock content %}
+
