@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr" x-data="courseFilter()" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue des Cours | Clever Life</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-[#A71D46]">Cours - {{module}} - {{test}} | BMI</h1>
+      <a href="/" class="text-sm text-[#A71D46] hover:underline">Accueil</a>
+    </div>
+  </header>
+
+  <!-- <section class="bg-red-50 py-16 px-6 text-center">
+    <h2 class="text-4xl font-extrabold text-[#5A0B29] mb-4">Préparez-vous aux examens TOEFL et TCF en ligne</h2>
+    <p class="text-lg max-w-3xl mx-auto mb-6">Cours interactifs, exercices corrigés, simulateurs d'examen, modules gratuits et premium. Apprenez à votre rythme sur notre plateforme numérique.</p>
+    <div class="">
+        <a href="#inscription" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">S'entrainer</a>
+        <a href="#inscription" class="bg-[#A71D46] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#5A0B29] transition">S'abonner</a>
+    </div>
+    
+  </section> -->
+  
+  <section id="contenus" class="py-16 px-6 bg-white">
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 text-sm">
+    <div class="">
+      <h4 class="font-bold text-[#5A0B29] mb-2">📥 PDF – 200 mots clés TestDaf</h4>
+      <img class="h-64 w-full object-cover rounded-3xl" src="https://www.affairesuniversitaires.ca/wp-content/uploads/2024/11/capcompetences-plandecours-644.jpg" />
+      <p class="text-black mt-2 " >Liste de vocabulaire thématique pour le reading & writing. Téléchargement libre.</p>
+      <button class="bg-[#A71D46] rounded-3xl px-4 py-2 text-white mt-4">Ouvrir</button>
+    </div>
+    <div class="">
+      <h4 class="font-bold text-[#5A0B29] mb-2">🎧 Podcast – Écoute active</h4>
+      <img class="h-64 w-full object-cover rounded-3xl" src="https://www.affairesuniversitaires.ca/wp-content/uploads/2024/11/capcompetences-plandecours-644.jpg" />
+      <p class="text-black mt-2 " >Exercice d'écoute basé sur un extrait TestDaf Listening avec questions corrigées.</p>
+      <button class="bg-[#A71D46] rounded-3xl px-4 py-2 text-white mt-4">Ouvrir</button>
+    </div>
+    <div class="">
+      <h4 class="font-bold text-[#5A0B29] mb-2">📹 Vidéo – Simulateur TCF</h4>
+      <img class="h-64 w-full object-cover rounded-3xl" src="https://www.affairesuniversitaires.ca/wp-content/uploads/2024/11/capcompetences-plandecours-644.jpg" />
+      <p class="text-black mt-2 " >Présentation interactive du déroulement du TestDaf – modèle officiel 2025.</p>
+      <button class="bg-[#A71D46] rounded-3xl px-4 py-2 text-white mt-4">Ouvrir</button>
+    </div>
+    
+  </div>
+  </section>
+
+ 
+  
+
+  <!-- FOOTER -->
+  <footer class="absolute bottom-0 w-full bg-[#A71D46] text-white text-center py-6 text-sm">
+    &copy; 2025 BMI – Préparation TOEFL, TCF, TestDaF et plus
+  </footer>
+
+  <script>
+    function courseFilter() {
+      return {
+        selectedType: '',
+        selectedLevel: '',
+        courses: [
+          {
+            name: "Prépa TOEFL Express",
+            type: "TOEFL",
+            level: "B2",
+            description: "Cours complet pour réussir le TOEFL avec modules interactifs.",
+            modules: [
+              { name: "Listening", link: "#" },
+              { name: "Reading", link: "#" },
+              { name: "Writing", link: "#" },
+              { name: "Speaking", link: "#" },
+            ],
+          },
+          {
+            name: "TestDaF Cours Complet",
+            type: "TestDaF",
+            level: "C1",
+            description: "Préparation intensive aux quatre épreuves officielles du TestDaF.",
+            modules: [
+              { name: "Lesen (Lecture)", link: "#" },
+              { name: "Hören (Écoute)", link: "#" },
+              { name: "Schreiben (Écriture)", link: "#" },
+              { name: "Sprechen (Oral)", link: "#" },
+            ],
+          },
+          {
+            name: "TCF Canada - Parcours A2-B2",
+            type: "TCF",
+            level: "B2",
+            description: "Préparation aux exigences du TCF Canada avec simulateurs officiels.",
+            modules: [
+              { name: "Compréhension écrite", link: "#" },
+              { name: "Expression écrite", link: "#" },
+              { name: "Expression orale", link: "#" },
+            ],
+          }
+        ],
+        get filteredCourses() {
+          return this.courses.filter(c =>
+            (!this.selectedType || c.type === this.selectedType) &&
+            (!this.selectedLevel || c.level === this.selectedLevel)
+          );
+        },
+      };
+    }
+  </script>
+</body>
+</html>

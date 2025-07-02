@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr" x-data="courseFilter()" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue des Cours | Clever Life</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-blue-700">Cours & Modules | Clever Life</h1>
+      <a href="/" class="text-sm text-blue-600 hover:underline">Accueil</a>
+    </div>
+  </header>
+
+  <!-- FILTER BAR -->
+  <section class="bg-blue-50 py-6 px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center gap-4">
+      <select x-model="selectedType" class="p-2 rounded border border-gray-300 bg-white text-sm">
+        <option value="">Tous les types</option>
+        <option>TOEFL</option>
+        <option>TCF</option>
+        <option>TestDaF</option>
+      </select>
+      <select x-model="selectedLevel" class="p-2 rounded border border-gray-300 bg-white text-sm">
+        <option value="">Tous les niveaux</option>
+        <option>A1</option>
+        <option>B1</option>
+        <option>B2</option>
+        <option>C1</option>
+        <option>C2</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- COURSE LIST -->
+  <section class="py-12 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+    <template x-for="course in filteredCourses" :key="course.name">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-xl font-bold text-blue-800" x-text="course.name"></h2>
+            <p class="text-sm text-gray-600" x-text="'Niveau : ' + course.level"></p>
+          </div>
+          <span class="px-3 py-1 text-xs rounded bg-blue-100 text-blue-700" x-text="course.type"></span>
+        </div>
+
+        <p class="text-sm mb-4" x-text="course.description"></p>
+
+        <!-- MODULES -->
+        <div class="space-y-2">
+          <template x-for="mod in course.modules">
+            <div class="bg-blue-50 p-3 rounded flex items-center justify-between">
+              <span class="text-sm text-gray-800 font-medium" x-text="mod.name"></span>
+              <a :href="mod.link" class="text-sm text-blue-600 hover:underline">Voir</a>
+            </div>
+          </template>
+        </div>
+      </div>
+    </template>
+  </section>
+
+  <!-- COURSE THUMBNAIL GRID
+<section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-blue-700 mb-10 text-center">Nos parcours de préparation</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- COURSE CARD -
+        <div class="bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
+          <div class="relative">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="absolute bottom-0 left-0 bg-blue-700 text-white px-3 py-1 text-sm">TOEFL - Niveau B2</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-blue-800 mb-1">Prépa TOEFL Express</h3>
+            <p class="text-sm text-gray-600 mb-2">Modules Listening, Reading, Writing, Speaking</p>
+            <div class="text-sm space-y-1 text-blue-700">
+              <a href="#" class="block hover:underline">🎧 Listening</a>
+              <a href="#" class="block hover:underline">📖 Reading</a>
+              <a href="#" class="block hover:underline">✍️ Writing</a>
+              <a href="#" class="block hover:underline">🗣️ Speaking</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- TESTDAF -
+        <div class="bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
+          <div class="relative">
+            <img src="https://via.placeholder.com/400x200?text=TestDaF" class="w-full object-cover" />
+            <div class="absolute bottom-0 left-0 bg-yellow-700 text-white px-3 py-1 text-sm">TestDaF - Niveau C1</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-yellow-700 mb-1">Cours TestDaF Complet</h3>
+            <p class="text-sm text-gray-600 mb-2">Modules Lesen, Hören, Schreiben, Sprechen</p>
+            <div class="text-sm space-y-1 text-yellow-700">
+              <a href="#" class="block hover:underline">📚 Lesen</a>
+              <a href="#" class="block hover:underline">🎧 Hören</a>
+              <a href="#" class="block hover:underline">📝 Schreiben</a>
+              <a href="#" class="block hover:underline">🗣️ Sprechen</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- TCF -
+        <div class="bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
+          <div class="relative">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute bottom-0 left-0 bg-green-700 text-white px-3 py-1 text-sm">TCF - Niveau B2</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-green-700 mb-1">Préparation TCF Canada</h3>
+            <p class="text-sm text-gray-600 mb-2">Modules compréhension, expression orale et écrite</p>
+            <div class="text-sm space-y-1 text-green-700">
+              <a href="#" class="block hover:underline">📖 Compréhension</a>
+              <a href="#" class="block hover:underline">📝 Expression écrite</a>
+              <a href="#" class="block hover:underline">🎤 Expression orale</a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section> -->
+  
+
+  <!-- FOOTER -->
+  <footer class="bg-blue-800 text-white text-center py-6 text-sm">
+    &copy; 2025 BMI – Préparation TOEFL, TCF, TestDaF et plus
+  </footer>
+
+  <script>
+    function courseFilter() {
+      return {
+        selectedType: '',
+        selectedLevel: '',
+        courses: [
+          {
+            name: "Prépa TOEFL Express",
+            type: "TOEFL",
+            level: "B2",
+            description: "Cours complet pour réussir le TOEFL avec modules interactifs.",
+            modules: [
+              { name: "Listening", link: "TestDaf/Schreiben" },
+              { name: "Reading", link: "TestDaf/Schreiben" },
+              { name: "Writing", link: "TestDaf/Schreiben" },
+              { name: "Speaking", link: "TestDaf/Schreiben" },
+            ],
+          },
+          {
+            name: "TestDaF Cours Complet",
+            type: "TestDaF",
+            level: "C1",
+            description: "Préparation intensive aux quatre épreuves officielles du TestDaF.",
+            modules: [
+              { name: "Lesen (Lecture)", link: "TestDaf/Schreiben" },
+              { name: "Hören (Écoute)", link: "TestDaf/Schreiben" },
+              { name: "Schreiben (Écriture)", link: "TestDaf/Schreiben" },
+              { name: "Sprechen (Oral)", link: "TestDaf/Schreiben" },
+            ],
+          },
+          {
+            name: "TCF Canada - Parcours A2-B2",
+            type: "TCF",
+            level: "B2",
+            description: "Préparation aux exigences du TCF Canada avec simulateurs officiels.",
+            modules: [
+              { name: "Compréhension écrite", link: "TestDaf/Schreiben" },
+              { name: "Expression écrite", link: "TestDaf/Schreiben" },
+              { name: "Expression orale", link: "TestDaf/Schreiben" },
+            ],
+          }
+        ],
+        get filteredCourses() {
+          return this.courses.filter(c =>
+            (!this.selectedType || c.type === this.selectedType) &&
+            (!this.selectedLevel || c.level === this.selectedLevel)
+          );
+        },
+      };
+    }
+  </script>
+</body>
+</html>
