@@ -38,7 +38,7 @@
   </section>
 
   <!-- COURSE LIST -->
-  <section class="py-12 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+  <section class="py-12 min-h-[60vh] px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
     <template x-for="course in filteredCourses" :key="course.name">
       <div class="bg-white p-6 rounded-lg shadow">
         <div class="flex items-center justify-between mb-4">
@@ -162,10 +162,10 @@
             level: "Alle Niveaus",
             description: "Intensive Vorbereitung auf die vier offiziellen TestDaF-Prüfungen.",
             modules: [
-              { name: "Lesen", link: "TestDaf/Schreiben" },
-              { name: "Hören", link: "TestDaf/Schreiben" },
+              { name: "Lesen", link: "TestDaf/Lesen" },
+              { name: "Hören", link: "TestDaf/Hören" },
               { name: "Schreiben", link: "TestDaf/Schreiben" },
-              { name: "Sprechen", link: "TestDaf/Schreiben" },
+              { name: "Sprechen", link: "TestDaf/Sprechen" },
             ],
           },
           // {
