@@ -144,41 +144,41 @@
         selectedType: '',
         selectedLevel: '',
         courses: [
+          // {
+          //   name: "Prépa TOEFL Express",
+          //   type: "TOEFL",
+          //   level: "B2",
+          //   description: "Cours complet pour réussir le TOEFL avec modules interactifs.",
+          //   modules: [
+          //     { name: "Listening", link: "TestDaf/Schreiben" },
+          //     { name: "Reading", link: "TestDaf/Schreiben" },
+          //     { name: "Writing", link: "TestDaf/Schreiben" },
+          //     { name: "Speaking", link: "TestDaf/Schreiben" },
+          //   ],
+          // },
           {
-            name: "Prépa TOEFL Express",
-            type: "TOEFL",
-            level: "B2",
-            description: "Cours complet pour réussir le TOEFL avec modules interactifs.",
-            modules: [
-              { name: "Listening", link: "TestDaf/Schreiben" },
-              { name: "Reading", link: "TestDaf/Schreiben" },
-              { name: "Writing", link: "TestDaf/Schreiben" },
-              { name: "Speaking", link: "TestDaf/Schreiben" },
-            ],
-          },
-          {
-            name: "TestDaF Cours Complet",
+            name: "TestDaF-Prüfungen",
             type: "TestDaF",
-            level: "C1",
-            description: "Préparation intensive aux quatre épreuves officielles du TestDaF.",
+            level: "Alle Niveaus",
+            description: "Intensive Vorbereitung auf die vier offiziellen TestDaF-Prüfungen.",
             modules: [
-              { name: "Lesen (Lecture)", link: "TestDaf/Schreiben" },
-              { name: "Hören (Écoute)", link: "TestDaf/Schreiben" },
-              { name: "Schreiben (Écriture)", link: "TestDaf/Schreiben" },
-              { name: "Sprechen (Oral)", link: "TestDaf/Schreiben" },
+              { name: "Lesen", link: "TestDaf/Schreiben" },
+              { name: "Hören", link: "TestDaf/Schreiben" },
+              { name: "Schreiben", link: "TestDaf/Schreiben" },
+              { name: "Sprechen", link: "TestDaf/Schreiben" },
             ],
           },
-          {
-            name: "TCF Canada - Parcours A2-B2",
-            type: "TCF",
-            level: "B2",
-            description: "Préparation aux exigences du TCF Canada avec simulateurs officiels.",
-            modules: [
-              { name: "Compréhension écrite", link: "TestDaf/Schreiben" },
-              { name: "Expression écrite", link: "TestDaf/Schreiben" },
-              { name: "Expression orale", link: "TestDaf/Schreiben" },
-            ],
-          }
+          // {
+          //   name: "TCF Canada - Parcours A2-B2",
+          //   type: "TCF",
+          //   level: "B2",
+          //   description: "Préparation aux exigences du TCF Canada avec simulateurs officiels.",
+          //   modules: [
+          //     { name: "Compréhension écrite", link: "TestDaf/Schreiben" },
+          //     { name: "Expression écrite", link: "TestDaf/Schreiben" },
+          //     { name: "Expression orale", link: "TestDaf/Schreiben" },
+          //   ],
+          // }
         ],
         get filteredCourses() {
           return this.courses.filter(c =>
