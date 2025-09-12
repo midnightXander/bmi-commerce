@@ -189,6 +189,7 @@ select option {
 
 .select-wrapper:hover::after {
     color: white;
+    
 }
 
 /* Option styles */
