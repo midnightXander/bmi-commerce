@@ -39,5 +39,6 @@ urlpatterns = [
     path('ecommerce/admin/review/product/<int:item_id>',views.review_product, name='review_product'),
 
     path('books/saas-financial-playbook',views.saas_playbook, name='saas-playbook'),
+    path('books/thank-you',views.thank_you, name='thank_you'),
 
 ]

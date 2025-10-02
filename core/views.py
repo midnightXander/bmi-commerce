@@ -619,3 +619,5 @@ def app_page(request):
 
 def saas_playbook(request):
     return render(request,"core/books/saas-playbook.html")
+def thank_you(request):
+    return render(request,"core/books/thank-you.html")
