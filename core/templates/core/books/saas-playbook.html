@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The SaaS Financial Playbook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2b2e7e6b7a.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      color: #222;
+    }
+    .banner {
+      background: linear-gradient(90deg, #0b0b34 0%, #0f0e57 100%);
+      color: #fff;
+      padding: 3rem 0 2rem 0;
+      text-align: center;
+      position: relative;
+    }
+    .banner img {
+      max-width: 180px;
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(90,11,41,0.15);
+      margin-bottom: 1.5rem;
+    }
+    .headline {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      color: #ffe4e6;
+    }
+    .price-tag {
+      background: #fff;
+      color: #0f0e57;
+      display: inline-block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(90,11,41,0.10);
+      margin-bottom: 1.5rem;
+    }
+    .cta-btn {
+      background: #0f0e57;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(90,11,41,0.10);
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: #0b0b34;
+    }
+    .section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 16px rgba(90,11,41,0.07);
+      padding: 2rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f0e57;
+      margin-bottom: 1rem;
+    }
+    .metrics-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .metric {
+      background: #f8fafc;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 1px 4px rgba(90,11,41,0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .metric i {
+      color: #0f0e57;
+      font-size: 1.5rem;
+      margin-top: 2px;
+    }
+    .faq-list {
+      margin-top: 2rem;
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: #0b0b34;
+      margin-bottom: 0.5rem;
+    }
+    .faq-a {
+      color: #444;
+    }
+    @media (max-width: 700px) {
+      .metrics-list {
+        grid-template-columns: 1fr;
+      }
+      .section {
+        padding: 1rem;
+      }
+      .headline {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <img src="https://public-files.gumroad.com/rom4ezy9kneqyh7tnevmkz6a5bgv" alt="The SaaS Financial Playbook Cover">
+    <div class="headline">Unlock SaaS Funding: <br>12 Metrics VCs Actually Benchmark</div>
+    <div class="subtitle">Get actionable steps to align your SaaS business with what investors want—this week.</div>
+    <div class="price-tag">$39.99</div>
+    <a href="#buy" class="cta-btn">Get Your Copy Now</a>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What is The SaaS Financial Playbook?</div>
+    <p>
+      <strong>The SaaS Financial Playbook</strong> is your shortcut to understanding and mastering the 12 key metrics that venture capitalists use to evaluate SaaS companies for funding. 
+      <br><br>
+      Inside, you'll find clear explanations, real-world benchmarks, and step-by-step actions you can take this week to make your business VC-ready.
+    </p>
+    <div class="metrics-list">
+      <div class="metric"><i class="fas fa-chart-line"></i> <span>MRR Growth Rate</span></div>
+      <div class="metric"><i class="fas fa-sync-alt"></i> <span>Net Revenue Retention</span></div>
+      <div class="metric"><i class="fas fa-user-plus"></i> <span>Customer Acquisition Cost</span></div>
+      <div class="metric"><i class="fas fa-coins"></i> <span>Gross Margin</span></div>
+      <div class="metric"><i class="fas fa-arrow-up"></i> <span>Churn Rate</span></div>
+      <div class="metric"><i class="fas fa-users"></i> <span>Active Users</span></div>
+      <div class="metric"><i class="fas fa-balance-scale"></i> <span>LTV/CAC Ratio</span></div>
+      <div class="metric"><i class="fas fa-rocket"></i> <span>Expansion Revenue</span></div>
+      <div class="metric"><i class="fas fa-percent"></i> <span>Rule of 40</span></div>
+      <div class="metric"><i class="fas fa-hand-holding-usd"></i> <span>Payback Period</span></div>
+      <div class="metric"><i class="fas fa-clipboard-check"></i> <span>Sales Efficiency</span></div>
+      <div class="metric"><i class="fas fa-chart-pie"></i> <span>Burn Multiple</span></div>
+    </div>
+    <a href="https://whop.com/checkout/plan_xtEfKN0oUP8Jz?d2c=true" class="cta-btn">Buy Now for $39.99</a>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What's Inside?</div>
+    <ul style="margin-bottom:2rem;">
+      <li><strong>12 VC Benchmarked Metrics:</strong> Each explained in plain English, with real SaaS benchmarks.</li>
+      <li><strong>Action Steps:</strong> Concrete tasks you can implement this week to improve your metrics.</li>
+      <li><strong>Templates & Worksheets:</strong> Downloadable tools to track and improve your numbers.</li>
+      <li><strong>Funding Readiness Checklist:</strong> Know exactly what VCs want to see before you pitch.</li>
+      <li><strong>Bonus:</strong> Email scripts for investor outreach.</li>
+    </ul>
+    <a href="https://whop.com/checkout/plan_xtEfKN0oUP8Jz?d2c=true" class="cta-btn">Get Instant Access</a>
+  </div>
+
+  <div class="section" id="faq">
+    <div class="section-title">Frequently Asked Questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Who is this playbook for?</div>
+        <div class="faq-a">SaaS founders, CFOs, and growth leaders who want to understand what VCs look for and how to align their business for funding.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is this suitable for early-stage startups?</div>
+        <div class="faq-a">Absolutely! The action steps are designed to be practical for both early-stage and scaling SaaS companies.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I access the ebook?</div>
+        <div class="faq-a">After purchase, you'll receive a download link via email and instant access on the site.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I get a refund?</div>
+        <div class="faq-a">If you're not satisfied, contact us within 7 days for a full refund—no questions asked.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are updates included?</div>
+        <div class="faq-a">Yes! You'll get free updates as the playbook evolves with new benchmarks and VC insights.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="buy" style="text-align:center;">
+    <div class="section-title">Ready to Get Funded?</div>
+    <p style="font-size:1.25rem; margin-bottom:2rem;">
+      Start aligning your SaaS business with what VCs want—get <strong>The SaaS Financial Playbook</strong> for just <span style="color:#0f0e57;font-weight:700;">$39.99</span>.
+    </p>
+    <a href="https://whop.com/checkout/plan_xtEfKN0oUP8Jz?d2c=true" class="cta-btn" style="font-size:1.5rem;">Buy Now & Download Instantly</a>
+    <p style="margin-top:1.5rem; color:#888; font-size:0.95rem;">
+      <i class="fas fa-lock"></i> Secure payment & instant delivery
+    </p>
+  </div>
+
+  <footer style="text-align:center; color:#aaa; margin:2rem 0 1rem 0; font-size:0.95rem;">
+    &copy; 2025 The SaaS Financial Playbook. All rights reserved.
+  </footer>
+</body>
+</html>

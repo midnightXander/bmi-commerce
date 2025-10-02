@@ -36,6 +36,7 @@ def get_session_key(request):
     
 
 
+
 def item_data(item:Item):
     return {
         "id": item.id,
@@ -616,3 +617,5 @@ def app_page(request):
         'n_cart_items': n_cart_items(request),
     })
 
+def saas_playbook(request):
+    return render(request,"core/books/saas-playbook.html")
